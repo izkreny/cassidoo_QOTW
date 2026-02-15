@@ -1,0 +1,20 @@
+require_relative "../../test_helper"
+
+# ## Question
+#
+# > **Given an integer array and a number `n`,
+# > move all of the `n`s to the end of the array
+# > while maintaining the relative order of the non-`n`s.**\
+# > Bonus: do this without making a copy of the array!
+#
+class Example < Minitest::Test
+  def test_example = assert_equal [2, 3, 10, 0, 0], move_numbers([0, 2, 0, 3, 10], 0)
+end
+
+# ## Answer
+#
+# Methods used:
+# - [Enumerable#partition](https://docs.ruby-lang.org/en/master/Enumerable.html#method-i-partition)
+# - [Array#flatten](https://docs.ruby-lang.org/en/master/Array.html#method-i-flatten)
+#
+def move_numbers(integer_array, number) = integer_array.partition { it != number }.flatten
