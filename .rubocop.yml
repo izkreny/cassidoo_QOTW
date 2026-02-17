@@ -12,3 +12,7 @@ Naming/VariableNumber:
 
 Layout/LineLength:
   Max: 150
+
+Metrics/MethodLength:
+  Exclude:
+    - "test/**/*"
