@@ -6,8 +6,8 @@ Rake::TestTask.new(:test_convert_code_to_md_doc) do |t|
 end
 
 Rake::TestTask.new(:test_answers) do |t|
-  t.libs << "answers/code"
-  t.test_files = FileList["answers/code/*.rb"]
+  t.libs << "questions"
+  t.test_files = FileList["questions/*.rb"]
 end
 
 task default: :test_answers
