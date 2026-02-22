@@ -1,6 +1,6 @@
-module Answer
-  # - Question::Issue20260216
-  # - Benchmark::Issue20260216
+module Answers
+  # - Questions::Issue20260216
+  # - Benchmarks::Issue20260216
   #
   module Issue20260216
     # :section: Original answer
@@ -15,8 +15,8 @@ module Answer
 
           each_with_index do |row, row_index|
             row.each_with_index do |cell, col_index|
-              0.upto(factor - 1) do |shift_row_index|
-                0.upto(factor - 1) do |shift_col_index|
+              factor.times do |shift_row_index|
+                factor.times do |shift_col_index|
                   bigger_grid[(row_index * factor) + shift_row_index][(col_index * factor) + shift_col_index] = cell
                 end
               end
@@ -30,12 +30,12 @@ module Answer
 
     using ZoomifyArray
 
-    # A [monkey-patched](rdoc-ref:Answer::Issue20260216::ZoomifyArray), n00by,
+    # A monkey-patched (Answers::Issue20260216::ZoomifyArray), n00by,
     # implement-the-first-obvious-pattern, 'Shameless Green', 4-nested-loops (YUCK!)
     # version inspired by the recent exposure to Sandi Metz’s 'Smalltalkism' ---
     # I really like the idea of sending messages to the objects! 🙃
     #
-    def izkreny_zoom(grid, factor)
+    def izkreny_zoom_each_with_index_times(grid, factor)
       grid.zoom_in_by(factor)
     end
 
@@ -45,9 +45,7 @@ module Answer
     #
     # [ruf]: https://www.rubyforum.org/t/cassidoo-s-interview-question-of-the-week-444/124
 
-    # Flat & map by charlie
-    #
-    def charlie_zoom(matrix, factor)
+    def charlie_zoom_map_flat_map_flatten(matrix, factor)
       raise ArgumentError, "factor must be >= 2" unless factor >= 2
 
       matrix.map do |vector|
@@ -69,10 +67,10 @@ module Answer
 
     using EachWithYielder
 
-    # Enumerable [monkey-patched](rdoc-ref:Answer::Issue20260216::EachWithYielder)
+    # Enumerable Answers::Issue20260216::EachWithYielder
     # version by lpogic modified (with AI) to be more readable
     #
-    def lpogic_zoom(grid, factor)
+    def lpogic_zoom_each_with_yielder(grid, factor)
       grid.each_with_yielder do |grid_yielder, row|
         factor.times do
           grid_yielder << row.each_with_yielder do |row_yielder, cell|
@@ -84,13 +82,11 @@ module Answer
       end.to_a
     end
 
-    # One-liner by fpsvogel
-    #
-    def fpsvogel_zoom(grid, factor) = grid.map { |row| row.flat_map { |col| [col] * factor } }.flat_map { |row| [row] * factor }
+    def fpsvogel_zoom_map_flat_map_oneliner(grid, factor)
+      grid.map { |row| row.flat_map { |col| [col] * factor } }.flat_map { |row| [row] * factor }
+    end
 
-    # Flat & map (AI) version by eayurt
-    #
-    def eayurt_zoom(grid, factor)
+    def eayurt_and_ai_zoom_each_flat_map(grid, factor)
       result = []
 
       grid.each do |row|
@@ -101,14 +97,39 @@ module Answer
       result
     end
 
-    # Flat & map (AI?) version by roasted-oolong (syntax corrected)
+    # Possible use of AI? (syntax corrected)
     #
-    def roasted_oolong_zoom(grid, factor)
+    def roasted_oolong_and_maybe_ai_zoom_flat_map(grid, factor)
       return "error" if factor < 2
 
       grid.flat_map do |row|
         more_rows = row.flat_map { |n| [n] * factor } # Multiply rows by integer
         [more_rows] * factor # Repeat rows by integer
+      end
+    end
+
+    def sean_zoom_each_times(arr, factor)
+      result = []
+      arr.each do |row|
+        new_row = []
+        row.each do |item|
+          factor.times { new_row << item }
+        end
+
+        factor.times { result << new_row }
+      end
+
+      result
+    end
+
+    def fuzzy_zoom_flat_map_reduce_push(matrix, factor)
+      matrix.flat_map do |row|
+        Array.new(
+          factor,
+          row.reduce([]) do |memo, number|
+            memo.push(*Array.new(factor, number))
+          end
+        )
       end
     end
   end

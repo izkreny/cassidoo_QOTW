@@ -1,11 +1,19 @@
 AllCops:
   StringLiteralsFrozenByDefault: true
+  Exclude:
+    # - "answers/**/*.rb"
 
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: diff_comma
+  
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: diff_comma
 
 Naming/VariableNumber:
   EnforcedStyle: snake_case
@@ -16,3 +24,5 @@ Layout/LineLength:
 Metrics/MethodLength:
   Exclude:
     - "test/**/*"
+    - "benchmarks/**/*"
+    - "questions/**/*"

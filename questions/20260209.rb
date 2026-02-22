@@ -1,7 +1,11 @@
 require_relative "../test/test_helper"
 require_relative "../answers/20260209"
 
-module Question
+module Questions
+  # - Answers::Issue20260209
+  #
+  # ---
+  #
   # ## Question
   #
   # > Given an integer array and a number `n`,
@@ -10,17 +14,43 @@ module Question
   # >
   # > _Bonus: do this without making a copy of the array!_
   #
-  # - Answer::Issue20260209
-  #
   class Issue20260209 < Minitest::Test
-    include Answer::Issue20260209
+    include Answers::Issue20260209
 
-    def test_example
-      integer_array = [0, 2, 0, 3, 10]
-      expected      = [2, 3, 10, 0, 0]
+    # :section: Example
 
-      assert_equal expected, izkreny_move_numbers(integer_array, 0)
-      assert_equal expected, charlie_move_numbers(integer_array, 0)
+    def setup
+      @integer_array   = [0, 2, 0, 3, 10]
+      @number_n        = 0
+      @expected_result = [2, 3, 10, 0, 0]
+    end
+
+    # :section: Tests
+
+    method_names = Answers::Issue20260209.instance_methods(false)
+
+    method_names.each do |method_name|
+      define_method("test_answers_#{method_name}") do
+        actual_result = public_send(method_name, @integer_array, @number_n)
+
+        assert_equal @expected_result, actual_result, "Answer #{method_name} is not correct"
+      end
+    end
+
+    method_names.reject { it.end_with?("!") }.each do |method_name|
+      define_method("test_with_copy_#{method_name}") do
+        actual_result = public_send(method_name, @integer_array, @number_n)
+
+        refute_same @integer_array, actual_result, "Answer #{method_name} is not correct"
+      end
+    end
+
+    method_names.select { it.end_with?("!") }.each do |method_name|
+      define_method("test_without_copy_#{method_name}") do
+        actual_result = public_send(method_name, @integer_array, @number_n)
+
+        assert_same @integer_array, actual_result, "Answer #{method_name} is not correct"
+      end
     end
   end
 end
