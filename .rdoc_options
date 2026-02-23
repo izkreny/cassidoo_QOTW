@@ -33,7 +33,7 @@ show_hash: false
 # }
 static_path: []
 rdoc_include: []
-autolink_excluded_words: []
+autolink_excluded_words: ["Answers", "Questions", "Benchmarks"]
 template_stylesheets: []
 page_dir:
 canonical_root:

@@ -8,6 +8,7 @@ From the _[rendezvous with cassidoo](https://cassidoo.co/newsletter/)_, a weekly
 > - All other ones from various people (mostly from the [Ruby Users Forum](https://www.rubyforum.org/)) are credited by prefixing method names with usernames or social handles, and with the link(s) to the web source.
 > - Answers are tested against the latest stable version of
 > [Ruby](https://www.ruby-lang.org/en/) programming language.
+> - Source code for this website: https://github.com/izkreny/cassidoo_QOTW
 
 ### 💡 TIP
 
@@ -25,4 +26,4 @@ From the _[rendezvous with cassidoo](https://cassidoo.co/newsletter/)_, a weekly
 
 ### ⛔ CAUTION
 
-> - In some `Questions` metaprogramming is used inside `Minitest::Test` subclasses because it makes a perfect fit for the nature of this project (i.e. to easily test all provided `Answers`); but this is undoubtedly something that is NOT recommended (or even FORBIDDEN!) in general testing practice, JFTR! 👺
+> - In some Questions metaprogramming is used inside `Minitest::Test` subclasses because it makes a perfect fit for the nature of this project (i.e. to easily test all provided Answers); but this is undoubtedly something that is NOT recommended (or even FORBIDDEN!) in general testing practice, JFTR! 👺
