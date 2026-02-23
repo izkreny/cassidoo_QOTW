@@ -19,7 +19,7 @@ class Converter < Minitest::Test
         def example = true
 
 
-        # ## Answer
+        # ## Answers
         def multiline_code(array)
           array
             .reverse
@@ -55,7 +55,7 @@ class Converter < Minitest::Test
         def example = true
         ```
 
-        ## Answer ([source code](../source.rb))
+        ## Answers ([source code](../source.rb))
 
         ```ruby
         def multiline_code(array)

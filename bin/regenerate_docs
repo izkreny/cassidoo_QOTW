@@ -1,0 +1,6 @@
+#!/bin/bash
+
+rm -rf docs/
+rdoc .
+echo "cassidoo.izkreny.net" > docs/CNAME
+touch docs/.nojekyll
