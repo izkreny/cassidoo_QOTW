@@ -17,6 +17,7 @@ module Benchmarks
       #
       # - Original [source code](https://gist.github.com/knugie/4168392)
       # - Underscores in Numerics @ [Ruby Style Guide](https://rubystyle.guide/#underscores-in-numerics)
+      #
       def to_unds
         to_s.gsub(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1_")
       end
@@ -28,6 +29,8 @@ module Benchmarks
       end
     end
 
+    # Used for prettier `becnhmark-ips` labels printed in 'Comparison' section
+    #
     def create_labels_for(methods, split_pattern)
       max_size = 0
       labels   = {}
@@ -35,8 +38,7 @@ module Benchmarks
       methods.each do |method|
         authors, description = method.to_s.split(split_pattern)
         authors  = authors.gsub("_and_", " & ").gsub(/[_\s]ai/, " AI")
-        size     = authors.size + description.size
-        max_size = size if size > max_size
+        max_size = (authors + description).size if (authors + description).size > max_size
         labels.merge!({ method => { authors: authors, description: description } })
       end
 
