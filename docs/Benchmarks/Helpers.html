@@ -498,6 +498,31 @@
 
 
 
+    <section class="constants-list">
+      <header>
+        <h3 id="untitled-constants"><a href="#untitled-constants">Constants</a></h3>
+      </header>
+      <dl>
+
+        <dt id="MIN_SPACER_AMOUNT">MIN_SPACER_AMOUNT</dt>
+
+        <dd>
+
+          
+        </dd>
+
+
+        <dt id="SPACER">SPACER</dt>
+
+        <dd>
+
+          
+        </dd>
+
+
+      </dl>
+    </section>
+
 
 
 
@@ -536,7 +561,7 @@
             </details>
           </div>
           <div class="method-source-code" id="create_labels_for-source">
-            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 34</span>
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create_labels_for</span>(<span class="ruby-identifier">methods</span>, <span class="ruby-identifier">split_pattern</span>)
   <span class="ruby-identifier">max_size</span> = <span class="ruby-value">0</span>
   <span class="ruby-identifier">labels</span>   = {}
@@ -544,20 +569,19 @@
   <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">authors</span>, <span class="ruby-identifier">description</span> = <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-identifier">split_pattern</span>)
     <span class="ruby-identifier">authors</span>  = <span class="ruby-identifier">authors</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;_and_&quot;</span>, <span class="ruby-string">&quot; &amp; &quot;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/[_\s]ai/</span>, <span class="ruby-string">&quot; AI&quot;</span>)
-    <span class="ruby-identifier">max_size</span> = (<span class="ruby-identifier">authors</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">description</span>).<span class="ruby-identifier">size</span> <span class="ruby-keyword">if</span> (<span class="ruby-identifier">authors</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">description</span>).<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">max_size</span>
-    <span class="ruby-identifier">labels</span>.<span class="ruby-identifier">merge!</span>({ <span class="ruby-identifier">method</span> <span class="ruby-operator">=&gt;</span> { <span class="ruby-value">authors:</span> <span class="ruby-identifier">authors</span>, <span class="ruby-value">description:</span> <span class="ruby-identifier">description</span> } })
+    <span class="ruby-identifier">size</span>     = (<span class="ruby-identifier">authors</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">description</span>).<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">max_size</span> = <span class="ruby-identifier">size</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">max_size</span>
+    <span class="ruby-identifier">labels</span>.<span class="ruby-identifier">merge!</span>({ <span class="ruby-identifier">method</span> <span class="ruby-operator">=&gt;</span> { <span class="ruby-value">authors:</span> <span class="ruby-identifier">authors</span>, <span class="ruby-value">description:</span> <span class="ruby-identifier">description</span>, <span class="ruby-value">size:</span> <span class="ruby-identifier">size</span> } })
   <span class="ruby-keyword">end</span>
 
-  <span class="ruby-identifier">labels</span>.<span class="ruby-identifier">each_key</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">authors</span>     = <span class="ruby-identifier">labels</span>[<span class="ruby-identifier">method</span>][<span class="ruby-value">:authors</span>]
-    <span class="ruby-identifier">description</span> = <span class="ruby-identifier">labels</span>[<span class="ruby-identifier">method</span>][<span class="ruby-value">:description</span>]
-    <span class="ruby-identifier">spacing</span>     =
-      <span class="ruby-keyword">if</span> <span class="ruby-identifier">authors</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">description</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">max_size</span>
-        <span class="ruby-string">&quot; ... &quot;</span>
+  <span class="ruby-identifier">labels</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span>, <span class="ruby-identifier">label</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">spacing</span> =
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">label</span>[<span class="ruby-value">:size</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">max_size</span>
+        <span class="ruby-constant">SPACER</span> <span class="ruby-operator">*</span> <span class="ruby-constant">MIN_SPACER_AMOUNT</span>
       <span class="ruby-keyword">else</span>
-        <span class="ruby-node">&quot; #{&#39;.&#39; * (max_size - authors.size - description.size + 3)} &quot;</span>
+        <span class="ruby-constant">SPACER</span> <span class="ruby-operator">*</span> (<span class="ruby-constant">MIN_SPACER_AMOUNT</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">max_size</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">label</span>[<span class="ruby-value">:size</span>])
       <span class="ruby-keyword">end</span>
-    <span class="ruby-identifier">labels</span>[<span class="ruby-identifier">method</span>] = <span class="ruby-identifier">authors</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">spacing</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">description</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot; &quot;</span>
+    <span class="ruby-identifier">labels</span>[<span class="ruby-identifier">method</span>] = <span class="ruby-node">&quot;#{label[:authors]} #{spacing} #{label[:description]} &quot;</span>
   <span class="ruby-keyword">end</span>
 
   <span class="ruby-identifier">labels</span>
