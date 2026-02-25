@@ -104,7 +104,7 @@ module Benchmarks
         puts log
 
         Benchmark.ips do |x|
-          x.config(warmup: 2, time: 5)
+          x.config(warmup: 2, time: 5, quiet: false)
 
           method_names.each do |method_name|
             x.report(labels[method_name]) { public_send(method_name, grid, factor) }

@@ -6,6 +6,9 @@ module Benchmarks
   # Helper methods, modules, and refinements for benchmarks.
   #
   module Helpers
+    SPACER            = "."
+    MIN_SPACER_AMOUNT = 3
+
     module IntegerRefinements
       # Format Ruby Integers with underscore
       #
@@ -38,20 +41,19 @@ module Benchmarks
       methods.each do |method|
         authors, description = method.to_s.split(split_pattern)
         authors  = authors.gsub("_and_", " & ").gsub(/[_\s]ai/, " AI")
-        max_size = (authors + description).size if (authors + description).size > max_size
-        labels.merge!({ method => { authors: authors, description: description } })
+        size     = (authors + description).size
+        max_size = size if size > max_size
+        labels.merge!({ method => { authors: authors, description: description, size: size } })
       end
 
-      labels.each_key do |method|
-        authors     = labels[method][:authors]
-        description = labels[method][:description]
-        spacing     =
-          if authors.size + description.size == max_size
-            " ... "
+      labels.each do |method, label|
+        spacing =
+          if label[:size] == max_size
+            SPACER * MIN_SPACER_AMOUNT
           else
-            " #{'.' * (max_size - authors.size - description.size + 3)} "
+            SPACER * (MIN_SPACER_AMOUNT + max_size - label[:size])
           end
-        labels[method] = authors + spacing + description << " "
+        labels[method] = "#{label[:authors]} #{spacing} #{label[:description]} "
       end
 
       labels
