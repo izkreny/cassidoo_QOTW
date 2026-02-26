@@ -69,9 +69,9 @@ module Benchmarks
     extend Benchmarks::Helpers
 
     method_names = Answers::Issue20260216.instance_methods(false)
-    labels       = create_labels_for(method_names, "_zoom_")
+    labels       = create_labels_for(method_names, method_name: :zoom)
     seed         = 666_999
-    bench_specs  = [
+    scenarios    = [
       {
         grid_size: 10,
         zoom_factors: [
@@ -90,18 +90,18 @@ module Benchmarks
       },
     ]
 
-    bench_specs.each do |spec|
-      size    = spec[:grid_size]
-      factors = spec[:zoom_factors]
+    scenarios.each do |scenario|
+      size    = scenario[:grid_size]
+      factors = scenario[:zoom_factors]
       grid    = Array.new(size) { Array.new(size) { Random.new(seed).rand(1..size) } }
 
       factors.each do |factor|
-        log =
+        scenario_description =
           <<~MARKDOWN
             # #### Grid: #{size}x#{size} / Zoom in factor: #{factor}
             #
           MARKDOWN
-        puts log
+        puts scenario_description
 
         Benchmark.ips do |x|
           x.config(warmup: 2, time: 5, quiet: false)

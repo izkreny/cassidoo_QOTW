@@ -34,25 +34,27 @@ module Benchmarks
 
     # Used for prettier `becnhmark-ips` labels printed in 'Comparison' section
     #
-    def create_labels_for(methods, split_pattern)
+    def create_labels_for(methods, method_name: "")
       max_size = 0
       labels   = {}
 
       methods.each do |method|
-        authors, description = method.to_s.split(split_pattern)
-        authors  = authors.gsub("_and_", " & ").gsub(/[_\s]ai/, " AI")
-        size     = (authors + description).size
-        max_size = size if size > max_size
+        authors, description = method.to_s.split("_#{method_name}_")
+        authors              = authors.gsub("_and_", " & ").gsub(/[_\s]ai/, " AI")
+        size                 = (authors + description).size
+        max_size             = size if size > max_size
+
         labels.merge!({ method => { authors: authors, description: description, size: size } })
       end
 
       labels.each do |method, label|
         spacing =
-          if label[:size] == max_size
-            SPACER * MIN_SPACER_AMOUNT
-          else
+          if label[:size] < max_size
             SPACER * (MIN_SPACER_AMOUNT + max_size - label[:size])
+          else
+            SPACER * MIN_SPACER_AMOUNT
           end
+
         labels[method] = "#{label[:authors]} #{spacing} #{label[:description]} "
       end
 

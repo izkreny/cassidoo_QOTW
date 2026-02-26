@@ -114,9 +114,9 @@ module Benchmarks
     using Benchmarks::Helpers::Refinements
 
     method_names = Answers::Issue20260209.instance_methods(false)
-    labels       = create_labels_for(method_names, "_move_numbers_")
+    labels       = create_labels_for(method_names, method_name: :move_numbers)
     seed         = 666_999
-    bench_specs  = [
+    scenarios    = [
       {
         integer_array_size: 1_000,
         number_occurrences: [
@@ -135,15 +135,15 @@ module Benchmarks
       },
     ]
 
-    bench_specs.each do |spec|
-      number        = spec[:integer_array_size]
-      occurrences   = spec[:number_occurrences]
+    scenarios.each do |scenario|
+      number        = scenario[:integer_array_size]
+      occurrences   = scenario[:number_occurrences]
       integer_array = (0...number).to_a.shuffle(random: Random.new(seed))
       indexes       = integer_array.take(occurrences.max)
 
       occurrences.each do |amount|
         indexes.take(amount).each { integer_array[it] = number }
-        log =
+        scenario_description =
           <<~MARKDOWN
             # #### #{number.to_unds} / #{amount.to_unds}
             #
@@ -151,7 +151,7 @@ module Benchmarks
             # - `#{integer_array.count(number).to_unds}` - Number `n` occurrence inside the integer array
             #
           MARKDOWN
-        puts log
+        puts scenario_description
 
         Benchmark.ips do |x|
           x.config(warmup: 2, time: 5, quiet: false)
