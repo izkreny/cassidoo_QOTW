@@ -497,6 +497,12 @@
 
         <li ><a href="#method-i-setup">setup</a></li>
 
+        <li ><a href="#method-i-test_answers_with_copy">test_answers_with_copy</a></li>
+
+        <li ><a href="#method-i-test_answers_with_examples">test_answers_with_examples</a></li>
+
+        <li ><a href="#method-i-test_answers_without_copy">test_answers_without_copy</a></li>
+
       </ul>
     </details>
   </div>
@@ -641,6 +647,7 @@
           <div class="method-source-code" id="setup-source">
             <pre class="ruby"><span class="ruby-comment"># File questions/20260209.rb, line 22</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
+  <span class="ruby-ivar">@methods</span>         = <span class="ruby-constant">Answers</span><span class="ruby-operator">::</span><span class="ruby-constant">Issue20260209</span>.<span class="ruby-identifier">instance_methods</span>(<span class="ruby-keyword">false</span>)
   <span class="ruby-ivar">@integer_array</span>   = [<span class="ruby-value">0</span>, <span class="ruby-value">2</span>, <span class="ruby-value">0</span>, <span class="ruby-value">3</span>, <span class="ruby-value">10</span>]
   <span class="ruby-ivar">@number_n</span>        = <span class="ruby-value">0</span>
   <span class="ruby-ivar">@expected_result</span> = [<span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">10</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>]
@@ -696,6 +703,154 @@
 
 
 
+
+     <section id="public-instance-tests-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-instance-tests-methods"><a href="#public-instance-tests-methods">Public Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-test_answers_with_copy" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-test_answers_with_copy" title="Link to this method">
+                <span class="method-name">test_answers_with_copy</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="test_answers_with_copy-source">
+            <pre class="ruby"><span class="ruby-comment"># File questions/20260209.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_answers_with_copy</span>
+  <span class="ruby-ivar">@methods</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-identifier">it</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;!&quot;</span>) }.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">integer_array</span> = <span class="ruby-ivar">@integer_array</span>.<span class="ruby-identifier">clone</span>
+    <span class="ruby-identifier">actual_result</span> = <span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">integer_array</span>, <span class="ruby-ivar">@number_n</span>)
+
+    <span class="ruby-identifier">refute_same</span> <span class="ruby-identifier">integer_array</span>, <span class="ruby-identifier">actual_result</span>, <span class="ruby-node">&quot;Answer #{method} is not making a copy of array&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-test_answers_with_examples" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-test_answers_with_examples" title="Link to this method">
+                <span class="method-name">test_answers_with_examples</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="test_answers_with_examples-source">
+            <pre class="ruby"><span class="ruby-comment"># File questions/20260209.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_answers_with_examples</span>
+  <span class="ruby-ivar">@methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">actual_result</span> = <span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-ivar">@integer_array</span>.<span class="ruby-identifier">clone</span>, <span class="ruby-ivar">@number_n</span>)
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-ivar">@expected_result</span>, <span class="ruby-identifier">actual_result</span>, <span class="ruby-node">&quot;Answer #{method} is not correct&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-test_answers_without_copy" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-test_answers_without_copy" title="Link to this method">
+                <span class="method-name">test_answers_without_copy</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="test_answers_without_copy-source">
+            <pre class="ruby"><span class="ruby-comment"># File questions/20260209.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_answers_without_copy</span>
+  <span class="ruby-ivar">@methods</span>.<span class="ruby-identifier">select</span> { <span class="ruby-identifier">it</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;!&quot;</span>) }.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">integer_array</span> = <span class="ruby-ivar">@integer_array</span>.<span class="ruby-identifier">clone</span>
+    <span class="ruby-identifier">actual_result</span> = <span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">integer_array</span>, <span class="ruby-ivar">@number_n</span>)
+
+    <span class="ruby-identifier">assert_same</span> <span class="ruby-identifier">integer_array</span>, <span class="ruby-identifier">actual_result</span>, <span class="ruby-node">&quot;Answer #{method} is making a copy of array&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
 
 
 

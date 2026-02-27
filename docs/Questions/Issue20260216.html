@@ -497,6 +497,8 @@
 
         <li ><a href="#method-i-setup">setup</a></li>
 
+        <li ><a href="#method-i-test_answers_with_examples">test_answers_with_examples</a></li>
+
         <li ><a href="#method-i-test_wrong_argument">test_wrong_argument</a></li>
 
       </ul>
@@ -641,6 +643,7 @@
           <div class="method-source-code" id="setup-source">
             <pre class="ruby"><span class="ruby-comment"># File questions/20260216.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
+  <span class="ruby-ivar">@methods</span>  = <span class="ruby-constant">Answers</span><span class="ruby-operator">::</span><span class="ruby-constant">Issue20260216</span>.<span class="ruby-identifier">instance_methods</span>(<span class="ruby-keyword">false</span>)
   <span class="ruby-ivar">@examples</span> = [
     {
       <span class="ruby-value">initial_grid:</span> [
@@ -741,6 +744,55 @@
        </header>
 
 
+      <div id="method-i-test_answers_with_examples" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-test_answers_with_examples" title="Link to this method">
+                <span class="method-name">test_answers_with_examples</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="test_answers_with_examples-source">
+            <pre class="ruby"><span class="ruby-comment"># File questions/20260216.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_answers_with_examples</span>
+  <span class="ruby-ivar">@methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@examples</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">example</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">bigger_grid</span> = <span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">example</span>[<span class="ruby-value">:initial_grid</span>], <span class="ruby-identifier">example</span>[<span class="ruby-value">:zoom_factor</span>])
+
+      <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">example</span>[<span class="ruby-value">:bigger_grid</span>],  <span class="ruby-identifier">bigger_grid</span>, <span class="ruby-node">&quot;Answer #{method} is not correct&quot;</span>
+      <span class="ruby-identifier">refute_same</span>  <span class="ruby-identifier">example</span>[<span class="ruby-value">:initial_grid</span>], <span class="ruby-identifier">bigger_grid</span>, <span class="ruby-node">&quot;Answer #{method} is messing with the grid&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
       <div id="method-i-test_wrong_argument" class="method-detail anchor-link ">
         <div class="method-header">
 
@@ -760,7 +812,7 @@
             </details>
           </div>
           <div class="method-source-code" id="test_wrong_argument-source">
-            <pre class="ruby"><span class="ruby-comment"># File questions/20260216.rb, line 67</span>
+            <pre class="ruby"><span class="ruby-comment"># File questions/20260216.rb, line 79</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_wrong_argument</span>
   <span class="ruby-identifier">initial_grid</span> = [[<span class="ruby-value">1</span>]]
 
