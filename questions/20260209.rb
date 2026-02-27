@@ -20,6 +20,7 @@ module Questions
     # :section: Example
 
     def setup
+      @methods         = Answers::Issue20260209.instance_methods(false)
       @integer_array   = [0, 2, 0, 3, 10]
       @number_n        = 0
       @expected_result = [2, 3, 10, 0, 0]
@@ -27,29 +28,29 @@ module Questions
 
     # :section: Tests
 
-    method_names = Answers::Issue20260209.instance_methods(false)
+    def test_answers_with_examples
+      @methods.each do |method|
+        actual_result = public_send(method, @integer_array.clone, @number_n)
 
-    method_names.each do |method_name|
-      define_method("test_answers_#{method_name}") do
-        actual_result = public_send(method_name, @integer_array, @number_n)
-
-        assert_equal @expected_result, actual_result, "Answer #{method_name} is not correct"
+        assert_equal @expected_result, actual_result, "Answer #{method} is not correct"
       end
     end
 
-    method_names.reject { it.end_with?("!") }.each do |method_name|
-      define_method("test_with_copy_#{method_name}") do
-        actual_result = public_send(method_name, @integer_array, @number_n)
+    def test_answers_with_copy
+      @methods.reject { it.end_with?("!") }.each do |method|
+        integer_array = @integer_array.clone
+        actual_result = public_send(method, integer_array, @number_n)
 
-        refute_same @integer_array, actual_result, "Answer #{method_name} is not correct"
+        refute_same integer_array, actual_result, "Answer #{method} is not making a copy of array"
       end
     end
 
-    method_names.select { it.end_with?("!") }.each do |method_name|
-      define_method("test_without_copy_#{method_name}") do
-        actual_result = public_send(method_name, @integer_array, @number_n)
+    def test_answers_without_copy
+      @methods.select { it.end_with?("!") }.each do |method|
+        integer_array = @integer_array.clone
+        actual_result = public_send(method, integer_array, @number_n)
 
-        assert_same @integer_array, actual_result, "Answer #{method_name} is not correct"
+        assert_same integer_array, actual_result, "Answer #{method} is making a copy of array"
       end
     end
   end

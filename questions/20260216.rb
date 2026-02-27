@@ -19,6 +19,7 @@ module Questions
     # :section: Examples
 
     def setup
+      @methods  = Answers::Issue20260216.instance_methods(false)
       @examples = [
         {
           initial_grid: [
@@ -64,24 +65,22 @@ module Questions
 
     # :section: Tests
 
+    def test_answers_with_examples
+      @methods.each do |method|
+        @examples.each do |example|
+          bigger_grid = public_send(method, example[:initial_grid], example[:zoom_factor])
+
+          assert_equal example[:bigger_grid],  bigger_grid, "Answer #{method} is not correct"
+          refute_same  example[:initial_grid], bigger_grid, "Answer #{method} is messing with the grid"
+        end
+      end
+    end
+
     def test_wrong_argument
       initial_grid = [[1]]
 
       assert_raises(ArgumentError) { izkreny_zoom_each_with_index_times(initial_grid, 1)   }
       assert_raises(ArgumentError) { izkreny_zoom_each_with_index_times(initial_grid, 2.0) }
-    end
-
-    method_names = Answers::Issue20260216.instance_methods(false)
-
-    method_names.each do |method_name|
-      define_method("test_examples_#{method_name}") do
-        @examples.each do |example|
-          bigger_grid = public_send(method_name, example[:initial_grid], example[:zoom_factor])
-
-          assert_equal example[:bigger_grid],  bigger_grid, "Answer #{method_name} is not correct"
-          refute_same  example[:initial_grid], bigger_grid, "Answer #{method_name} is messing with the grid"
-        end
-      end
     end
   end
 end
