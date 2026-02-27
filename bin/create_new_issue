@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Gemini AI Pro assistance
+
+# Check if an argument was provided
+if [ -z "$1" ]; then
+    echo "Error: Missing argument."
+    echo "Usage: $0 <DATE>"
+    exit 1
+fi
+
+DATE=$1
+
+# --- 1. Define the six string variables ---
+
+# Template files
+template_questions="templates/questions_template.rb"
+template_benchmarks="templates/benchmarks_template.rb"
+template_answers="templates/answers_template.rb"
+
+# New files
+new_questions="questions/${DATE}.rb"
+new_benchmarks="benchmarks/${DATE}.rb"
+new_answers="answers/${DATE}.rb"
+
+# --- 2. Copy the files ---
+echo "Copying files..."
+
+cp "$template_questions"  "$new_questions"
+cp "$template_benchmarks" "$new_benchmarks"
+cp "$template_answers"    "$new_answers"
+
+# --- 3. Replace 'XXXXXXXX' with the DATE value ---
+echo "Replacing placeholders..."
+
+sed -i "s/XXXXXXXX/${DATE}/g" "$new_questions"
+sed -i "s/XXXXXXXX/${DATE}/g" "$new_benchmarks"
+sed -i "s/XXXXXXXX/${DATE}/g" "$new_answers"
+
+echo "Done!"
+ls -al **/$DATE.rb
