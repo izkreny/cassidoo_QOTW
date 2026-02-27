@@ -118,16 +118,16 @@ module Benchmarks
     seed      = 666_999
     scenarios = [
       {
-        integer_array_size: 1_000,
-        number_occurrences: [
+        integers_size: 1_000,
+        number_of_occurrences: [
           5,
           50,
           500,
         ],
       },
       {
-        integer_array_size: 1_000_000,
-        number_occurrences: [
+        integers_size: 1_000_000,
+        number_of_occurrences: [
           5_000,
           50_000,
           500_000,
@@ -136,19 +136,19 @@ module Benchmarks
     ]
 
     scenarios.each do |scenario|
-      number        = scenario[:integer_array_size]
-      occurrences   = scenario[:number_occurrences]
-      integer_array = (0...number).to_a.shuffle(random: Random.new(seed))
-      indexes       = integer_array.take(occurrences.max)
+      number      = scenario[:integers_size]
+      occurrences = scenario[:number_of_occurrences]
+      integers    = (0...number).to_a.shuffle(random: Random.new(seed))
+      indexes     = integers.take(occurrences.max)
 
       occurrences.each do |amount|
-        indexes.take(amount).each { integer_array[it] = number }
+        indexes.take(amount).each { integers[it] = number }
         scenario_description =
           <<~MARKDOWN
             # #### #{number.to_unds} / #{amount.to_unds}
             #
             # - `#{number.to_unds}` - Integer array size (with initially all unique numbers)
-            # - `#{integer_array.count(number).to_unds}` - Number `n` occurrence inside the integer array
+            # - `#{integers.count(number).to_unds}` - Number `n` occurrence inside the integer array
             #
           MARKDOWN
         puts scenario_description
@@ -157,7 +157,7 @@ module Benchmarks
           x.config(warmup: 2, time: 5, quiet: false)
 
           methods.each do |method|
-            x.report(labels[method]) { public_send(method, integer_array.clone, number) }
+            x.report(labels[method]) { public_send(method, integers.clone, number) }
           end
 
           x.compare!
