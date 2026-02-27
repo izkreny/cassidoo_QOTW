@@ -68,10 +68,10 @@ module Benchmarks
     extend Answers::Issue20260216
     extend Benchmarks::Helpers
 
-    method_names = Answers::Issue20260216.instance_methods(false)
-    labels       = create_labels_for(method_names, method_name: :zoom)
-    seed         = 666_999
-    scenarios    = [
+    methods   = Answers::Issue20260216.instance_methods(false)
+    labels    = create_labels_for(methods, method_name: :zoom)
+    seed      = 666_999
+    scenarios = [
       {
         grid_size: 10,
         zoom_factors: [
@@ -106,8 +106,8 @@ module Benchmarks
         Benchmark.ips do |x|
           x.config(warmup: 2, time: 5, quiet: false)
 
-          method_names.each do |method_name|
-            x.report(labels[method_name]) { public_send(method_name, grid, factor) }
+          methods.each do |method|
+            x.report(labels[method]) { public_send(method, grid, factor) }
           end
 
           x.compare!

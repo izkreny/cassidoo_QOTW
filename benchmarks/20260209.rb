@@ -113,10 +113,10 @@ module Benchmarks
     extend Benchmarks::Helpers
     using Benchmarks::Helpers::Refinements
 
-    method_names = Answers::Issue20260209.instance_methods(false)
-    labels       = create_labels_for(method_names, method_name: :move_numbers)
-    seed         = 666_999
-    scenarios    = [
+    methods   = Answers::Issue20260209.instance_methods(false)
+    labels    = create_labels_for(methods, method_name: :move_numbers)
+    seed      = 666_999
+    scenarios = [
       {
         integer_array_size: 1_000,
         number_occurrences: [
@@ -156,8 +156,8 @@ module Benchmarks
         Benchmark.ips do |x|
           x.config(warmup: 2, time: 5, quiet: false)
 
-          method_names.each do |method_name|
-            x.report(labels[method_name]) { public_send(method_name, integer_array.clone, number) }
+          methods.each do |method|
+            x.report(labels[method]) { public_send(method, integer_array.clone, number) }
           end
 
           x.compare!
