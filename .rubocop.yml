@@ -21,7 +21,7 @@ Naming/VariableNumber:
 Layout/LineLength:
   Max: 150
 
-Metrics/MethodLength:
+Metrics:
   Exclude:
     - "test/**/*"
     - "benchmarks/**/*"

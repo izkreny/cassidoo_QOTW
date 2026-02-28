@@ -6,8 +6,9 @@ module Benchmarks
   # Helper methods, modules, and refinements for benchmarks.
   #
   module Helpers
-    SPACER            = "."
-    MIN_SPACER_AMOUNT = 3
+    SPACER              = "."
+    MIN_SPACER_AMOUNT   = 3
+    SKIPPED_METHOD_INFO = ":        ?!? i/s - too slow to calculate, sorry!"
 
     module IntegerRefinements
       # Format Ruby Integers with underscore
@@ -59,6 +60,21 @@ module Benchmarks
       end
 
       labels
+    end
+
+    class SlowAnimal
+      @@slow_animals = ["🐨", "🐌", "🐢", "🦥"]
+
+      def self.show(before: "", around: "", after: "")
+        @@slow_animals.rotate!
+        before + around + @@slow_animals.first + around + after
+      end
+    end
+
+    def print_labels_for_skipped_metods(labels, skipped_methods)
+      skipped_methods.each do |method|
+        puts labels[method] + SKIPPED_METHOD_INFO + SlowAnimal.show(before: " ")
+      end
     end
   end
 end
