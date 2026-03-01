@@ -436,6 +436,8 @@
 
         <li ><a href="#method-i-create_labels_for">create_labels_for</a></li>
 
+        <li ><a href="#method-i-print_labels_for_skipped_metods">print_labels_for_skipped_metods</a></li>
+
       </ul>
     </details>
   </div>
@@ -453,7 +455,7 @@
       </span>
     </summary>
 
-    <ul class="link-list nav-list"><li><details><summary><code><a href="../Answers.html">Answers</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="../Answers/Issue20260209.html">Issue20260209</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Answers/Issue20260209/FlatReversePartition.html">FlatReversePartition</a></code></li></ul></details></li><li><details><summary><code><a href="../Answers/Issue20260216.html">Issue20260216</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Answers/Issue20260216/EachWithYielder.html">EachWithYielder</a></code></li><li><code><a href="../Answers/Issue20260216/ZoomifyArray.html">ZoomifyArray</a></code></li></ul></details></li></ul></details></li><li><details><summary><code><a href="../Benchmarks.html">Benchmarks</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="../Benchmarks/Helpers.html">Helpers</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Benchmarks/Helpers/IntegerRefinements.html">IntegerRefinements</a></code></li></ul></details></li><li><code><a href="../Benchmarks/Issue20260209.html">Issue20260209</a></code></li><li><code><a href="../Benchmarks/Issue20260216.html">Issue20260216</a></code></li></ul></details></li><li><details><summary><code><a href="../Questions.html">Questions</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Questions/Issue20260209.html">Issue20260209</a></code></li><li><code><a href="../Questions/Issue20260216.html">Issue20260216</a></code></li></ul></details></li></ul>
+    <ul class="link-list nav-list"><li><details><summary><code><a href="../Answers.html">Answers</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="../Answers/Issue20260209.html">Issue20260209</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Answers/Issue20260209/FlatReversePartition.html">FlatReversePartition</a></code></li></ul></details></li><li><details><summary><code><a href="../Answers/Issue20260216.html">Issue20260216</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Answers/Issue20260216/EachWithYielder.html">EachWithYielder</a></code></li><li><code><a href="../Answers/Issue20260216/ZoomifyArray.html">ZoomifyArray</a></code></li></ul></details></li><li><code><a href="../Answers/Issue20260223.html">Issue20260223</a></code></li></ul></details></li><li><details><summary><code><a href="../Benchmarks.html">Benchmarks</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="../Benchmarks/Helpers.html">Helpers</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Benchmarks/Helpers/IntegerRefinements.html">IntegerRefinements</a></code></li><li><code><a href="../Benchmarks/Helpers/SlowAnimal.html">SlowAnimal</a></code></li></ul></details></li><li><code><a href="../Benchmarks/Issue20260209.html">Issue20260209</a></code></li><li><code><a href="../Benchmarks/Issue20260216.html">Issue20260216</a></code></li><li><code><a href="../Benchmarks/Issue20260223.html">Issue20260223</a></code></li></ul></details></li><li><details><summary><code><a href="../Questions.html">Questions</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Questions/Issue20260209.html">Issue20260209</a></code></li><li><code><a href="../Questions/Issue20260216.html">Issue20260216</a></code></li><li><code><a href="../Questions/Issue20260223.html">Issue20260223</a></code></li></ul></details></li></ul>
   </details>
 </div>
 
@@ -512,6 +514,14 @@
         </dd>
 
 
+        <dt id="SKIPPED_METHOD_INFO">SKIPPED_METHOD_INFO</dt>
+
+        <dd>
+
+          
+        </dd>
+
+
         <dt id="SPACER">SPACER</dt>
 
         <dd>
@@ -561,7 +571,7 @@
             </details>
           </div>
           <div class="method-source-code" id="create_labels_for-source">
-            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 37</span>
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create_labels_for</span>(<span class="ruby-identifier">methods</span>, <span class="ruby-value">method_name:</span> <span class="ruby-string">&quot;&quot;</span>)
   <span class="ruby-identifier">max_size</span> = <span class="ruby-value">0</span>
   <span class="ruby-identifier">labels</span>   = {}
@@ -596,6 +606,50 @@
 
 
           <p>Used for prettier <code>becnhmark-ips</code> labels printed in ‘Comparison’ section</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-print_labels_for_skipped_metods" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-print_labels_for_skipped_metods" title="Link to this method">
+                <span class="method-name">print_labels_for_skipped_metods</span>
+                <span class="method-args">(labels, skipped_methods)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="print_labels_for_skipped_metods-source">
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">print_labels_for_skipped_metods</span>(<span class="ruby-identifier">labels</span>, <span class="ruby-identifier">skipped_methods</span>)
+  <span class="ruby-identifier">skipped_methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">labels</span>[<span class="ruby-identifier">method</span>] <span class="ruby-operator">+</span> <span class="ruby-constant">SKIPPED_METHOD_INFO</span> <span class="ruby-operator">+</span> <span class="ruby-constant">SlowAnimal</span>.<span class="ruby-identifier">show</span>(<span class="ruby-value">before:</span> <span class="ruby-string">&quot; &quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
 
 
         </div>

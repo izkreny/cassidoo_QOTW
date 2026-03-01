@@ -520,7 +520,7 @@
       </span>
     </summary>
 
-    <ul class="link-list nav-list"><li><details><summary><code><a href="../Answers.html">Answers</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="../Answers/Issue20260209.html">Issue20260209</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Answers/Issue20260209/FlatReversePartition.html">FlatReversePartition</a></code></li></ul></details></li><li><details><summary><code><a href="../Answers/Issue20260216.html">Issue20260216</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Answers/Issue20260216/EachWithYielder.html">EachWithYielder</a></code></li><li><code><a href="../Answers/Issue20260216/ZoomifyArray.html">ZoomifyArray</a></code></li></ul></details></li></ul></details></li><li><details><summary><code><a href="../Benchmarks.html">Benchmarks</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="../Benchmarks/Helpers.html">Helpers</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Benchmarks/Helpers/IntegerRefinements.html">IntegerRefinements</a></code></li></ul></details></li><li><code><a href="../Benchmarks/Issue20260209.html">Issue20260209</a></code></li><li><code><a href="../Benchmarks/Issue20260216.html">Issue20260216</a></code></li></ul></details></li><li><details><summary><code><a href="../Questions.html">Questions</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Questions/Issue20260209.html">Issue20260209</a></code></li><li><code><a href="../Questions/Issue20260216.html">Issue20260216</a></code></li></ul></details></li></ul>
+    <ul class="link-list nav-list"><li><details><summary><code><a href="../Answers.html">Answers</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="../Answers/Issue20260209.html">Issue20260209</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Answers/Issue20260209/FlatReversePartition.html">FlatReversePartition</a></code></li></ul></details></li><li><details><summary><code><a href="../Answers/Issue20260216.html">Issue20260216</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Answers/Issue20260216/EachWithYielder.html">EachWithYielder</a></code></li><li><code><a href="../Answers/Issue20260216/ZoomifyArray.html">ZoomifyArray</a></code></li></ul></details></li><li><code><a href="../Answers/Issue20260223.html">Issue20260223</a></code></li></ul></details></li><li><details><summary><code><a href="../Benchmarks.html">Benchmarks</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="../Benchmarks/Helpers.html">Helpers</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Benchmarks/Helpers/IntegerRefinements.html">IntegerRefinements</a></code></li><li><code><a href="../Benchmarks/Helpers/SlowAnimal.html">SlowAnimal</a></code></li></ul></details></li><li><code><a href="../Benchmarks/Issue20260209.html">Issue20260209</a></code></li><li><code><a href="../Benchmarks/Issue20260216.html">Issue20260216</a></code></li><li><code><a href="../Benchmarks/Issue20260223.html">Issue20260223</a></code></li></ul></details></li><li><details><summary><code><a href="../Questions.html">Questions</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Questions/Issue20260209.html">Issue20260209</a></code></li><li><code><a href="../Questions/Issue20260216.html">Issue20260216</a></code></li><li><code><a href="../Questions/Issue20260223.html">Issue20260223</a></code></li></ul></details></li></ul>
   </details>
 </div>
 
@@ -648,7 +648,7 @@
             <pre class="ruby"><span class="ruby-comment"># File questions/20260209.rb, line 22</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
   <span class="ruby-ivar">@methods</span>         = <span class="ruby-constant">Answers</span><span class="ruby-operator">::</span><span class="ruby-constant">Issue20260209</span>.<span class="ruby-identifier">instance_methods</span>(<span class="ruby-keyword">false</span>)
-  <span class="ruby-ivar">@integer_array</span>   = [<span class="ruby-value">0</span>, <span class="ruby-value">2</span>, <span class="ruby-value">0</span>, <span class="ruby-value">3</span>, <span class="ruby-value">10</span>]
+  <span class="ruby-ivar">@integers</span>        = [<span class="ruby-value">0</span>, <span class="ruby-value">2</span>, <span class="ruby-value">0</span>, <span class="ruby-value">3</span>, <span class="ruby-value">10</span>]
   <span class="ruby-ivar">@number_n</span>        = <span class="ruby-value">0</span>
   <span class="ruby-ivar">@expected_result</span> = [<span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">10</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -732,10 +732,10 @@
             <pre class="ruby"><span class="ruby-comment"># File questions/20260209.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_answers_with_copy</span>
   <span class="ruby-ivar">@methods</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-identifier">it</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;!&quot;</span>) }.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">integer_array</span> = <span class="ruby-ivar">@integer_array</span>.<span class="ruby-identifier">clone</span>
-    <span class="ruby-identifier">actual_result</span> = <span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">integer_array</span>, <span class="ruby-ivar">@number_n</span>)
+    <span class="ruby-identifier">integers</span>      = <span class="ruby-ivar">@integers</span>.<span class="ruby-identifier">clone</span>
+    <span class="ruby-identifier">actual_result</span> = <span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">integers</span>, <span class="ruby-ivar">@number_n</span>)
 
-    <span class="ruby-identifier">refute_same</span> <span class="ruby-identifier">integer_array</span>, <span class="ruby-identifier">actual_result</span>, <span class="ruby-node">&quot;Answer #{method} is not making a copy of array&quot;</span>
+    <span class="ruby-identifier">refute_same</span> <span class="ruby-identifier">integers</span>, <span class="ruby-identifier">actual_result</span>, <span class="ruby-node">&quot;Answer #{method} is not making a copy of array&quot;</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -779,7 +779,7 @@
             <pre class="ruby"><span class="ruby-comment"># File questions/20260209.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_answers_with_examples</span>
   <span class="ruby-ivar">@methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">actual_result</span> = <span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-ivar">@integer_array</span>.<span class="ruby-identifier">clone</span>, <span class="ruby-ivar">@number_n</span>)
+    <span class="ruby-identifier">actual_result</span> = <span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-ivar">@integers</span>.<span class="ruby-identifier">clone</span>, <span class="ruby-ivar">@number_n</span>)
 
     <span class="ruby-identifier">assert_equal</span> <span class="ruby-ivar">@expected_result</span>, <span class="ruby-identifier">actual_result</span>, <span class="ruby-node">&quot;Answer #{method} is not correct&quot;</span>
   <span class="ruby-keyword">end</span>
@@ -825,10 +825,10 @@
             <pre class="ruby"><span class="ruby-comment"># File questions/20260209.rb, line 48</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_answers_without_copy</span>
   <span class="ruby-ivar">@methods</span>.<span class="ruby-identifier">select</span> { <span class="ruby-identifier">it</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&quot;!&quot;</span>) }.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">integer_array</span> = <span class="ruby-ivar">@integer_array</span>.<span class="ruby-identifier">clone</span>
-    <span class="ruby-identifier">actual_result</span> = <span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">integer_array</span>, <span class="ruby-ivar">@number_n</span>)
+    <span class="ruby-identifier">integers</span>      = <span class="ruby-ivar">@integers</span>.<span class="ruby-identifier">clone</span>
+    <span class="ruby-identifier">actual_result</span> = <span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">integers</span>, <span class="ruby-ivar">@number_n</span>)
 
-    <span class="ruby-identifier">assert_same</span> <span class="ruby-identifier">integer_array</span>, <span class="ruby-identifier">actual_result</span>, <span class="ruby-node">&quot;Answer #{method} is making a copy of array&quot;</span>
+    <span class="ruby-identifier">assert_same</span> <span class="ruby-identifier">integers</span>, <span class="ruby-identifier">actual_result</span>, <span class="ruby-node">&quot;Answer #{method} is making a copy of array&quot;</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
