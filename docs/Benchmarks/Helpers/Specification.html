@@ -478,7 +478,7 @@
 
         <li ><a href="#method-i-print_skipped_metods">print_skipped_metods</a></li>
 
-        <li ><a href="#method-i-run_for">run_for</a></li>
+        <li ><a href="#method-i-run">run</a></li>
 
       </ul>
     </details>
@@ -562,7 +562,7 @@
         </dd>
 
 
-        <dt id="RANDOM_SEED">RANDOM_SEED</dt>
+        <dt id="RANDOM_NEW_SEED">RANDOM_NEW_SEED</dt>
 
         <dd>
 
@@ -675,7 +675,7 @@
   <span class="ruby-ivar">@methods</span>          = <span class="ruby-identifier">answers</span>.<span class="ruby-identifier">instance_methods</span>(<span class="ruby-keyword">false</span>)
   <span class="ruby-ivar">@method_base_name</span> = <span class="ruby-identifier">find_method_base_name</span>
   <span class="ruby-ivar">@labels</span>           = <span class="ruby-identifier">generate_labels_for_methods</span>
-  <span class="ruby-ivar">@seed</span>             = <span class="ruby-constant">RANDOM_SEED</span>
+  <span class="ruby-ivar">@seed</span>             = <span class="ruby-constant">RANDOM_NEW_SEED</span>
   <span class="ruby-ivar">@name</span>             = <span class="ruby-string">&quot;&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -730,7 +730,7 @@
             </details>
           </div>
           <div class="method-source-code" id="fetch_skip_methods_from-source">
-            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 125</span>
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 127</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fetch_skip_methods_from</span>(<span class="ruby-identifier">scenario</span>, <span class="ruby-identifier">variant</span>)
   <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">variant</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:skip_methods_for_scenario</span>)
 
@@ -779,7 +779,7 @@
             </details>
           </div>
           <div class="method-source-code" id="find_method_base_name-source">
-            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 110</span>
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 83</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find_method_base_name</span>
   <span class="ruby-ivar">@methods</span>
     .<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">method_full_name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">generate_slices_from</span>(<span class="ruby-identifier">method_full_name</span>) }
@@ -794,7 +794,7 @@
         <div class="method-description">
 
 
-          
+          <p>private</p>
 
 
         </div>
@@ -825,7 +825,7 @@
             </details>
           </div>
           <div class="method-source-code" id="generate_labels_for_methods-source">
-            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 83</span>
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 100</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generate_labels_for_methods</span>
   <span class="ruby-identifier">labels</span>   = {}
   <span class="ruby-identifier">max_size</span> = <span class="ruby-value">0</span>
@@ -890,7 +890,7 @@
             </details>
           </div>
           <div class="method-source-code" id="generate_slices_from-source">
-            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 120</span>
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 93</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generate_slices_from</span>(<span class="ruby-identifier">method_name</span>)
   <span class="ruby-identifier">words</span> = <span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;_&quot;</span>)
   (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">words</span>.<span class="ruby-identifier">size</span>).<span class="ruby-identifier">flat_map</span> { <span class="ruby-identifier">words</span>.<span class="ruby-identifier">each_cons</span>(<span class="ruby-identifier">it</span>).<span class="ruby-identifier">to_a</span> }
@@ -933,7 +933,7 @@
             </details>
           </div>
           <div class="method-source-code" id="print_skipped_metods-source">
-            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 145</span>
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 138</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">print_skipped_metods</span>
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@skip_methods</span>.<span class="ruby-identifier">empty?</span>
 
@@ -960,12 +960,12 @@
       </div>
 
 
-      <div id="method-i-run_for" class="method-detail anchor-link ">
+      <div id="method-i-run" class="method-detail anchor-link ">
         <div class="method-header">
 
             <div class="method-heading">
-              <a href="#method-i-run_for" title="Link to this method">
-                <span class="method-name">run_for</span>
+              <a href="#method-i-run" title="Link to this method">
+                <span class="method-name">run</span>
                 <span class="method-args">(*method_arguments, scenario: {}, variant: {}, mode: :quick)</span>
               </a>
             </div>
@@ -978,9 +978,9 @@
               <summary>Source</summary>
             </details>
           </div>
-          <div class="method-source-code" id="run_for-source">
-            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 50</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">run_for</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">method_arguments</span>, <span class="ruby-value">scenario:</span> {}, <span class="ruby-value">variant:</span> {}, <span class="ruby-value">mode:</span> <span class="ruby-value">:quick</span>)
+          <div class="method-source-code" id="run-source">
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">run</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">method_arguments</span>, <span class="ruby-value">scenario:</span> {}, <span class="ruby-value">variant:</span> {}, <span class="ruby-value">mode:</span> <span class="ruby-value">:quick</span>)
   <span class="ruby-ivar">@skip_methods</span> = <span class="ruby-identifier">fetch_skip_methods_from</span>(<span class="ruby-identifier">scenario</span>, <span class="ruby-identifier">variant</span>)
 
   <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">mode</span> <span class="ruby-operator">==</span> <span class="ruby-value">:test</span>
@@ -1015,7 +1015,7 @@
         <div class="method-description">
 
 
-          
+          <p>Main method, wrapper for <code>Benchmark.ips</code></p>
 
 
         </div>
