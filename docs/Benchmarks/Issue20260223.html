@@ -417,32 +417,6 @@
   
 
   
-<div id="extends-section" class="nav-section">
-  <details class="nav-section-collapsible" open>
-    <summary class="nav-section-header">
-      <span class="nav-section-icon">
-        <svg><use href="#icon-extends"></use></svg>
-      </span>
-      <span class="nav-section-title">Extended With Modules</span>
-      <span class="nav-section-chevron">
-        <svg><use href="#icon-chevron"></use></svg>
-      </span>
-    </summary>
-
-    <ul class="nav-list">
-
-
-      <li><a class="extend" href="../Answers/Issue20260223.html">Answers::Issue20260223</a></li>
-
-
-
-      <li><a class="extend" href="Helpers.html">Benchmarks::Helpers</a></li>
-
-
-    </ul>
-  </details>
-</div>
-
 
   
   <div class="nav-section">
@@ -479,7 +453,7 @@
       </span>
     </summary>
 
-    <ul class="link-list nav-list"><li><details><summary><code><a href="../Answers.html">Answers</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="../Answers/Issue20260209.html">Issue20260209</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Answers/Issue20260209/FlatReversePartition.html">FlatReversePartition</a></code></li></ul></details></li><li><details><summary><code><a href="../Answers/Issue20260216.html">Issue20260216</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Answers/Issue20260216/EachWithYielder.html">EachWithYielder</a></code></li><li><code><a href="../Answers/Issue20260216/ZoomifyArray.html">ZoomifyArray</a></code></li></ul></details></li><li><code><a href="../Answers/Issue20260223.html">Issue20260223</a></code></li></ul></details></li><li><details><summary><code><a href="../Benchmarks.html">Benchmarks</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="../Benchmarks/Helpers.html">Helpers</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Benchmarks/Helpers/IntegerRefinements.html">IntegerRefinements</a></code></li><li><code><a href="../Benchmarks/Helpers/SlowAnimal.html">SlowAnimal</a></code></li></ul></details></li><li><code><a href="../Benchmarks/Issue20260209.html">Issue20260209</a></code></li><li><code><a href="../Benchmarks/Issue20260216.html">Issue20260216</a></code></li><li><code><a href="../Benchmarks/Issue20260223.html">Issue20260223</a></code></li></ul></details></li><li><details><summary><code><a href="../Questions.html">Questions</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Questions/Issue20260209.html">Issue20260209</a></code></li><li><code><a href="../Questions/Issue20260216.html">Issue20260216</a></code></li><li><code><a href="../Questions/Issue20260223.html">Issue20260223</a></code></li></ul></details></li></ul>
+    <ul class="link-list nav-list"><li><details><summary><code><a href="../Answers.html">Answers</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="../Answers/Issue20260209.html">Issue20260209</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Answers/Issue20260209/FlatReversePartition.html">FlatReversePartition</a></code></li></ul></details></li><li><details><summary><code><a href="../Answers/Issue20260216.html">Issue20260216</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Answers/Issue20260216/EachWithYielder.html">EachWithYielder</a></code></li><li><code><a href="../Answers/Issue20260216/ZoomifyArray.html">ZoomifyArray</a></code></li></ul></details></li><li><code><a href="../Answers/Issue20260223.html">Issue20260223</a></code></li></ul></details></li><li><details><summary><code><a href="../Benchmarks.html">Benchmarks</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="../Benchmarks/Helpers.html">Helpers</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Benchmarks/Helpers/Refinements.html">Refinements</a></code></li><li><details><summary><code><a href="../Benchmarks/Helpers/Specification.html">Specification</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Benchmarks/Helpers/Specification/SlowAnimal.html">SlowAnimal</a></code></li></ul></details></li></ul></details></li><li><code><a href="../Benchmarks/Issue20260209.html">Issue20260209</a></code></li><li><code><a href="../Benchmarks/Issue20260216.html">Issue20260216</a></code></li><li><code><a href="../Benchmarks/Issue20260223.html">Issue20260223</a></code></li></ul></details></li><li><details><summary><code><a href="../Questions.html">Questions</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Questions/Issue20260209.html">Issue20260209</a></code></li><li><code><a href="../Questions/Issue20260216.html">Issue20260216</a></code></li><li><code><a href="../Questions/Issue20260223.html">Issue20260223</a></code></li></ul></details></li></ul>
   </details>
 </div>
 
@@ -547,7 +521,7 @@
             <div class="method-heading">
               <a href="#method-c-benchmark_answers" title="Link to this method">
                 <span class="method-name">benchmark_answers</span>
-                <span class="method-args">(warmup: 1, time: 1, quiet: false)</span>
+                <span class="method-args">(mode: :default)</span>
               </a>
             </div>
 
@@ -560,72 +534,56 @@
             </details>
           </div>
           <div class="method-source-code" id="benchmark_answers-source">
-            <pre class="ruby"><span class="ruby-comment"># File benchmarks/20260223.rb, line 16</span>
-    <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">benchmark_answers</span>(<span class="ruby-value">warmup:</span> <span class="ruby-value">1</span>, <span class="ruby-value">time:</span> <span class="ruby-value">1</span>, <span class="ruby-value">quiet:</span> <span class="ruby-keyword">false</span>)
-      <span class="ruby-identifier">methods</span>   = <span class="ruby-constant">Answers</span><span class="ruby-operator">::</span><span class="ruby-constant">Issue20260223</span>.<span class="ruby-identifier">instance_methods</span>(<span class="ruby-keyword">false</span>)
-      <span class="ruby-identifier">labels</span>    = <span class="ruby-identifier">create_labels_for</span>(<span class="ruby-identifier">methods</span>, <span class="ruby-value">method_name:</span> <span class="ruby-value">:max_subarray_sum</span>)
-      <span class="ruby-identifier">seed</span>      = <span class="ruby-value">666_999</span>
-      <span class="ruby-identifier">variants</span>  = [
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/20260223.rb, line 14</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">benchmark_answers</span>(<span class="ruby-value">mode:</span> <span class="ruby-value">:default</span>)
+      <span class="ruby-identifier">benchmark</span> = <span class="ruby-constant">Benchmarks</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Answers</span><span class="ruby-operator">::</span><span class="ruby-constant">Issue20260223</span>)
+      <span class="ruby-identifier">scenarios</span> = [
+        {
+          <span class="ruby-value">name:</span> <span class="ruby-value">:unique_negative</span>,
+          <span class="ruby-value">array:</span> <span class="ruby-operator">-&gt;</span>(<span class="ruby-identifier">size</span>) { (<span class="ruby-operator">-</span><span class="ruby-identifier">size</span><span class="ruby-operator">...</span><span class="ruby-value">0</span>).<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">shuffle</span>(<span class="ruby-value">random:</span> <span class="ruby-constant">Random</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">benchmark</span>.<span class="ruby-identifier">seed</span>)) },
+        },
+        {
+          <span class="ruby-value">name:</span> <span class="ruby-value">:unique_positive</span>,
+          <span class="ruby-value">array:</span> <span class="ruby-operator">-&gt;</span>(<span class="ruby-identifier">size</span>) { (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">size</span>).<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">shuffle</span>(<span class="ruby-value">random:</span> <span class="ruby-constant">Random</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">benchmark</span>.<span class="ruby-identifier">seed</span>)) },
+        },
+        {
+          <span class="ruby-value">name:</span> <span class="ruby-value">:unique_mixed</span>,
+          <span class="ruby-value">array:</span> <span class="ruby-operator">-&gt;</span>(<span class="ruby-identifier">size</span>) { ((<span class="ruby-operator">-</span><span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>)<span class="ruby-operator">...</span>(<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>)).<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">shuffle</span>(<span class="ruby-value">random:</span> <span class="ruby-constant">Random</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">benchmark</span>.<span class="ruby-identifier">seed</span>)) },
+        },
+      ]
+      <span class="ruby-identifier">variants</span> = [
         {
           <span class="ruby-value">array_size:</span> <span class="ruby-value">100</span>,
-          <span class="ruby-value">skip_methods:</span> <span class="ruby-node">%i[]</span>,
         },
         {
           <span class="ruby-value">array_size:</span> <span class="ruby-value">1_000</span>,
-          <span class="ruby-value">skip_methods:</span> <span class="ruby-node">%i[]</span>,
-        },
-        <span class="ruby-comment"># {</span>
-        <span class="ruby-comment">#   array_size: 1_000_000,</span>
-        <span class="ruby-comment">#   skip_methods: %i[</span>
-        <span class="ruby-comment">#     fpsvogel_max_subarray_sum_map_each_cons_oneliner</span>
-        <span class="ruby-comment">#     sean_max_subarray_sum_flat_map_each_cons_oneliner</span>
-        <span class="ruby-comment">#   ],</span>
-        <span class="ruby-comment"># },</span>
-      ]
-      <span class="ruby-identifier">scenarios</span> = [
-        {
-          <span class="ruby-value">title:</span> <span class="ruby-value">:unique_negative</span>,
-          <span class="ruby-value">array:</span> <span class="ruby-operator">-&gt;</span>(<span class="ruby-identifier">size</span>) { (<span class="ruby-operator">-</span><span class="ruby-identifier">size</span><span class="ruby-operator">...</span><span class="ruby-value">0</span>).<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">shuffle</span>(<span class="ruby-value">random:</span> <span class="ruby-constant">Random</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">seed</span>)) },
         },
         {
-          <span class="ruby-value">title:</span> <span class="ruby-value">:unique_positive</span>,
-          <span class="ruby-value">array:</span> <span class="ruby-operator">-&gt;</span>(<span class="ruby-identifier">size</span>) { (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">size</span>).<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">shuffle</span>(<span class="ruby-value">random:</span> <span class="ruby-constant">Random</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">seed</span>)) },
-        },
-        {
-          <span class="ruby-value">title:</span> <span class="ruby-value">:unique_mixed</span>,
-          <span class="ruby-value">array:</span> <span class="ruby-operator">-&gt;</span>(<span class="ruby-identifier">size</span>) { ((<span class="ruby-operator">-</span><span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>)<span class="ruby-operator">...</span>(<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>)).<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">shuffle</span>(<span class="ruby-value">random:</span> <span class="ruby-constant">Random</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">seed</span>)) },
-          <span class="ruby-value">skip_methods:</span> <span class="ruby-operator">-&gt;</span>(<span class="ruby-identifier">size</span>) { <span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1_000</span> <span class="ruby-operator">?</span> <span class="ruby-node">%i[izkreny_max_subarray_sum_times_slice_reduce]</span> <span class="ruby-operator">:</span> [] },
+          <span class="ruby-value">array_size:</span> <span class="ruby-value">1_000_000</span>,
+          <span class="ruby-value">skip_methods_for_scenario:</span> {
+            <span class="ruby-value">all:</span> <span class="ruby-node">%i[
+              fpsvogel_max_subarray_sum_map_each_cons_oneliner
+              sean_max_subarray_sum_flat_map_each_cons_oneliner
+            ]</span>,
+            <span class="ruby-value">unique_mixed:</span> <span class="ruby-node">%i[
+              izkreny_max_subarray_sum_times_slice_reduce
+            ]</span>,
+          },
         },
       ]
 
       <span class="ruby-identifier">scenarios</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">scenario</span><span class="ruby-operator">|</span>
         <span class="ruby-identifier">variants</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">variant</span><span class="ruby-operator">|</span>
-          <span class="ruby-identifier">size</span>                 = <span class="ruby-identifier">variant</span>[<span class="ruby-value">:array_size</span>]
-          <span class="ruby-identifier">skip_methods</span>         = <span class="ruby-identifier">variant</span>[<span class="ruby-value">:skip_methods</span>]
-          <span class="ruby-identifier">title</span>                = <span class="ruby-identifier">scenario</span>[<span class="ruby-value">:title</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;_&quot;</span>, <span class="ruby-string">&quot; &quot;</span>)
-          <span class="ruby-identifier">integers</span>             = <span class="ruby-identifier">scenario</span>[<span class="ruby-value">:array</span>].<span class="ruby-identifier">call</span>(<span class="ruby-identifier">size</span>)
-          <span class="ruby-identifier">skip_methods</span>        <span class="ruby-operator">+=</span> <span class="ruby-identifier">scenario</span>[<span class="ruby-value">:skip_methods</span>].<span class="ruby-identifier">call</span>(<span class="ruby-identifier">size</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">scenario</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:skip_methods</span>)
-          <span class="ruby-identifier">scenario_description</span> =
+          <span class="ruby-identifier">size</span>           = <span class="ruby-identifier">variant</span>[<span class="ruby-value">:array_size</span>]
+          <span class="ruby-identifier">name</span>           = <span class="ruby-identifier">scenario</span>[<span class="ruby-value">:name</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;_&quot;</span>, <span class="ruby-string">&quot; &quot;</span>)
+          <span class="ruby-identifier">integers</span>       = <span class="ruby-identifier">scenario</span>[<span class="ruby-value">:array</span>].<span class="ruby-identifier">call</span>(<span class="ruby-identifier">size</span>)
+          <span class="ruby-identifier">benchmark</span>.<span class="ruby-identifier">name</span> =
             <span class="ruby-identifier">&lt;&lt;~MARKDOWN</span>
-<span class="ruby-value">              # #### Array of #{size.to_unds} #{title} integers
+<span class="ruby-value">              # #### Array of #{size.to_unds} #{name} integers
               #</span>
 <span class="ruby-identifier">            MARKDOWN</span>
 
-          <span class="ruby-identifier">puts</span> <span class="ruby-identifier">scenario_description</span>
-
-          <span class="ruby-constant">Benchmark</span>.<span class="ruby-identifier">ips</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
-            <span class="ruby-identifier">x</span>.<span class="ruby-identifier">config</span>(<span class="ruby-value">warmup:</span> <span class="ruby-identifier">warmup</span>, <span class="ruby-value">time:</span> <span class="ruby-identifier">time</span>, <span class="ruby-value">quiet:</span> <span class="ruby-identifier">quiet</span>)
-
-            <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
-              <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">skip_methods</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">method</span>)
-
-              <span class="ruby-identifier">x</span>.<span class="ruby-identifier">report</span>(<span class="ruby-identifier">labels</span>[<span class="ruby-identifier">method</span>]) { <span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">integers</span>) }
-            <span class="ruby-keyword">end</span>
-
-            <span class="ruby-identifier">x</span>.<span class="ruby-identifier">compare!</span>
-          <span class="ruby-keyword">end</span>
-
-          <span class="ruby-identifier">print_labels_for_skipped_metods</span>(<span class="ruby-identifier">labels</span>, <span class="ruby-identifier">skip_methods</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">skip_methods</span>.<span class="ruby-identifier">empty?</span>
+          <span class="ruby-identifier">benchmark</span>.<span class="ruby-identifier">run_for</span>(<span class="ruby-identifier">integers</span>, <span class="ruby-value">scenario:</span>, <span class="ruby-value">variant:</span>, <span class="ruby-value">mode:</span>)
         <span class="ruby-keyword">end</span>
       <span class="ruby-keyword">end</span>
     <span class="ruby-keyword">end</span></pre>

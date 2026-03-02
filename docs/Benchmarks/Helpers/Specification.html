@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>class Benchmarks::Helpers::Specification - cassidoo_QOTW</title>
+
+
+  <meta
+    name="keywords"
+    content="ruby,class,Benchmarks::Helpers::Specification"
+  >
+
+    <meta
+      name="description"
+      content="class Benchmarks::Helpers::Specification: Main benchmark helper"
+    >
+
+
+
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="class Benchmarks::Helpers::Specification - cassidoo_QOTW">
+
+
+
+    <meta property="og:description" content="Main benchmark helper">
+
+
+
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="class Benchmarks::Helpers::Specification - cassidoo_QOTW">
+
+
+
+    <meta name="twitter:description" content="Main benchmark helper">
+
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script
+  src="../../js/theme-toggle.js?v=7.2.0"
+></script>
+
+<script
+  src="../../js/search_navigation.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../../js/search_data.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../../js/search_ranker.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../../js/search_controller.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../../js/c_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../../js/bash_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../../js/aliki.js?v=7.2.0"
+  defer
+></script>
+
+<link
+  href="../../css/rdoc.css?v=7.2.0"
+  rel="stylesheet"
+>
+
+
+
+
+<body role="document" class="class has-toc">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- Chevron (right arrow) - used for expand/collapse -->
+  <symbol
+    id="icon-chevron"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </symbol>
+
+  <!-- File/Document - Pages section -->
+  <symbol
+    id="icon-file"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+    ></path>
+
+    <polyline points="14 2 14 8 20 8"></polyline>
+  </symbol>
+
+  <!-- Layers/Stack - Classes and Modules section -->
+  <symbol
+    id="icon-layers"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+    <polyline points="2 17 12 22 22 17"></polyline>
+    <polyline points="2 12 12 17 22 12"></polyline>
+  </symbol>
+
+  <!-- Curly braces with C - Class Methods section -->
+  <symbol
+    id="icon-class-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      C
+    </text>
+  </symbol>
+
+  <!-- Curly braces with I - Instance Methods section -->
+  <symbol
+    id="icon-instance-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      I
+    </text>
+  </symbol>
+
+  <!-- Double chevrons up - Ancestors section -->
+  <symbol
+    id="icon-ancestors"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+  </symbol>
+
+  <!-- User with plus - Included Modules section -->
+  <symbol
+    id="icon-includes"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+
+    <line
+      x1="20"
+      y1="8"
+      x2="20"
+      y2="14"
+    ></line>
+
+    <line
+      x1="23"
+      y1="11"
+      x2="17"
+      y2="11"
+    ></line>
+  </symbol>
+
+  <!-- User with check - Extended Modules section -->
+  <symbol
+    id="icon-extends"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+    <polyline points="17 11 19 13 23 9"></polyline>
+  </symbol>
+
+  <!-- List - Sections section -->
+  <symbol
+    id="icon-list"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line
+      x1="8"
+      y1="6"
+      x2="21"
+      y2="6"
+    ></line>
+
+    <line
+      x1="8"
+      y1="12"
+      x2="21"
+      y2="12"
+    ></line>
+
+    <line
+      x1="8"
+      y1="18"
+      x2="21"
+      y2="18"
+    ></line>
+
+    <line
+      x1="3"
+      y1="6"
+      x2="3.01"
+      y2="6"
+    ></line>
+
+    <line
+      x1="3"
+      y1="12"
+      x2="3.01"
+      y2="12"
+    ></line>
+
+    <line
+      x1="3"
+      y1="18"
+      x2="3.01"
+      y2="18"
+    ></line>
+  </symbol>
+</svg>
+
+<header class="top-navbar">
+  <a href="../../index.html" class="navbar-brand">
+    cassidoo_QOTW
+  </a>
+
+  <!-- Desktop search bar -->
+  <div class="navbar-search navbar-search-desktop" role="search">
+    <form action="#" method="get" accept-charset="utf-8">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results-desktop"
+             type="text" name="search" placeholder="Search (/) for a class, method..."
+             spellcheck="false" autocomplete="off"
+             title="Type to search, Up and Down to navigate, Enter to load">
+      <ul id="search-results-desktop" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="initially-hidden search-results"></ul>
+    </form>
+  </div>
+
+  <!-- Mobile search icon button -->
+  <button id="search-toggle" class="navbar-search-mobile" aria-label="Open search" type="button">
+    <span aria-hidden="true">🔍</span>
+  </button>
+
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" type="button">
+    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+  </button>
+</header>
+
+<!-- Search Modal (Mobile) -->
+<div id="search-modal" class="search-modal" hidden aria-modal="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop"></div>
+  <div class="search-modal-content">
+    <div class="search-modal-header">
+      <form class="search-modal-form" action="#" method="get" accept-charset="utf-8">
+        <span class="search-modal-icon" aria-hidden="true">🔍</span>
+        <input id="search-field-mobile" role="combobox" aria-label="Search"
+               aria-autocomplete="list" aria-controls="search-results-mobile"
+               type="text" name="search" placeholder="Search documentation"
+               spellcheck="false" autocomplete="off">
+        <button type="button" class="search-modal-close" aria-label="Close search" id="search-modal-close">
+          <span aria-hidden="true">esc</span>
+        </button>
+      </form>
+    </div>
+    <div class="search-modal-body">
+      <ul id="search-results-mobile" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="search-results search-modal-results initially-hidden"></ul>
+      <div class="search-modal-empty">
+        <p>No recent searches</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation" hidden>
+  
+
+
+
+
+  <div id="fileindex-section" class="nav-section">
+    <details class="nav-section-collapsible" >
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg>
+            <use href="#icon-file"></use>
+          </svg>
+        </span>
+
+        <span class="nav-section-title">Pages</span>
+
+        <span class="nav-section-chevron">
+          <svg>
+            <use href="#icon-chevron"></use>
+          </svg>
+        </span>
+      </summary>
+
+      <ul class="nav-list">
+
+
+
+
+
+
+            <li>
+              <a href="../../ABOUT_md.html">
+                ABOUT
+              </a>
+            </li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  
+
+  
+<div id="parent-class-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-ancestors"></use></svg>
+      </span>
+      <span class="nav-section-title">Ancestors</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+    <ul><li>Object</li></ul>
+  </details>
+</div>
+
+
+  
+
+  
+
+  
+  <div class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg><use href="#icon-class-methods"></use></svg>
+        </span>
+        <span class="nav-section-title">Class Methods</span>
+        <span class="nav-section-chevron">
+          <svg><use href="#icon-chevron"></use></svg>
+        </span>
+      </summary>
+      <ul class="nav-list" role="directory">
+
+        <li ><a href="#method-c-new">new</a></li>
+
+      </ul>
+    </details>
+  </div>
+
+
+
+  <div class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg><use href="#icon-instance-methods"></use></svg>
+        </span>
+        <span class="nav-section-title">Instance Methods</span>
+        <span class="nav-section-chevron">
+          <svg><use href="#icon-chevron"></use></svg>
+        </span>
+      </summary>
+      <ul class="nav-list" role="directory">
+
+        <li ><a href="#method-i-fetch_skip_methods_from">fetch_skip_methods_from</a></li>
+
+        <li ><a href="#method-i-find_method_base_name">find_method_base_name</a></li>
+
+        <li ><a href="#method-i-generate_labels_for_methods">generate_labels_for_methods</a></li>
+
+        <li ><a href="#method-i-generate_slices_from">generate_slices_from</a></li>
+
+        <li ><a href="#method-i-print_skipped_metods">print_skipped_metods</a></li>
+
+        <li ><a href="#method-i-run_for">run_for</a></li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  <div id="classindex-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-layers"></use></svg>
+      </span>
+      <span class="nav-section-title">Classes and Modules</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+
+    <ul class="link-list nav-list"><li><details><summary><code><a href="../../Answers.html">Answers</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="../../Answers/Issue20260209.html">Issue20260209</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Answers/Issue20260209/FlatReversePartition.html">FlatReversePartition</a></code></li></ul></details></li><li><details><summary><code><a href="../../Answers/Issue20260216.html">Issue20260216</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Answers/Issue20260216/EachWithYielder.html">EachWithYielder</a></code></li><li><code><a href="../../Answers/Issue20260216/ZoomifyArray.html">ZoomifyArray</a></code></li></ul></details></li><li><code><a href="../../Answers/Issue20260223.html">Issue20260223</a></code></li></ul></details></li><li><details><summary><code><a href="../../Benchmarks.html">Benchmarks</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="../../Benchmarks/Helpers.html">Helpers</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Benchmarks/Helpers/Refinements.html">Refinements</a></code></li><li><details><summary><code><a href="../../Benchmarks/Helpers/Specification.html">Specification</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Benchmarks/Helpers/Specification/SlowAnimal.html">SlowAnimal</a></code></li></ul></details></li></ul></details></li><li><code><a href="../../Benchmarks/Issue20260209.html">Issue20260209</a></code></li><li><code><a href="../../Benchmarks/Issue20260216.html">Issue20260216</a></code></li><li><code><a href="../../Benchmarks/Issue20260223.html">Issue20260223</a></code></li></ul></details></li><li><details><summary><code><a href="../../Questions.html">Questions</a></code></summary><ul class="link-list nav-list"><li><code><a href="../../Questions/Issue20260209.html">Issue20260209</a></code></li><li><code><a href="../../Questions/Issue20260216.html">Issue20260216</a></code></li><li><code><a href="../../Questions/Issue20260223.html">Issue20260223</a></code></li></ul></details></li></ul>
+  </details>
+</div>
+
+</nav>
+
+<main role="main" aria-labelledby="class-benchmarks-helpers-specification">
+  
+  
+    <ol role="navigation" aria-label="Breadcrumb navigation" class="breadcrumb">
+      
+      <li>
+        
+        <a href="../../Benchmarks.html">Benchmarks</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <a href="../../Benchmarks/Helpers.html">Helpers</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <span>Specification</span>
+        
+      </li>
+      
+    </ol>
+  
+
+  <span id="class-Benchmarks::Helpers::Specification" class="legacy-anchor"></span>
+  <h1 id="class-benchmarks-helpers-specification" class="anchor-link class">
+    class Benchmarks::Helpers::Specification
+  </h1>
+
+  <section class="description">
+    
+<p>Main benchmark helper</p>
+
+  </section>
+
+
+  <span id="5Buntitled-5D" class="legacy-anchor"></span>
+  <section class="documentation-section anchor-link">
+
+
+
+
+
+    <section class="constants-list">
+      <header>
+        <h3 id="untitled-constants"><a href="#untitled-constants">Constants</a></h3>
+      </header>
+      <dl>
+
+        <dt id="MIN_SPACER_AMOUNT">MIN_SPACER_AMOUNT</dt>
+
+        <dd>
+
+          
+        </dd>
+
+
+        <dt id="RANDOM_SEED">RANDOM_SEED</dt>
+
+        <dd>
+
+          
+        </dd>
+
+
+        <dt id="SKIPPED_METHOD_INFO">SKIPPED_METHOD_INFO</dt>
+
+        <dd>
+
+          
+        </dd>
+
+
+        <dt id="SPACER">SPACER</dt>
+
+        <dd>
+
+          
+        </dd>
+
+
+        <dt id="TEST_METHOD_INFO">TEST_METHOD_INFO</dt>
+
+        <dd>
+
+          
+        </dd>
+
+
+      </dl>
+    </section>
+
+
+
+    <section class="attribute-method-details method-section">
+      <header>
+        <h3 id="untitled-attributes"><a href="#untitled-attributes">Attributes</a></h3>
+      </header>
+
+
+      <div id="attribute-i-name" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-name" title="Link to this attribute">
+            <span class="method-name">name</span>
+            <span class="attribute-access-type">[RW]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+
+
+        
+
+        </div>
+      </div>
+
+      <div id="attribute-i-seed" class="method-detail anchor-link">
+        <div class="method-heading attribute-method-heading">
+          <a href="#attribute-i-seed" title="Link to this attribute">
+            <span class="method-name">seed</span>
+            <span class="attribute-access-type">[RW]</span>
+          </a>
+        </div>
+
+        <div class="method-description">
+
+
+        
+
+        </div>
+      </div>
+
+    </section>
+
+
+
+
+
+
+     <section id="public-class-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-class-untitled-methods"><a href="#public-class-untitled-methods">Public Class Methods</a></h3>
+       </header>
+
+
+      <div id="method-c-new" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-c-new" title="Link to this method">
+                <span class="method-name">new</span>
+                <span class="method-args">(answers)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="new-source">
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">answers</span>)
+  <span class="ruby-ivar">@answers</span>          = <span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">extend</span>(<span class="ruby-identifier">answers</span>)
+  <span class="ruby-ivar">@methods</span>          = <span class="ruby-identifier">answers</span>.<span class="ruby-identifier">instance_methods</span>(<span class="ruby-keyword">false</span>)
+  <span class="ruby-ivar">@method_base_name</span> = <span class="ruby-identifier">find_method_base_name</span>
+  <span class="ruby-ivar">@labels</span>           = <span class="ruby-identifier">generate_labels_for_methods</span>
+  <span class="ruby-ivar">@seed</span>             = <span class="ruby-constant">RANDOM_SEED</span>
+  <span class="ruby-ivar">@name</span>             = <span class="ruby-string">&quot;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+
+
+
+
+     <section id="public-instance-untitled-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-instance-untitled-methods"><a href="#public-instance-untitled-methods">Public Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-fetch_skip_methods_from" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-fetch_skip_methods_from" title="Link to this method">
+                <span class="method-name">fetch_skip_methods_from</span>
+                <span class="method-args">(scenario, variant)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="fetch_skip_methods_from-source">
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fetch_skip_methods_from</span>(<span class="ruby-identifier">scenario</span>, <span class="ruby-identifier">variant</span>)
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">variant</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:skip_methods_for_scenario</span>)
+
+  <span class="ruby-identifier">methods_for</span>   = <span class="ruby-identifier">variant</span>[<span class="ruby-value">:skip_methods_for_scenario</span>]
+  <span class="ruby-identifier">skip_methods</span>  = []
+  <span class="ruby-identifier">skip_methods</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">methods_for</span>[<span class="ruby-value">:all</span>]            <span class="ruby-keyword">if</span> <span class="ruby-identifier">methods_for</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:all</span>)
+  <span class="ruby-identifier">skip_methods</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">methods_for</span>[<span class="ruby-identifier">scenario</span>[<span class="ruby-value">:name</span>]] <span class="ruby-keyword">if</span> <span class="ruby-identifier">methods_for</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">scenario</span>[<span class="ruby-value">:name</span>])
+
+  <span class="ruby-identifier">skip_methods</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-find_method_base_name" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-find_method_base_name" title="Link to this method">
+                <span class="method-name">find_method_base_name</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="find_method_base_name-source">
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find_method_base_name</span>
+  <span class="ruby-ivar">@methods</span>
+    .<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">method_full_name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">generate_slices_from</span>(<span class="ruby-identifier">method_full_name</span>) }
+    .<span class="ruby-identifier">reduce</span>(<span class="ruby-value">:&amp;</span>)
+    .<span class="ruby-identifier">max_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:size</span>)
+    .<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;_&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-generate_labels_for_methods" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-generate_labels_for_methods" title="Link to this method">
+                <span class="method-name">generate_labels_for_methods</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="generate_labels_for_methods-source">
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generate_labels_for_methods</span>
+  <span class="ruby-identifier">labels</span>   = {}
+  <span class="ruby-identifier">max_size</span> = <span class="ruby-value">0</span>
+
+  <span class="ruby-ivar">@methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">authors</span>, <span class="ruby-identifier">description</span> = <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-node">&quot;_#{@method_base_name}_&quot;</span>)
+    <span class="ruby-identifier">authors</span>              = <span class="ruby-identifier">authors</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;_and_&quot;</span>, <span class="ruby-string">&quot; &amp; &quot;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/[_\s]ai/</span>, <span class="ruby-string">&quot; AI&quot;</span>)
+    <span class="ruby-identifier">size</span>                 = (<span class="ruby-identifier">authors</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">description</span>).<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">max_size</span>             = <span class="ruby-identifier">size</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">max_size</span>
+
+    <span class="ruby-identifier">labels</span>.<span class="ruby-identifier">merge!</span>({ <span class="ruby-identifier">method</span> <span class="ruby-operator">=&gt;</span> { <span class="ruby-value">authors:</span> <span class="ruby-identifier">authors</span>, <span class="ruby-value">description:</span> <span class="ruby-identifier">description</span>, <span class="ruby-value">size:</span> <span class="ruby-identifier">size</span> } })
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">labels</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span>, <span class="ruby-identifier">label</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">spacing</span> =
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">label</span>[<span class="ruby-value">:size</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">max_size</span>
+        <span class="ruby-constant">SPACER</span> <span class="ruby-operator">*</span> (<span class="ruby-constant">MIN_SPACER_AMOUNT</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">max_size</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">label</span>[<span class="ruby-value">:size</span>])
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-constant">SPACER</span> <span class="ruby-operator">*</span> <span class="ruby-constant">MIN_SPACER_AMOUNT</span>
+      <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">labels</span>[<span class="ruby-identifier">method</span>] = <span class="ruby-node">&quot;#{label[:authors]} #{spacing} #{label[:description]} &quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">labels</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Prettier <code>becnhmark-ips</code> labels printed in ‘Comparison’ section</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-generate_slices_from" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-generate_slices_from" title="Link to this method">
+                <span class="method-name">generate_slices_from</span>
+                <span class="method-args">(method_name)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="generate_slices_from-source">
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generate_slices_from</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-identifier">words</span> = <span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;_&quot;</span>)
+  (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">words</span>.<span class="ruby-identifier">size</span>).<span class="ruby-identifier">flat_map</span> { <span class="ruby-identifier">words</span>.<span class="ruby-identifier">each_cons</span>(<span class="ruby-identifier">it</span>).<span class="ruby-identifier">to_a</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Generate slices aka N-grams aka ‘contiguous subarrays’ (elements must be neighbors)</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-print_skipped_metods" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-print_skipped_metods" title="Link to this method">
+                <span class="method-name">print_skipped_metods</span>
+                <span class="method-args">()</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="print_skipped_metods-source">
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">print_skipped_metods</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@skip_methods</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-ivar">@skip_methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-ivar">@labels</span>[<span class="ruby-identifier">method</span>] <span class="ruby-operator">+</span> <span class="ruby-constant">SKIPPED_METHOD_INFO</span> <span class="ruby-operator">+</span> <span class="ruby-constant">SlowAnimal</span>.<span class="ruby-identifier">show</span>(<span class="ruby-value">before:</span> <span class="ruby-string">&quot; &quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-run_for" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-run_for" title="Link to this method">
+                <span class="method-name">run_for</span>
+                <span class="method-args">(*method_arguments, scenario: {}, variant: {}, mode: :quick)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="run_for-source">
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">run_for</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">method_arguments</span>, <span class="ruby-value">scenario:</span> {}, <span class="ruby-value">variant:</span> {}, <span class="ruby-value">mode:</span> <span class="ruby-value">:quick</span>)
+  <span class="ruby-ivar">@skip_methods</span> = <span class="ruby-identifier">fetch_skip_methods_from</span>(<span class="ruby-identifier">scenario</span>, <span class="ruby-identifier">variant</span>)
+
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">mode</span> <span class="ruby-operator">==</span> <span class="ruby-value">:test</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-ivar">@name</span>
+
+  <span class="ruby-constant">Benchmark</span>.<span class="ruby-identifier">ips</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">mode</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:test</span>    <span class="ruby-keyword">then</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">config</span>(<span class="ruby-value">warmup:</span> <span class="ruby-value">1</span>, <span class="ruby-value">time:</span> <span class="ruby-value">1</span>, <span class="ruby-value">quiet:</span> <span class="ruby-keyword">true</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:quick</span>   <span class="ruby-keyword">then</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">config</span>(<span class="ruby-value">warmup:</span> <span class="ruby-value">1</span>, <span class="ruby-value">time:</span> <span class="ruby-value">1</span>, <span class="ruby-value">quiet:</span> <span class="ruby-keyword">false</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:default</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">config</span>(<span class="ruby-value">warmup:</span> <span class="ruby-value">2</span>, <span class="ruby-value">time:</span> <span class="ruby-value">5</span>, <span class="ruby-value">quiet:</span> <span class="ruby-keyword">true</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-ivar">@methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@skip_methods</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">method</span>)
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">mode</span> <span class="ruby-operator">==</span> <span class="ruby-value">:test</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-ivar">@labels</span>[<span class="ruby-identifier">method</span>] <span class="ruby-operator">+</span> <span class="ruby-constant">TEST_METHOD_INFO</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">x</span>.<span class="ruby-identifier">report</span>(<span class="ruby-ivar">@labels</span>[<span class="ruby-identifier">method</span>]) { <span class="ruby-ivar">@answers</span>.<span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">method_arguments</span>) }
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">x</span>.<span class="ruby-identifier">compare!</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">print_skipped_metods</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+
+  </section>
+
+</main>
+
+<aside class="table-of-contents" role="complementary" aria-label="Table of Contents">
+  <div class="toc-sticky">
+    <h3 class="toc-heading">On This Page</h3>
+    <nav class="toc-nav" id="toc-nav" aria-label="Page sections">
+      <!-- Generated by JavaScript based on page headings -->
+    </nav>
+  </div>
+</aside>
+
+
+<footer class="site-footer">
+  
+
+  <div class="footer-bottom">
+    <p>
+      Generated by <a href="https://ruby.github.io/rdoc/">RDoc 7.2.0</a>
+      using the Aliki theme by <a href="http://st0012.dev">Stan Lo</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+
