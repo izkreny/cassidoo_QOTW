@@ -65,54 +65,46 @@ module Benchmarks
   # ```
   #
   module Issue20260216
-    extend Answers::Issue20260216
-    extend Benchmarks::Helpers
+    using Benchmarks::Helpers::Refinements
 
-    methods   = Answers::Issue20260216.instance_methods(false)
-    labels    = create_labels_for(methods, method_name: :zoom)
-    seed      = 666_999
-    scenarios = [
-      {
-        grid_size: 10,
-        zoom_factors: [
-          10,
-          100,
-          1_000,
-        ],
-      },
-      {
-        grid_size: 1_000,
-        zoom_factors: [
-          10,
-          # 100,    # This is a memory eater!!!
-          # 1_000,  # This would require an insanelly amount of memory I suppose?!?
-        ],
-      },
-    ]
+    def self.benchmark_answers(mode: :default)
+      benchmark = Benchmarks::Helpers::Specification.new(Answers::Issue20260216)
+      scenarios = [
+        {
+          grid_size: 10,
+          zoom_factors: [
+            10,
+            100,
+            1_000,
+          ],
+        },
+        {
+          grid_size: 1_000,
+          zoom_factors: [
+            10,
+            # 100,    # Too slow to run...
+            # 1_000,  # Probably not able to run on a personal computer...
+          ],
+        },
+      ]
 
-    scenarios.each do |scenario|
-      size    = scenario[:grid_size]
-      factors = scenario[:zoom_factors]
-      grid    = Array.new(size) { Array.new(size) { Random.new(seed).rand(1..size) } }
+      scenarios.each do |scenario|
+        size     = scenario[:grid_size]
+        variants = scenario[:zoom_factors]
+        grid     = Array.new(size) { Array.new(size) { Random.new(benchmark.seed).rand(10..99) } }
 
-      factors.each do |factor|
-        scenario_description =
-          <<~MARKDOWN
-            # #### Grid: #{size}x#{size} / Zoom in factor: #{factor}
-            #
-          MARKDOWN
-        puts scenario_description
+        variants.each do |factor|
+          benchmark.name =
+            <<~MARKDOWN
+              # #### Grid: #{size}x#{size} / Zoom in factor: #{factor}
+              #
+            MARKDOWN
 
-        Benchmark.ips do |x|
-          x.config(warmup: 2, time: 5, quiet: false)
-
-          methods.each do |method|
-            x.report(labels[method]) { public_send(method, grid, factor) }
-          end
-
-          x.compare!
+          benchmark.run_for(grid, factor, mode:)
         end
       end
     end
+
+    benchmark_answers
   end
 end

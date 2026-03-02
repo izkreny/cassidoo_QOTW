@@ -1,6 +1,6 @@
 require "rake/testtask"
 
-Rake::TestTask.new(:test_convert_code_to_md_doc) do |t|
+Rake::TestTask.new(:tests) do |t|
   t.libs << "test"
   t.test_files = FileList["test/**/*_test.rb"]
 end

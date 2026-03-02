@@ -55,7 +55,7 @@ class Converter < Minitest::Test
         def example = true
         ```
 
-        ## Answers ([source code](../source.rb))
+        ## Answers
 
         ```ruby
         def multiline_code(array)

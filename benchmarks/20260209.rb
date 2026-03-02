@@ -109,60 +109,51 @@ module Benchmarks
   # ```
   #
   module Issue20260209
-    extend Answers::Issue20260209
-    extend Benchmarks::Helpers
     using Benchmarks::Helpers::Refinements
 
-    methods   = Answers::Issue20260209.instance_methods(false)
-    labels    = create_labels_for(methods, method_name: :move_numbers)
-    seed      = 666_999
-    scenarios = [
-      {
-        integers_size: 1_000,
-        number_of_occurrences: [
-          5,
-          50,
-          500,
-        ],
-      },
-      {
-        integers_size: 1_000_000,
-        number_of_occurrences: [
-          5_000,
-          50_000,
-          500_000,
-        ],
-      },
-    ]
+    def self.benchmark_answers(mode: :default)
+      benchmark = Benchmarks::Helpers::Specification.new(Answers::Issue20260209)
+      scenarios = [
+        {
+          integers_size: 1_000,
+          number_of_occurrences: [
+            5,
+            50,
+            500,
+          ],
+        },
+        {
+          integers_size: 1_000_000,
+          number_of_occurrences: [
+            5_000,
+            50_000,
+            500_000,
+          ],
+        },
+      ]
 
-    scenarios.each do |scenario|
-      number      = scenario[:integers_size]
-      occurrences = scenario[:number_of_occurrences]
-      integers    = (0...number).to_a.shuffle(random: Random.new(seed))
-      indexes     = integers.take(occurrences.max)
+      scenarios.each do |scenario|
+        number   = scenario[:integers_size]
+        variants = scenario[:number_of_occurrences]
+        integers = (0...number).to_a.shuffle(random: Random.new(benchmark.seed))
+        indexes  = integers.take(variants.max)
 
-      occurrences.each do |amount|
-        indexes.take(amount).each { integers[it] = number }
-        scenario_description =
-          <<~MARKDOWN
-            # #### #{number.to_unds} / #{amount.to_unds}
-            #
-            # - `#{number.to_unds}` - Integer array size (with initially all unique numbers)
-            # - `#{integers.count(number).to_unds}` - Number `n` occurrence inside the integer array
-            #
-          MARKDOWN
-        puts scenario_description
+        variants.each do |amount|
+          indexes.take(amount).each { integers[it] = number }
+          benchmark.name =
+            <<~MARKDOWN
+              # #### #{number.to_unds} / #{amount.to_unds}
+              #
+              # - `#{number.to_unds}` - Integer array size (with initially all unique numbers)
+              # - `#{integers.count(number).to_unds}` - Number `n` occurrence inside the integer array
+              #
+            MARKDOWN
 
-        Benchmark.ips do |x|
-          x.config(warmup: 2, time: 5, quiet: false)
-
-          methods.each do |method|
-            x.report(labels[method]) { public_send(method, integers.clone, number) }
-          end
-
-          x.compare!
+          benchmark.run_for(integers.clone, number, mode:)
         end
       end
     end
+
+    benchmark_answers
   end
 end
