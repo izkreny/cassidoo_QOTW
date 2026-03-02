@@ -100,7 +100,7 @@ module Benchmarks
               #
             MARKDOWN
 
-          benchmark.run_for(grid, factor, mode:)
+          benchmark.run(grid, factor, mode:)
         end
       end
     end

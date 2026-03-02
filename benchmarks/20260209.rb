@@ -149,7 +149,7 @@ module Benchmarks
               #
             MARKDOWN
 
-          benchmark.run_for(integers.clone, number, mode:)
+          benchmark.run(integers.clone, number, mode:)
         end
       end
     end

@@ -59,7 +59,7 @@ module Benchmarks
               #
             MARKDOWN
 
-          benchmark.run_for(integers, scenario:, variant:, mode:)
+          benchmark.run(integers, scenario:, variant:, mode:)
         end
       end
     end

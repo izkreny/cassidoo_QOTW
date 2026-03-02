@@ -42,7 +42,7 @@ module Benchmarks
             MARKDOWN
 
           # Use Kernel.clone on method_argument if any method is mutating the argument!
-          benchmark.run_for(*method_arguments, scenario:, variant:, mode:)
+          benchmark.run(*method_arguments, scenario:, variant:, mode:)
         end
       end
     end

@@ -30,11 +30,11 @@ module Benchmarks
     # Main benchmark helper
     #
     class Specification
+      RANDOM_NEW_SEED     = 666_999
       SPACER              = "."
       MIN_SPACER_AMOUNT   = 3
       SKIPPED_METHOD_INFO = ":        ?!? i/s - too slow to calculate, sorry!"
       TEST_METHOD_INFO    = ":        ?!? i/s - TEST FAKE RUN!"
-      RANDOM_SEED         = 666_999
 
       attr_accessor :seed, :name
 
@@ -43,11 +43,13 @@ module Benchmarks
         @methods          = answers.instance_methods(false)
         @method_base_name = find_method_base_name
         @labels           = generate_labels_for_methods
-        @seed             = RANDOM_SEED
+        @seed             = RANDOM_NEW_SEED
         @name             = ""
       end
 
-      def run_for(*method_arguments, scenario: {}, variant: {}, mode: :quick)
+      # Main method, wrapper for `Benchmark.ips`
+      #
+      def run(*method_arguments, scenario: {}, variant: {}, mode: :quick)
         @skip_methods = fetch_skip_methods_from(scenario, variant)
 
         puts "" if mode == :test
@@ -78,6 +80,21 @@ module Benchmarks
 
       # private
 
+      def find_method_base_name
+        @methods
+          .map { |method_full_name| generate_slices_from(method_full_name) }
+          .reduce(:&)
+          .max_by(&:size)
+          .join("_")
+      end
+
+      # Generate slices aka N-grams aka 'contiguous subarrays' (elements must be neighbors)
+      #
+      def generate_slices_from(method_name)
+        words = method_name.to_s.split("_")
+        (1..words.size).flat_map { words.each_cons(it).to_a }
+      end
+
       # Prettier `becnhmark-ips` labels printed in 'Comparison' section
       #
       def generate_labels_for_methods
@@ -107,21 +124,6 @@ module Benchmarks
         labels
       end
 
-      def find_method_base_name
-        @methods
-          .map { |method_full_name| generate_slices_from(method_full_name) }
-          .reduce(:&)
-          .max_by(&:size)
-          .join("_")
-      end
-
-      # Generate slices aka N-grams aka 'contiguous subarrays' (elements must be neighbors)
-      #
-      def generate_slices_from(method_name)
-        words = method_name.to_s.split("_")
-        (1..words.size).flat_map { words.each_cons(it).to_a }
-      end
-
       def fetch_skip_methods_from(scenario, variant)
         return [] unless variant.key?(:skip_methods_for_scenario)
 
@@ -133,20 +135,27 @@ module Benchmarks
         skip_methods
       end
 
+      def print_skipped_metods
+        return if @skip_methods.empty?
+
+        @skip_methods.each do |method|
+          puts @labels[method] + SKIPPED_METHOD_INFO + SlowAnimal.show(before: " ")
+        end
+      end
+
+      # Show a different slow animal each time `SlowAnimal.show` is called:
+      #
+      # - 🐨 - Koala
+      # - 🐌 - Snail
+      # - 🐢 - Turtle
+      # - 🦥 - Sloth
+      #
       class SlowAnimal
         @@slow_animals = ["🐨", "🐌", "🐢", "🦥"] # rubocop:disable Style/ClassVars
 
         def self.show(before: "", around: "", after: "")
           @@slow_animals.rotate!
           before + around + @@slow_animals.first + around + after
-        end
-      end
-
-      def print_skipped_metods
-        return if @skip_methods.empty?
-
-        @skip_methods.each do |method|
-          puts @labels[method] + SKIPPED_METHOD_INFO + SlowAnimal.show(before: " ")
         end
       end
     end
