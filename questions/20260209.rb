@@ -28,7 +28,7 @@ module Questions
 
     # :section: Tests
 
-    def test_answers_with_examples
+    def test_answers
       @methods.each do |method|
         actual_result = public_send(method, @integers.clone, @number_n)
 
@@ -36,7 +36,7 @@ module Questions
       end
     end
 
-    def test_answers_with_copy
+    def test_answers_with_array_copy
       @methods.reject { it.end_with?("!") }.each do |method|
         integers      = @integers.clone
         actual_result = public_send(method, integers, @number_n)
@@ -45,7 +45,7 @@ module Questions
       end
     end
 
-    def test_answers_without_copy
+    def test_answers_without_array_copy
       @methods.select { it.end_with?("!") }.each do |method|
         integers      = @integers.clone
         actual_result = public_send(method, integers, @number_n)

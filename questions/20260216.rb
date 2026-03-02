@@ -65,7 +65,7 @@ module Questions
 
     # :section: Tests
 
-    def test_answers_with_examples
+    def test_answers
       @methods.each do |method|
         @examples.each do |example|
           bigger_grid = public_send(method, example[:initial_grid], example[:zoom_factor])

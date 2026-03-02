@@ -39,10 +39,14 @@ module Questions
           integers: [-2, 1, -3, 4, -1, 2, 1, -5, 4],
           expected_result: 6,
         },
-        # Extra example if all integers are positive
+        # Extra examples by izkreny
         {
           integers: [1, 2, 3, 4],
           expected_result: 10,
+        },
+        {
+          integers: [-10, -20, 1, -30, -40],
+          expected_result: 1,
         },
       ]
     end
