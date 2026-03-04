@@ -35,6 +35,14 @@ module Answers
     #
     # [ruf]: https://www.rubyforum.org/t/cassidoo-s-interview-question-of-the-week-445/151
 
+    # Original code layout:
+    #
+    #     def maxSubarraySum a
+    #       a.reduce [0, a[0]] do |acc, e|
+    #         [n = [e + acc[0], e].max, [n, acc[1]].max]
+    #       end.last
+    #     end
+    #
     def lpogic_max_subarray_sum_reduce_last_oneliner(arr)
       arr.reduce([0, arr[0]]) { |acc, e| [n = [e + acc[0], e].max, [n, acc[1]].max] }.last
     end
@@ -48,10 +56,27 @@ module Answers
       end
     end
 
+    # Original code layout:
+    #
+    #     def max_subarray_sum(arr)
+    #       (1..arr.size)
+    #         .flat_map {
+    #           arr.each_cons(it).map(&:sum)
+    #         }.max
+    #     end
+    #
     def sean_max_subarray_sum_flat_map_each_cons_oneliner(arr)
       (1..arr.size).flat_map { arr.each_cons(it).map(&:sum) }.max
     end
 
+    # Original code layout:
+    #
+    #     def max_subarray_sum(numbers)
+    #       numbers.length.downto(1).map { |sublength|
+    #         numbers.each_cons(sublength).map(&:sum).max
+    #       }.max
+    #     end
+    #
     def fpsvogel_max_subarray_sum_map_each_cons_oneliner(numbers)
       numbers.length.downto(1).map { |sublength| numbers.each_cons(sublength).map(&:sum).max }.max
     end

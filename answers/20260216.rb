@@ -68,7 +68,27 @@ module Answers
     using EachWithYielder
 
     # Enumerable Answers::Issue20260216::EachWithYielder
-    # version by lpogic modified (with AI) to be more readable
+    # version by lpogic modified (with AI help) to be more readable
+    #
+    # Original code layout:
+    #
+    # ```ruby
+    # module Enumerable
+    #   def eachator
+    #     Enumerator.new do |e|
+    #       each{ yield(e, it) }
+    #     end
+    #   end
+    # end
+    #
+    # def zoom a, f
+    #   a.eachator do |e, i|
+    #     f.times do
+    #       e << i.eachator{|e, i| f.times{ e << i } }.to_a
+    #     end
+    #   end.to_a
+    # end
+    # ```
     #
     def lpogic_zoom_each_with_yielder(grid, factor)
       grid.each_with_yielder do |grid_yielder, row|
@@ -82,6 +102,16 @@ module Answers
       end.to_a
     end
 
+    # Original code layout:
+    #
+    #     def zoom(grid, factor)
+    #       grid
+    #         .map { |row|
+    #           row.flat_map { |col| [col] * factor } # zoom on x axis
+    #         }
+    #         .flat_map { |row| [row] * factor } # zoom on y axis
+    #     end
+    #
     def fpsvogel_zoom_map_flat_map_oneliner(grid, factor)
       grid.map { |row| row.flat_map { |col| [col] * factor } }.flat_map { |row| [row] * factor }
     end
@@ -122,15 +152,21 @@ module Answers
       result
     end
 
-    def fuzzy_zoom_flat_map_reduce_push(matrix, factor)
-      matrix.flat_map do |row|
-        Array.new(
-          factor,
-          row.reduce([]) do |memo, number|
-            memo.push(*Array.new(factor, number))
-          end
-        )
-      end
+    # Original code layout:
+    #
+    #     def zoom(matrix, factor)
+    #       matrix.flat_map do |row|
+    #         Array.new(
+    #           factor,
+    #           row.reduce([]) do |memo, number|
+    #             memo.push(*Array.new(factor, number))
+    #           end
+    #         )
+    #       end
+    #     end
+    #
+    def fuzzy_zoom_flat_map_reduce_push_oneliner(matrix, factor)
+      matrix.flat_map { |row| Array.new(factor, row.reduce([]) { |memo, number| memo.push(*Array.new(factor, number)) }) }
     end
   end
 end

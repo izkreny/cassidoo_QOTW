@@ -44,11 +44,25 @@ module Answers
 
     # Refinement answer by fpsvogel: Answers::Issue20260209::FlatReversePartition
     #
+    # Using same method as charlie:
+    #
+    #     def move_nums(arr, item, in_place: false)
+    #       sort_method = in_place ? "sort_by!" : "sort_by"
+    #       arr.public_send(sort_method) { it == item ? 1 : 0 }
+    #     end
+    #
     def charlie_and_fpsvogel_move_numbers_sort_by(arr, num)
       arr.flat_reverse_partition(num)
     end
 
     # Refinement answer by fpsvogel: Answers::Issue20260209::FlatReversePartition
+    #
+    # Using same method as charlie:
+    #
+    #     def move_nums(arr, item, in_place: false)
+    #       sort_method = in_place ? "sort_by!" : "sort_by"
+    #       arr.public_send(sort_method) { it == item ? 1 : 0 }
+    #     end
     #
     def charlie_and_fpsvogel_move_numbers_sort_by!(arr, num)
       arr.flat_reverse_partition!(num)
