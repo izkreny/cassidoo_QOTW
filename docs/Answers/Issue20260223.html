@@ -713,7 +713,7 @@
             </details>
           </div>
           <div class="method-source-code" id="eayurt_max_subarray_sum_each-source">
-            <pre class="ruby"><span class="ruby-comment"># File answers/20260223.rb, line 70</span>
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260223.rb, line 95</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">eayurt_max_subarray_sum_each</span>(<span class="ruby-identifier">array</span>)
   <span class="ruby-identifier">max_sum</span> = <span class="ruby-identifier">array</span>.<span class="ruby-identifier">first</span>
   <span class="ruby-identifier">current_sum</span> = <span class="ruby-identifier">array</span>.<span class="ruby-identifier">first</span>
@@ -763,7 +763,7 @@
             </details>
           </div>
           <div class="method-source-code" id="fpsvogel_max_subarray_sum_drop_each-source">
-            <pre class="ruby"><span class="ruby-comment"># File answers/20260223.rb, line 59</span>
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260223.rb, line 84</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fpsvogel_max_subarray_sum_drop_each</span>(<span class="ruby-identifier">numbers</span>)
   <span class="ruby-identifier">running_total</span> = <span class="ruby-identifier">max_sum</span> = <span class="ruby-identifier">numbers</span>.<span class="ruby-identifier">first</span>
 
@@ -812,7 +812,7 @@
             </details>
           </div>
           <div class="method-source-code" id="fpsvogel_max_subarray_sum_map_each_cons_oneliner-source">
-            <pre class="ruby"><span class="ruby-comment"># File answers/20260223.rb, line 55</span>
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260223.rb, line 80</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fpsvogel_max_subarray_sum_map_each_cons_oneliner</span>(<span class="ruby-identifier">numbers</span>)
   <span class="ruby-identifier">numbers</span>.<span class="ruby-identifier">length</span>.<span class="ruby-identifier">downto</span>(<span class="ruby-value">1</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">sublength</span><span class="ruby-operator">|</span> <span class="ruby-identifier">numbers</span>.<span class="ruby-identifier">each_cons</span>(<span class="ruby-identifier">sublength</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:sum</span>).<span class="ruby-identifier">max</span> }.<span class="ruby-identifier">max</span>
 <span class="ruby-keyword">end</span></pre>
@@ -823,7 +823,14 @@
         <div class="method-description">
 
 
-          
+          <p>Original code layout:</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">max_subarray_sum</span>(<span class="ruby-identifier">numbers</span>)
+  <span class="ruby-identifier">numbers</span>.<span class="ruby-identifier">length</span>.<span class="ruby-identifier">downto</span>(<span class="ruby-value">1</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">sublength</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">numbers</span>.<span class="ruby-identifier">each_cons</span>(<span class="ruby-identifier">sublength</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:sum</span>).<span class="ruby-identifier">max</span>
+  }.<span class="ruby-identifier">max</span>
+<span class="ruby-keyword">end</span>
+</pre>
 
 
         </div>
@@ -854,7 +861,7 @@
             </details>
           </div>
           <div class="method-source-code" id="josh_dev_max_subarray_sum_reduce-source">
-            <pre class="ruby"><span class="ruby-comment"># File answers/20260223.rb, line 42</span>
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260223.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">josh_dev_max_subarray_sum_reduce</span>(<span class="ruby-identifier">numbers</span>)
   <span class="ruby-identifier">running_total</span> = <span class="ruby-identifier">numbers</span>.<span class="ruby-identifier">first</span>
 
@@ -901,7 +908,7 @@
             </details>
           </div>
           <div class="method-source-code" id="lpogic_max_subarray_sum_reduce_last_oneliner-source">
-            <pre class="ruby"><span class="ruby-comment"># File answers/20260223.rb, line 38</span>
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260223.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">lpogic_max_subarray_sum_reduce_last_oneliner</span>(<span class="ruby-identifier">arr</span>)
   <span class="ruby-identifier">arr</span>.<span class="ruby-identifier">reduce</span>([<span class="ruby-value">0</span>, <span class="ruby-identifier">arr</span>[<span class="ruby-value">0</span>]]) { <span class="ruby-operator">|</span><span class="ruby-identifier">acc</span>, <span class="ruby-identifier">e</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">n</span> = [<span class="ruby-identifier">e</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">acc</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">e</span>].<span class="ruby-identifier">max</span>, [<span class="ruby-identifier">n</span>, <span class="ruby-identifier">acc</span>[<span class="ruby-value">1</span>]].<span class="ruby-identifier">max</span>] }.<span class="ruby-identifier">last</span>
 <span class="ruby-keyword">end</span></pre>
@@ -912,7 +919,14 @@
         <div class="method-description">
 
 
-          
+          <p>Original code layout:</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">maxSubarraySum</span> <span class="ruby-identifier">a</span>
+  <span class="ruby-identifier">a</span>.<span class="ruby-identifier">reduce</span> [<span class="ruby-value">0</span>, <span class="ruby-identifier">a</span>[<span class="ruby-value">0</span>]] <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">acc</span>, <span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+    [<span class="ruby-identifier">n</span> = [<span class="ruby-identifier">e</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">acc</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">e</span>].<span class="ruby-identifier">max</span>, [<span class="ruby-identifier">n</span>, <span class="ruby-identifier">acc</span>[<span class="ruby-value">1</span>]].<span class="ruby-identifier">max</span>]
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">last</span>
+<span class="ruby-keyword">end</span>
+</pre>
 
 
         </div>
@@ -943,7 +957,7 @@
             </details>
           </div>
           <div class="method-source-code" id="sean_max_subarray_sum_flat_map_each_cons_oneliner-source">
-            <pre class="ruby"><span class="ruby-comment"># File answers/20260223.rb, line 51</span>
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260223.rb, line 68</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sean_max_subarray_sum_flat_map_each_cons_oneliner</span>(<span class="ruby-identifier">arr</span>)
   (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">arr</span>.<span class="ruby-identifier">size</span>).<span class="ruby-identifier">flat_map</span> { <span class="ruby-identifier">arr</span>.<span class="ruby-identifier">each_cons</span>(<span class="ruby-identifier">it</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:sum</span>) }.<span class="ruby-identifier">max</span>
 <span class="ruby-keyword">end</span></pre>
@@ -954,7 +968,15 @@
         <div class="method-description">
 
 
-          
+          <p>Original code layout:</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">max_subarray_sum</span>(<span class="ruby-identifier">arr</span>)
+  (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">arr</span>.<span class="ruby-identifier">size</span>)
+    .<span class="ruby-identifier">flat_map</span> {
+      <span class="ruby-identifier">arr</span>.<span class="ruby-identifier">each_cons</span>(<span class="ruby-identifier">it</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:sum</span>)
+    }.<span class="ruby-identifier">max</span>
+<span class="ruby-keyword">end</span>
+</pre>
 
 
         </div>

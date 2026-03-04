@@ -15,7 +15,7 @@
 
     <meta
       name="description"
-      content="module Benchmarks::Issue20260223: - Questions::Issue20260223 - Answers::Issue20260223 ---"
+      content="module Benchmarks::Issue20260223: Issue20260223 --- ``` ruby 4. revision e04267a14b) +YJIT +PRISM [x86_64-linux] ``` #### Array of 1_000 unique negative integers ``` eayurt ."
     >
 
 
@@ -28,7 +28,7 @@
 
 
 
-    <meta property="og:description" content="- Questions::Issue20260223 - Answers::Issue20260223 ---">
+    <meta property="og:description" content="Issue20260223 --- ``` ruby 4. revision e04267a14b) +YJIT +PRISM [x86_64-linux] ``` #### Array of 1_000 unique negative integers ``` eayurt .">
 
 
 
@@ -40,7 +40,7 @@
 
 
 
-    <meta name="twitter:description" content="- Questions::Issue20260223 - Answers::Issue20260223 ---">
+    <meta name="twitter:description" content="Issue20260223 --- ``` ruby 4. revision e04267a14b) +YJIT +PRISM [x86_64-linux] ``` #### Array of 1_000 unique negative integers ``` eayurt .">
 
 
 
@@ -492,6 +492,74 @@
 </li></ul>
 <hr>
 
+<pre>ruby 4.0.1 (2026-01-13 revision e04267a14b) +YJIT +PRISM [x86_64-linux]</pre>
+
+<span id="module-Benchmarks::Issue20260223-label-Array+of+1_000+unique+negative+integers" class="legacy-anchor"></span>
+<h4 id="module-benchmarks-issue20260223-array-of-1000-unique-negative-integers"><a href="#module-benchmarks-issue20260223-array-of-1000-unique-negative-integers">Array of 1_000 unique negative integers</a></h4>
+
+<pre>eayurt ........................ each :   113804.1 i/s
+fpsvogel ................. drop_each :   113086.7 i/s - same-ish: difference falls within error
+josh_dev .................... reduce :    38288.6 i/s -     2.97x  slower
+izkreny ......... times_slice_reduce :    35141.5 i/s -     3.24x  slower
+lpogic ........ reduce_last_oneliner :    22463.3 i/s -     5.07x  slower
+fpsvogel .... map_each_cons_oneliner :        3.8 i/s - 29904.19x  slower
+sean ... flat_map_each_cons_oneliner :        3.6 i/s - 31400.30x  slower</pre>
+
+<span id="module-Benchmarks::Issue20260223-label-Array+of+1_000_000+unique+negative+integers" class="legacy-anchor"></span>
+<h4 id="module-benchmarks-issue20260223-array-of-1000000-unique-negative-integers"><a href="#module-benchmarks-issue20260223-array-of-1000000-unique-negative-integers">Array of 1_000_000 unique negative integers</a></h4>
+
+<pre>fpsvogel ................. drop_each :      113.4 i/s
+eayurt ........................ each :      113.3 i/s - same-ish: difference falls within error
+josh_dev .................... reduce :       37.3 i/s - 3.04x  slower
+izkreny ......... times_slice_reduce :       35.6 i/s - 3.19x  slower
+lpogic ........ reduce_last_oneliner :       22.0 i/s - 5.15x  slower
+fpsvogel .... map_each_cons_oneliner :        ?!? i/s - too slow to calculate, sorry! 🐌
+sean ... flat_map_each_cons_oneliner :        ?!? i/s - too slow to calculate, sorry! 🐢</pre>
+
+<span id="module-Benchmarks::Issue20260223-label-Array+of+1_000+unique+positive+integers" class="legacy-anchor"></span>
+<h4 id="module-benchmarks-issue20260223-array-of-1000-unique-positive-integers"><a href="#module-benchmarks-issue20260223-array-of-1000-unique-positive-integers">Array of 1_000 unique positive integers</a></h4>
+
+<pre>fpsvogel ................. drop_each :   112865.4 i/s
+eayurt ........................ each :   112375.8 i/s - same-ish: difference falls within error
+josh_dev .................... reduce :    37842.8 i/s -     2.98x  slower
+izkreny ......... times_slice_reduce :    35318.0 i/s -     3.20x  slower
+lpogic ........ reduce_last_oneliner :    22290.2 i/s -     5.06x  slower
+fpsvogel .... map_each_cons_oneliner :        3.8 i/s - 30083.98x  slower
+sean ... flat_map_each_cons_oneliner :        3.6 i/s - 31127.79x  slower</pre>
+
+<span id="module-Benchmarks::Issue20260223-label-Array+of+1_000_000+unique+positive+integers" class="legacy-anchor"></span>
+<h4 id="module-benchmarks-issue20260223-array-of-1000000-unique-positive-integers"><a href="#module-benchmarks-issue20260223-array-of-1000000-unique-positive-integers">Array of 1_000_000 unique positive integers</a></h4>
+
+<pre>fpsvogel ................. drop_each :      113.0 i/s
+eayurt ........................ each :      112.5 i/s - same-ish: difference falls within error
+josh_dev .................... reduce :       36.8 i/s - 3.07x  slower
+izkreny ......... times_slice_reduce :       35.2 i/s - 3.21x  slower
+lpogic ........ reduce_last_oneliner :       22.0 i/s - 5.13x  slower
+fpsvogel .... map_each_cons_oneliner :        ?!? i/s - too slow to calculate, sorry! 🦥
+sean ... flat_map_each_cons_oneliner :        ?!? i/s - too slow to calculate, sorry! 🐨</pre>
+
+<span id="module-Benchmarks::Issue20260223-label-Array+of+1_000+unique+mixed+integers" class="legacy-anchor"></span>
+<h4 id="module-benchmarks-issue20260223-array-of-1000-unique-mixed-integers"><a href="#module-benchmarks-issue20260223-array-of-1000-unique-mixed-integers">Array of 1_000 unique mixed integers</a></h4>
+
+<pre>eayurt ........................ each :   106776.5 i/s
+fpsvogel ................. drop_each :   106483.5 i/s - same-ish: difference falls within error
+josh_dev .................... reduce :    36056.6 i/s -     2.96x  slower
+lpogic ........ reduce_last_oneliner :    21745.2 i/s -     4.91x  slower
+izkreny ......... times_slice_reduce :       79.9 i/s -  1336.56x  slower
+fpsvogel .... map_each_cons_oneliner :        3.7 i/s - 28736.51x  slower
+sean ... flat_map_each_cons_oneliner :        3.6 i/s - 29669.18x  slower</pre>
+
+<span id="module-Benchmarks::Issue20260223-label-Array+of+1_000_000+unique+mixed+integers" class="legacy-anchor"></span>
+<h4 id="module-benchmarks-issue20260223-array-of-1000000-unique-mixed-integers"><a href="#module-benchmarks-issue20260223-array-of-1000000-unique-mixed-integers">Array of 1_000_000 unique mixed integers</a></h4>
+
+<pre>eayurt ........................ each :      113.0 i/s
+fpsvogel ................. drop_each :      111.5 i/s - same-ish: difference falls within error
+josh_dev .................... reduce :       37.2 i/s - 3.04x  slower
+lpogic ........ reduce_last_oneliner :       21.7 i/s - 5.20x  slower
+fpsvogel .... map_each_cons_oneliner :        ?!? i/s - too slow to calculate, sorry! 🐌
+sean ... flat_map_each_cons_oneliner :        ?!? i/s - too slow to calculate, sorry! 🐢
+izkreny ......... times_slice_reduce :        ?!? i/s - too slow to calculate, sorry! 🦥</pre>
+
   </section>
 
 
@@ -534,7 +602,7 @@
             </details>
           </div>
           <div class="method-source-code" id="benchmark_answers-source">
-            <pre class="ruby"><span class="ruby-comment"># File benchmarks/20260223.rb, line 14</span>
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/20260223.rb, line 91</span>
     <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">benchmark_answers</span>(<span class="ruby-value">mode:</span> <span class="ruby-value">:default</span>)
       <span class="ruby-identifier">benchmark</span> = <span class="ruby-constant">Benchmarks</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Answers</span><span class="ruby-operator">::</span><span class="ruby-constant">Issue20260223</span>)
       <span class="ruby-identifier">scenarios</span> = [
@@ -552,9 +620,6 @@
         },
       ]
       <span class="ruby-identifier">variants</span> = [
-        {
-          <span class="ruby-value">array_size:</span> <span class="ruby-value">100</span>,
-        },
         {
           <span class="ruby-value">array_size:</span> <span class="ruby-value">1_000</span>,
         },

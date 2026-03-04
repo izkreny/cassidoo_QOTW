@@ -15,7 +15,7 @@
 
     <meta
       name="description"
-      content="module Benchmarks::Issue20260216: Issue20260216 --- ``` ruby 4. sean ."
+      content="module Benchmarks::Issue20260216: Issue20260216 --- ``` ruby 4. fuzzy ."
     >
 
 
@@ -28,7 +28,7 @@
 
 
 
-    <meta property="og:description" content="Issue20260216 --- ``` ruby 4. sean .">
+    <meta property="og:description" content="Issue20260216 --- ``` ruby 4. fuzzy .">
 
 
 
@@ -40,7 +40,7 @@
 
 
 
-    <meta name="twitter:description" content="Issue20260216 --- ``` ruby 4. sean .">
+    <meta name="twitter:description" content="Issue20260216 --- ``` ruby 4. fuzzy .">
 
 
 
@@ -494,53 +494,41 @@
 
 <pre>ruby 4.0.1 (2026-01-13 revision e04267a14b) +YJIT +PRISM [x86_64-linux]</pre>
 
-<span id="module-Benchmarks::Issue20260216-label-Grid-3A+10x10+-2F+Zoom+in+factor-3A+10" class="legacy-anchor"></span>
-<h4 id="module-benchmarks-issue20260216-grid-10x10--zoom-in-factor-10"><a href="#module-benchmarks-issue20260216-grid-10x10--zoom-in-factor-10">Grid: 10x10 / Zoom in factor: 10</a></h4>
-
-<pre>sean ...................... each_times :    81108.2 i/s
-fuzzy ........... flat_map_reduce_push :    61471.9 i/s -  1.32x  slower
-eayurt &amp; AI ............ each_flat_map :    55466.4 i/s -  1.46x  slower
-fpsvogel ....... map_flat_map_oneliner :    54621.5 i/s -  1.48x  slower
-roasted_oolong &amp; maybe AI ... flat_map :    53573.6 i/s -  1.51x  slower
-charlie ......... map_flat_map_flatten :    49514.0 i/s -  1.64x  slower
-izkreny ........ each_with_index_times :     7706.7 i/s - 10.52x  slower
-lpogic ............. each_with_yielder :     2141.0 i/s - 37.88x  slower</pre>
-
 <span id="module-Benchmarks::Issue20260216-label-Grid-3A+10x10+-2F+Zoom+in+factor-3A+100" class="legacy-anchor"></span>
 <h4 id="module-benchmarks-issue20260216-grid-10x10--zoom-in-factor-100"><a href="#module-benchmarks-issue20260216-grid-10x10--zoom-in-factor-100">Grid: 10x10 / Zoom in factor: 100</a></h4>
 
-<pre>roasted_oolong &amp; maybe AI ... flat_map :    25203.3 i/s
-fuzzy ........... flat_map_reduce_push :    24467.5 i/s - same-ish: difference falls within error
-fpsvogel ....... map_flat_map_oneliner :    23077.2 i/s - same-ish: difference falls within error
-charlie ......... map_flat_map_flatten :    20941.5 i/s -   1.20x  slower
-eayurt &amp; AI ............ each_flat_map :    20350.5 i/s -   1.24x  slower
-sean ...................... each_times :    10908.1 i/s -   2.31x  slower
-izkreny ........ each_with_index_times :       95.4 i/s - 264.06x  slower
-lpogic ............. each_with_yielder :       30.2 i/s - 835.42x  slower</pre>
+<pre>fuzzy ... flat_map_reduce_push_oneliner :    28851.0 i/s
+roasted_oolong &amp; maybe AI .... flat_map :    27781.4 i/s - same-ish: difference falls within error
+fpsvogel ........ map_flat_map_oneliner :    27526.8 i/s - same-ish: difference falls within error
+charlie .......... map_flat_map_flatten :    22474.7 i/s -    1.28x  slower
+eayurt &amp; AI ............. each_flat_map :    21528.4 i/s -    1.34x  slower
+sean ....................... each_times :    10088.1 i/s -    2.86x  slower
+izkreny ......... each_with_index_times :       91.7 i/s -  314.63x  slower
+lpogic .............. each_with_yielder :       28.5 i/s - 1010.58x  slower</pre>
 
 <span id="module-Benchmarks::Issue20260216-label-Grid-3A+10x10+-2F+Zoom+in+factor-3A+1000" class="legacy-anchor"></span>
 <h4 id="module-benchmarks-issue20260216-grid-10x10--zoom-in-factor-1000"><a href="#module-benchmarks-issue20260216-grid-10x10--zoom-in-factor-1000">Grid: 10x10 / Zoom in factor: 1000</a></h4>
 
-<pre>roasted_oolong &amp; maybe AI ... flat_map :     5608.2 i/s
-fpsvogel ....... map_flat_map_oneliner :     5353.4 i/s - same-ish: difference falls within error
-fuzzy ........... flat_map_reduce_push :     3908.9 i/s -     1.43x  slower
-charlie ......... map_flat_map_flatten :     3704.7 i/s -     1.51x  slower
-eayurt &amp; AI ............ each_flat_map :     3633.5 i/s -     1.54x  slower
-sean ...................... each_times :     1148.5 i/s -     4.88x  slower
-izkreny ........ each_with_index_times :        0.7 i/s -  7587.58x  slower
-lpogic ............. each_with_yielder :        0.3 i/s - 21420.58x  slower</pre>
+<pre>roasted_oolong &amp; maybe AI .... flat_map :     5457.1 i/s
+fpsvogel ........ map_flat_map_oneliner :     5418.9 i/s - same-ish: difference falls within error
+fuzzy ... flat_map_reduce_push_oneliner :     4121.8 i/s -     1.32x  slower
+eayurt &amp; AI ............. each_flat_map :     3554.9 i/s -     1.54x  slower
+charlie .......... map_flat_map_flatten :     3545.6 i/s -     1.54x  slower
+sean ....................... each_times :     1089.7 i/s -     5.01x  slower
+izkreny ......... each_with_index_times :        0.7 i/s -  7733.61x  slower
+lpogic .............. each_with_yielder :        0.3 i/s - 19979.27x  slower</pre>
 
 <span id="module-Benchmarks::Issue20260216-label-Grid-3A+1000x1000+-2F+Zoom+in+factor-3A+10" class="legacy-anchor"></span>
 <h4 id="module-benchmarks-issue20260216-grid-1000x1000--zoom-in-factor-10"><a href="#module-benchmarks-issue20260216-grid-1000x1000--zoom-in-factor-10">Grid: 1000x1000 / Zoom in factor: 10</a></h4>
 
-<pre>sean ...................... each_times :       10.5 i/s
-fuzzy ........... flat_map_reduce_push :        6.6 i/s -  1.57x  slower
-fpsvogel ....... map_flat_map_oneliner :        6.2 i/s -  1.69x  slower
-roasted_oolong &amp; maybe AI ... flat_map :        6.1 i/s -  1.72x  slower
-eayurt &amp; AI ............ each_flat_map :        5.9 i/s -  1.78x  slower
-charlie ......... map_flat_map_flatten :        5.7 i/s -  1.84x  slower
-izkreny ........ each_with_index_times :        0.6 i/s - 16.51x  slower
-lpogic ............. each_with_yielder :        0.3 i/s - 38.99x  slower</pre>
+<pre>sean ....................... each_times :       10.4 i/s
+fuzzy ... flat_map_reduce_push_oneliner :        6.5 i/s -  1.59x  slower
+fpsvogel ........ map_flat_map_oneliner :        6.2 i/s -  1.69x  slower
+eayurt &amp; AI ............. each_flat_map :        6.1 i/s -  1.71x  slower
+charlie .......... map_flat_map_flatten :        6.1 i/s -  1.71x  slower
+roasted_oolong &amp; maybe AI .... flat_map :        6.0 i/s -  1.73x  slower
+izkreny ......... each_with_index_times :        0.6 i/s - 16.68x  slower
+lpogic .............. each_with_yielder :        0.3 i/s - 39.82x  slower</pre>
 
   </section>
 
@@ -584,14 +572,13 @@ lpogic ............. each_with_yielder :        0.3 i/s - 38.99x  slower</pre>
             </details>
           </div>
           <div class="method-source-code" id="benchmark_answers-source">
-            <pre class="ruby"><span class="ruby-comment"># File benchmarks/20260216.rb, line 70</span>
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/20260216.rb, line 57</span>
     <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">benchmark_answers</span>(<span class="ruby-value">mode:</span> <span class="ruby-value">:default</span>)
       <span class="ruby-identifier">benchmark</span> = <span class="ruby-constant">Benchmarks</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Answers</span><span class="ruby-operator">::</span><span class="ruby-constant">Issue20260216</span>)
       <span class="ruby-identifier">scenarios</span> = [
         {
           <span class="ruby-value">grid_size:</span> <span class="ruby-value">10</span>,
           <span class="ruby-value">zoom_factors:</span> [
-            <span class="ruby-value">10</span>,
             <span class="ruby-value">100</span>,
             <span class="ruby-value">1_000</span>,
           ],
@@ -600,8 +587,7 @@ lpogic ............. each_with_yielder :        0.3 i/s - 38.99x  slower</pre>
           <span class="ruby-value">grid_size:</span> <span class="ruby-value">1_000</span>,
           <span class="ruby-value">zoom_factors:</span> [
             <span class="ruby-value">10</span>,
-            <span class="ruby-comment"># 100,    # Too slow to run...</span>
-            <span class="ruby-comment"># 1_000,  # Probably not able to run on a personal computer...</span>
+            <span class="ruby-comment"># 100,  # Too slow to run...</span>
           ],
         },
       ]

@@ -702,7 +702,7 @@
             </details>
           </div>
           <div class="method-source-code" id="chadow_move_numbers_map-source">
-            <pre class="ruby"><span class="ruby-comment"># File answers/20260209.rb, line 57</span>
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260209.rb, line 71</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">chadow_move_numbers_map</span>(<span class="ruby-identifier">ary</span>, <span class="ruby-identifier">num</span>)
   <span class="ruby-identifier">new_ary</span>      = []
   <span class="ruby-identifier">nums_to_move</span> = []
@@ -751,7 +751,7 @@
             </details>
           </div>
           <div class="method-source-code" id="charlie_and_fpsvogel_move_numbers_sort_by-source">
-            <pre class="ruby"><span class="ruby-comment"># File answers/20260209.rb, line 47</span>
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260209.rb, line 54</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">charlie_and_fpsvogel_move_numbers_sort_by</span>(<span class="ruby-identifier">arr</span>, <span class="ruby-identifier">num</span>)
   <span class="ruby-identifier">arr</span>.<span class="ruby-identifier">flat_reverse_partition</span>(<span class="ruby-identifier">num</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -763,6 +763,14 @@
 
 
           <p>Refinement answer by fpsvogel: <a href="Issue20260209/FlatReversePartition.html"><code>Answers::Issue20260209::FlatReversePartition</code></a></p>
+
+<p>Using same method as charlie:</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">move_nums</span>(<span class="ruby-identifier">arr</span>, <span class="ruby-identifier">item</span>, <span class="ruby-value">in_place:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">sort_method</span> = <span class="ruby-identifier">in_place</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;sort_by!&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;sort_by&quot;</span>
+  <span class="ruby-identifier">arr</span>.<span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">sort_method</span>) { <span class="ruby-identifier">it</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">item</span> <span class="ruby-operator">?</span> <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span> }
+<span class="ruby-keyword">end</span>
+</pre>
 
 
         </div>
@@ -793,7 +801,7 @@
             </details>
           </div>
           <div class="method-source-code" id="charlie_and_fpsvogel_move_numbers_sort_by-21-source">
-            <pre class="ruby"><span class="ruby-comment"># File answers/20260209.rb, line 53</span>
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260209.rb, line 67</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">charlie_and_fpsvogel_move_numbers_sort_by!</span>(<span class="ruby-identifier">arr</span>, <span class="ruby-identifier">num</span>)
   <span class="ruby-identifier">arr</span>.<span class="ruby-identifier">flat_reverse_partition!</span>(<span class="ruby-identifier">num</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -805,6 +813,14 @@
 
 
           <p>Refinement answer by fpsvogel: <a href="Issue20260209/FlatReversePartition.html"><code>Answers::Issue20260209::FlatReversePartition</code></a></p>
+
+<p>Using same method as charlie:</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">move_nums</span>(<span class="ruby-identifier">arr</span>, <span class="ruby-identifier">item</span>, <span class="ruby-value">in_place:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">sort_method</span> = <span class="ruby-identifier">in_place</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;sort_by!&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;sort_by&quot;</span>
+  <span class="ruby-identifier">arr</span>.<span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">sort_method</span>) { <span class="ruby-identifier">it</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">item</span> <span class="ruby-operator">?</span> <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span> }
+<span class="ruby-keyword">end</span>
+</pre>
 
 
         </div>
@@ -835,7 +851,7 @@
             </details>
           </div>
           <div class="method-source-code" id="eayurt_move_numbers_each-21-source">
-            <pre class="ruby"><span class="ruby-comment"># File answers/20260209.rb, line 82</span>
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260209.rb, line 96</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">eayurt_move_numbers_each!</span>(<span class="ruby-identifier">array</span>, <span class="ruby-identifier">number</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">array</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">number</span>
 
@@ -890,7 +906,7 @@
             </details>
           </div>
           <div class="method-source-code" id="javier_cervantes_and_izkreny_move_numbers_delete_flatten-21-source">
-            <pre class="ruby"><span class="ruby-comment"># File answers/20260209.rb, line 76</span>
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260209.rb, line 90</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">javier_cervantes_and_izkreny_move_numbers_delete_flatten!</span>(<span class="ruby-identifier">numbers</span>, <span class="ruby-identifier">num</span>)
   <span class="ruby-identifier">count</span> = <span class="ruby-identifier">numbers</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">num</span>)
   <span class="ruby-identifier">numbers</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">num</span>)
@@ -934,7 +950,7 @@
             </details>
           </div>
           <div class="method-source-code" id="javier_cervantes_move_numbers_delete-source">
-            <pre class="ruby"><span class="ruby-comment"># File answers/20260209.rb, line 68</span>
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260209.rb, line 82</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">javier_cervantes_move_numbers_delete</span>(<span class="ruby-identifier">numbers</span>, <span class="ruby-identifier">num</span>)
   <span class="ruby-identifier">count</span> = <span class="ruby-identifier">numbers</span>.<span class="ruby-identifier">count</span>(<span class="ruby-identifier">num</span>)
   <span class="ruby-identifier">numbers</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">num</span>)
