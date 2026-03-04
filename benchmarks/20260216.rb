@@ -12,56 +12,43 @@ module Benchmarks
   # ruby 4.0.1 (2026-01-13 revision e04267a14b) +YJIT +PRISM [x86_64-linux]
   # ```
   #
-  # #### Grid: 10x10 / Zoom in factor: 10
-  #
-  # ```
-  # sean ...................... each_times :    81108.2 i/s
-  # fuzzy ........... flat_map_reduce_push :    61471.9 i/s -  1.32x  slower
-  # eayurt & AI ............ each_flat_map :    55466.4 i/s -  1.46x  slower
-  # fpsvogel ....... map_flat_map_oneliner :    54621.5 i/s -  1.48x  slower
-  # roasted_oolong & maybe AI ... flat_map :    53573.6 i/s -  1.51x  slower
-  # charlie ......... map_flat_map_flatten :    49514.0 i/s -  1.64x  slower
-  # izkreny ........ each_with_index_times :     7706.7 i/s - 10.52x  slower
-  # lpogic ............. each_with_yielder :     2141.0 i/s - 37.88x  slower
-  # ```
-  #
   # #### Grid: 10x10 / Zoom in factor: 100
   #
   # ```
-  # roasted_oolong & maybe AI ... flat_map :    25203.3 i/s
-  # fuzzy ........... flat_map_reduce_push :    24467.5 i/s - same-ish: difference falls within error
-  # fpsvogel ....... map_flat_map_oneliner :    23077.2 i/s - same-ish: difference falls within error
-  # charlie ......... map_flat_map_flatten :    20941.5 i/s -   1.20x  slower
-  # eayurt & AI ............ each_flat_map :    20350.5 i/s -   1.24x  slower
-  # sean ...................... each_times :    10908.1 i/s -   2.31x  slower
-  # izkreny ........ each_with_index_times :       95.4 i/s - 264.06x  slower
-  # lpogic ............. each_with_yielder :       30.2 i/s - 835.42x  slower
+  # fuzzy ... flat_map_reduce_push_oneliner :    28851.0 i/s
+  # roasted_oolong & maybe AI .... flat_map :    27781.4 i/s - same-ish: difference falls within error
+  # fpsvogel ........ map_flat_map_oneliner :    27526.8 i/s - same-ish: difference falls within error
+  # charlie .......... map_flat_map_flatten :    22474.7 i/s -    1.28x  slower
+  # eayurt & AI ............. each_flat_map :    21528.4 i/s -    1.34x  slower
+  # sean ....................... each_times :    10088.1 i/s -    2.86x  slower
+  # izkreny ......... each_with_index_times :       91.7 i/s -  314.63x  slower
+  # lpogic .............. each_with_yielder :       28.5 i/s - 1010.58x  slower
   # ```
   #
   # #### Grid: 10x10 / Zoom in factor: 1000
   #
   # ```
-  # roasted_oolong & maybe AI ... flat_map :     5608.2 i/s
-  # fpsvogel ....... map_flat_map_oneliner :     5353.4 i/s - same-ish: difference falls within error
-  # fuzzy ........... flat_map_reduce_push :     3908.9 i/s -     1.43x  slower
-  # charlie ......... map_flat_map_flatten :     3704.7 i/s -     1.51x  slower
-  # eayurt & AI ............ each_flat_map :     3633.5 i/s -     1.54x  slower
-  # sean ...................... each_times :     1148.5 i/s -     4.88x  slower
-  # izkreny ........ each_with_index_times :        0.7 i/s -  7587.58x  slower
-  # lpogic ............. each_with_yielder :        0.3 i/s - 21420.58x  slower
+  # roasted_oolong & maybe AI .... flat_map :     5457.1 i/s
+  # fpsvogel ........ map_flat_map_oneliner :     5418.9 i/s - same-ish: difference falls within error
+  # fuzzy ... flat_map_reduce_push_oneliner :     4121.8 i/s -     1.32x  slower
+  # eayurt & AI ............. each_flat_map :     3554.9 i/s -     1.54x  slower
+  # charlie .......... map_flat_map_flatten :     3545.6 i/s -     1.54x  slower
+  # sean ....................... each_times :     1089.7 i/s -     5.01x  slower
+  # izkreny ......... each_with_index_times :        0.7 i/s -  7733.61x  slower
+  # lpogic .............. each_with_yielder :        0.3 i/s - 19979.27x  slower
   # ```
   #
   # #### Grid: 1000x1000 / Zoom in factor: 10
   #
   # ```
-  # sean ...................... each_times :       10.5 i/s
-  # fuzzy ........... flat_map_reduce_push :        6.6 i/s -  1.57x  slower
-  # fpsvogel ....... map_flat_map_oneliner :        6.2 i/s -  1.69x  slower
-  # roasted_oolong & maybe AI ... flat_map :        6.1 i/s -  1.72x  slower
-  # eayurt & AI ............ each_flat_map :        5.9 i/s -  1.78x  slower
-  # charlie ......... map_flat_map_flatten :        5.7 i/s -  1.84x  slower
-  # izkreny ........ each_with_index_times :        0.6 i/s - 16.51x  slower
-  # lpogic ............. each_with_yielder :        0.3 i/s - 38.99x  slower
+  # sean ....................... each_times :       10.4 i/s
+  # fuzzy ... flat_map_reduce_push_oneliner :        6.5 i/s -  1.59x  slower
+  # fpsvogel ........ map_flat_map_oneliner :        6.2 i/s -  1.69x  slower
+  # eayurt & AI ............. each_flat_map :        6.1 i/s -  1.71x  slower
+  # charlie .......... map_flat_map_flatten :        6.1 i/s -  1.71x  slower
+  # roasted_oolong & maybe AI .... flat_map :        6.0 i/s -  1.73x  slower
+  # izkreny ......... each_with_index_times :        0.6 i/s - 16.68x  slower
+  # lpogic .............. each_with_yielder :        0.3 i/s - 39.82x  slower
   # ```
   #
   module Issue20260216
@@ -73,7 +60,6 @@ module Benchmarks
         {
           grid_size: 10,
           zoom_factors: [
-            10,
             100,
             1_000,
           ],
@@ -82,8 +68,7 @@ module Benchmarks
           grid_size: 1_000,
           zoom_factors: [
             10,
-            # 100,    # Too slow to run...
-            # 1_000,  # Probably not able to run on a personal computer...
+            # 100,  # Too slow to run...
           ],
         },
       ]

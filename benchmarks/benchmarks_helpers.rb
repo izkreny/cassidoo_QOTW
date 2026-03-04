@@ -31,6 +31,7 @@ module Benchmarks
     #
     class Specification
       RANDOM_NEW_SEED     = 666_999
+      EMPTY_STRING        = ""
       SPACER              = "."
       MIN_SPACER_AMOUNT   = 3
       SKIPPED_METHOD_INFO = ":        ?!? i/s - too slow to calculate, sorry!"
@@ -44,7 +45,7 @@ module Benchmarks
         @method_base_name = find_method_base_name
         @labels           = generate_labels_for_methods
         @seed             = RANDOM_NEW_SEED
-        @name             = ""
+        @name             = EMPTY_STRING
       end
 
       # Main method, wrapper for `Benchmark.ips`
@@ -52,15 +53,14 @@ module Benchmarks
       def run(*method_arguments, scenario: {}, variant: {}, mode: :default, quiet: false)
         @skip_methods = fetch_skip_methods_from(scenario, variant)
 
-        puts "" if mode == :test
         puts @name
 
         Benchmark.ips do |x|
           case mode
-          when :test    then x.config(warmup: 1, time: 1, quiet: true)
-          when :quick   then x.config(warmup: 1, time: 1, quiet: false)
-          when :default then x.config(warmup: 3, time: 6, quiet: true)
-          when :jruby   then x.config(warmup: 3, time: 6, quiet:, iterations: 3)
+          when :test  then x.config(warmup: 1, time: 1, quiet: true)
+          when :quick then x.config(warmup: 1, time: 1, quiet: false)
+          when :slow  then x.config(warmup: 3, time: 6, quiet: true)
+          when :jruby then x.config(warmup: 3, time: 6, quiet:, iterations: 3)
           end
 
           @methods.each do |method|
@@ -76,7 +76,8 @@ module Benchmarks
           x.compare!
         end
 
-        puts skipped_methods_for_print
+        puts skipped_methods_for_print unless @skip_methods.empty?
+        puts EMPTY_STRING              if     mode == :test
       end
 
       def find_method_base_name
@@ -135,8 +136,6 @@ module Benchmarks
       end
 
       def skipped_methods_for_print
-        return if @skip_methods.empty?
-
         @skip_methods.map { @labels[it] + SKIPPED_METHOD_INFO + SlowAnimal.show(before: " ") }
       end
 

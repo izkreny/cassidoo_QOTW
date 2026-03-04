@@ -12,36 +12,22 @@ module Benchmarks
   # ruby 4.0.1 (2026-01-13 revision e04267a14b) +YJIT +PRISM [x86_64-linux]
   # ```
   #
-  # #### 1_000 / 5
-  #
-  # - `1_000` - Integer array size (with initially all unique numbers)
-  # - `5` - Number `n` occurrence inside the integer array
-  #
-  # ```
-  # javier_cervantes ...................... delete :   127860.6 i/s
-  # eayurt ................................. each! :    99908.9 i/s - 1.28x  slower
-  # chadow ................................... map :    52077.6 i/s - 2.46x  slower
-  # javier_cervantes & izkreny ... delete_flatten! :    29541.9 i/s - 4.33x  slower
-  # charlie & fpsvogel ................... sort_by :    27716.0 i/s - 4.61x  slower
-  # charlie & fpsvogel .................. sort_by! :    22428.6 i/s - 5.70x  slower
-  # katafrakt .......... partition_reverse_flatten :    16215.8 i/s - 7.88x  slower
-  # izkreny & andynu ........... partition_flatten :    16165.5 i/s - 7.91x  slower
-  # ```
-  #
   # #### 1_000 / 50
   #
   # - `1_000` - Integer array size (with initially all unique numbers)
   # - `50` - Number `n` occurrence inside the integer array
   #
   # ```
-  # javier_cervantes ...................... delete :   108130.4 i/s
-  # eayurt ................................. each! :    93775.9 i/s - 1.15x  slower
-  # chadow ................................... map :    52228.9 i/s - 2.07x  slower
-  # javier_cervantes & izkreny ... delete_flatten! :    28772.1 i/s - 3.76x  slower
-  # charlie & fpsvogel ................... sort_by :    27025.7 i/s - 4.00x  slower
-  # charlie & fpsvogel .................. sort_by! :    22049.8 i/s - 4.90x  slower
-  # izkreny & andynu ........... partition_flatten :    16291.6 i/s - 6.64x  slower
-  # katafrakt .......... partition_reverse_flatten :    16099.4 i/s - 6.72x  slower
+  #
+  # eayurt ................................. each! :   547997.0 i/s
+  # javier_cervantes ...................... delete :   228452.0 i/s - 2.40x  slower
+  # chadow ................................... map :    56520.8 i/s - 9.70x  slower
+  # javier_cervantes & izkreny ... delete_flatten! :    34201.4 i/s - 16.02x  slower
+  # charlie & fpsvogel ................... sort_by :    32272.3 i/s - 16.98x  slower
+  # charlie & fpsvogel .................. sort_by! :    26055.1 i/s - 21.03x  slower
+  # izkreny & andynu ........... partition_flatten :    16647.6 i/s - 32.92x  slower
+  # katafrakt .......... partition_reverse_flatten :    16303.1 i/s - 33.61x  slower
+  #
   # ```
   #
   # #### 1_000 / 500
@@ -50,30 +36,16 @@ module Benchmarks
   # - `500` - Number `n` occurrence inside the integer array
   #
   # ```
-  # javier_cervantes ...................... delete :    90251.0 i/s
-  # eayurt ................................. each! :    52059.6 i/s - 1.73x  slower
-  # chadow ................................... map :    42435.5 i/s - 2.13x  slower
-  # javier_cervantes & izkreny ... delete_flatten! :    25091.1 i/s - 3.60x  slower
-  # charlie & fpsvogel ................... sort_by :    23684.6 i/s - 3.81x  slower
-  # charlie & fpsvogel .................. sort_by! :    19865.7 i/s - 4.54x  slower
-  # izkreny & andynu ........... partition_flatten :    16127.7 i/s - 5.60x  slower
-  # katafrakt .......... partition_reverse_flatten :    15983.4 i/s - 5.65x  slower
-  # ```
   #
-  # #### 1_000_000 / 5_000
+  # eayurt ................................. each! :   964149.9 i/s
+  # javier_cervantes ...................... delete :   405746.8 i/s - 2.38x  slower
+  # chadow ................................... map :   101509.1 i/s - 9.50x  slower
+  # javier_cervantes & izkreny ... delete_flatten! :    63010.2 i/s - 15.30x  slower
+  # charlie & fpsvogel ................... sort_by :    58834.4 i/s - 16.39x  slower
+  # charlie & fpsvogel .................. sort_by! :    48061.5 i/s - 20.06x  slower
+  # izkreny & andynu ........... partition_flatten :    30019.1 i/s - 32.12x  slower
+  # katafrakt .......... partition_reverse_flatten :    29763.6 i/s - 32.39x  slower
   #
-  # - `1_000_000` - Integer array size (with initially all unique numbers)
-  # - `5_000` - Number `n` occurrence inside the integer array
-  #
-  # ```
-  # javier_cervantes ...................... delete :      117.8 i/s
-  # eayurt ................................. each! :      102.8 i/s - 1.15x  slower
-  # chadow ................................... map :       51.8 i/s - 2.28x  slower
-  # javier_cervantes & izkreny ... delete_flatten! :       26.9 i/s - 4.38x  slower
-  # charlie & fpsvogel ................... sort_by :       22.4 i/s - 5.25x  slower
-  # charlie & fpsvogel .................. sort_by! :       19.0 i/s - 6.19x  slower
-  # katafrakt .......... partition_reverse_flatten :       16.1 i/s - 7.30x  slower
-  # izkreny & andynu ........... partition_flatten :       16.0 i/s - 7.35x  slower
   # ```
   #
   # #### 1_000_000 / 50_000
@@ -82,14 +54,16 @@ module Benchmarks
   # - `50_000` - Number `n` occurrence inside the integer array
   #
   # ```
-  # javier_cervantes ...................... delete :      106.1 i/s
-  # eayurt ................................. each! :       88.4 i/s - 1.20x  slower
-  # chadow ................................... map :       51.3 i/s - 2.07x  slower
-  # javier_cervantes & izkreny ... delete_flatten! :       27.2 i/s - 3.90x  slower
-  # charlie & fpsvogel ................... sort_by :       23.4 i/s - 4.54x  slower
-  # charlie & fpsvogel .................. sort_by! :       20.5 i/s - 5.19x  slower
-  # katafrakt .......... partition_reverse_flatten :       16.6 i/s - 6.38x  slower
-  # izkreny & andynu ........... partition_flatten :       15.8 i/s - 6.73x  slower
+  #
+  # eayurt ................................. each! :      564.9 i/s
+  # javier_cervantes ...................... delete :      231.5 i/s - 2.44x  slower
+  # chadow ................................... map :       53.4 i/s - 10.58x  slower
+  # javier_cervantes & izkreny ... delete_flatten! :       32.3 i/s - 17.51x  slower
+  # charlie & fpsvogel ................... sort_by :       27.6 i/s - 20.49x  slower
+  # charlie & fpsvogel .................. sort_by! :       22.4 i/s - 25.22x  slower
+  # katafrakt .......... partition_reverse_flatten :       16.7 i/s - 33.77x  slower
+  # izkreny & andynu ........... partition_flatten :       16.5 i/s - 34.32x  slower
+  #
   # ```
   #
   # #### 1_000_000 / 500_000
@@ -98,14 +72,15 @@ module Benchmarks
   # - `500_000` - Number `n` occurrence inside the integer array
   #
   # ```
-  # javier_cervantes ...................... delete :       66.1 i/s
-  # eayurt ................................. each! :       46.3 i/s - 1.43x  slower
-  # chadow ................................... map :       41.5 i/s - 1.59x  slower
-  # javier_cervantes & izkreny ... delete_flatten! :       23.4 i/s - 2.82x  slower
-  # charlie & fpsvogel ................... sort_by :       19.7 i/s - 3.36x  slower
-  # charlie & fpsvogel .................. sort_by! :       16.2 i/s - 4.07x  slower
-  # izkreny & andynu ........... partition_flatten :       16.1 i/s - 4.09x  slower
-  # katafrakt .......... partition_reverse_flatten :       15.3 i/s - 4.31x  slower
+  #
+  # eayurt ................................. each! :     1066.1 i/s
+  # javier_cervantes ...................... delete :      418.6 i/s - 2.55x  slower
+  # chadow ................................... map :      103.0 i/s - 10.35x  slower
+  # javier_cervantes & izkreny ... delete_flatten! :       62.5 i/s - 17.04x  slower
+  # charlie & fpsvogel ................... sort_by :       60.4 i/s - 17.65x  slower
+  # charlie & fpsvogel .................. sort_by! :       47.6 i/s - 22.40x  slower
+  # katafrakt .......... partition_reverse_flatten :       31.0 i/s - 34.42x  slower
+  # izkreny & andynu ........... partition_flatten :       30.9 i/s - 34.50x  slower
   # ```
   #
   module Issue20260209
@@ -117,7 +92,6 @@ module Benchmarks
         {
           integers_size: 1_000,
           number_of_occurrences: [
-            5,
             50,
             500,
           ],
@@ -125,7 +99,6 @@ module Benchmarks
         {
           integers_size: 1_000_000,
           number_of_occurrences: [
-            5_000,
             50_000,
             500_000,
           ],
