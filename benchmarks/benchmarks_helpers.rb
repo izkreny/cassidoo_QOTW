@@ -49,7 +49,7 @@ module Benchmarks
 
       # Main method, wrapper for `Benchmark.ips`
       #
-      def run(*method_arguments, scenario: {}, variant: {}, mode: :quick)
+      def run(*method_arguments, scenario: {}, variant: {}, mode: :default, quiet: false)
         @skip_methods = fetch_skip_methods_from(scenario, variant)
 
         puts "" if mode == :test
@@ -59,7 +59,8 @@ module Benchmarks
           case mode
           when :test    then x.config(warmup: 1, time: 1, quiet: true)
           when :quick   then x.config(warmup: 1, time: 1, quiet: false)
-          when :default then x.config(warmup: 2, time: 5, quiet: true)
+          when :default then x.config(warmup: 3, time: 6, quiet: true)
+          when :jruby   then x.config(warmup: 3, time: 6, quiet:, iterations: 3)
           end
 
           @methods.each do |method|
@@ -75,10 +76,8 @@ module Benchmarks
           x.compare!
         end
 
-        print_skipped_metods
+        puts skipped_methods_for_print
       end
-
-      # private
 
       def find_method_base_name
         @methods
@@ -95,7 +94,7 @@ module Benchmarks
         (1..words.size).flat_map { words.each_cons(it).to_a }
       end
 
-      # Prettier `becnhmark-ips` labels printed in 'Comparison' section
+      # Prettier `benchmark-ips` labels printed in 'Comparison' section
       #
       def generate_labels_for_methods
         labels   = {}
@@ -135,12 +134,10 @@ module Benchmarks
         skip_methods
       end
 
-      def print_skipped_metods
+      def skipped_methods_for_print
         return if @skip_methods.empty?
 
-        @skip_methods.each do |method|
-          puts @labels[method] + SKIPPED_METHOD_INFO + SlowAnimal.show(before: " ")
-        end
+        @skip_methods.map { @labels[it] + SKIPPED_METHOD_INFO + SlowAnimal.show(before: " ") }
       end
 
       # Show a different slow animal each time `SlowAnimal.show` is called:
