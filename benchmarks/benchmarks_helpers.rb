@@ -34,8 +34,8 @@ module Benchmarks
       EMPTY_STRING        = ""
       SPACER              = "."
       MIN_SPACER_AMOUNT   = 3
-      SKIPPED_METHOD_INFO = ":        ?!? i/s - too slow to calculate, sorry!"
-      TEST_METHOD_INFO    = ":        ?!? i/s - TEST FAKE RUN!"
+      SKIPPED_METHOD_INFO = ":        ?!? i/s - too slow/big to calculate, sorry!"
+      TEST_METHOD_INFO    = ":        ?!? i/s - DRY RUN!"
 
       attr_accessor :seed, :name
 
@@ -57,16 +57,16 @@ module Benchmarks
 
         Benchmark.ips do |x|
           case mode
-          when :test  then x.config(warmup: 1, time: 1, quiet: true)
-          when :quick then x.config(warmup: 1, time: 1, quiet: false)
-          when :slow  then x.config(warmup: 3, time: 6, quiet: true)
-          when :jruby then x.config(warmup: 3, time: 6, quiet:, iterations: 3)
+          when :dry_run then x.config(warmup: 1, time: 1, quiet: true)
+          when :quick   then x.config(warmup: 1, time: 1, quiet: false)
+          when :slow    then x.config(warmup: 3, time: 6, quiet: true)
+          when :jruby   then x.config(warmup: 3, time: 6, quiet:, iterations: 2)
           end
 
           @methods.each do |method|
             next if @skip_methods.include?(method)
 
-            if mode == :test
+            if mode == :dry_run
               puts @labels[method] + TEST_METHOD_INFO
             else
               x.report(@labels[method]) { @answers.public_send(method, *method_arguments) }
@@ -77,7 +77,7 @@ module Benchmarks
         end
 
         puts skipped_methods_for_print unless @skip_methods.empty?
-        puts EMPTY_STRING              if     mode == :test
+        puts EMPTY_STRING              if     mode == :dry_run
       end
 
       def find_method_base_name
@@ -95,7 +95,7 @@ module Benchmarks
         (1..words.size).flat_map { words.each_cons(it).to_a }
       end
 
-      # Prettier `benchmark-ips` labels printed in 'Comparison' section
+      # Prettier `benchmark-ips` labels identical in size
       #
       def generate_labels_for_methods
         labels   = {}
