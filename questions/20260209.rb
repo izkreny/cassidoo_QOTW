@@ -12,7 +12,7 @@ module Questions
   # > move all of the `n`s to the end of the array
   # > while maintaining the relative order of the non-`n`s.
   # >
-  # > _Bonus: do this without making a copy of the array!_
+  # > Bonus: do this without making a copy of the array!
   #
   class Issue20260209 < Minitest::Test
     include Answers::Issue20260209

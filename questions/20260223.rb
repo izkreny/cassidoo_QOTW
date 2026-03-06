@@ -13,7 +13,7 @@ module Questions
   # > A subarray must contain at least one element.
   # > If all elements are negative, return the largest (least negative) value.
   # >
-  # > _If you need a hint, look up Kadane's Algorithm!_
+  # > If you need a hint, look up [Kadane's Algorithm](https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane's_algorithm)!
   #
   class Issue20260223 < Minitest::Test
     include Answers::Issue20260223
