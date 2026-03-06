@@ -88,7 +88,7 @@ module Benchmarks
   module Issue20260223
     using Benchmarks::Helpers::Refinements
 
-    def self.benchmark_answers(mode: :default)
+    def self.benchmark_answers(mode: :slow)
       benchmark = Benchmarks::Helpers::Specification.new(Answers::Issue20260223)
       scenarios = [
         {

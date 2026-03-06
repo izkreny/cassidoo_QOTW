@@ -11,7 +11,7 @@ module Benchmarks
   module IssueXXXXXXXX
     using Benchmarks::Helpers::Refinements
 
-    def self.benchmark_answers(mode: :default)
+    def self.benchmark_answers(mode: :slow)
       benchmark = Benchmarks::Helpers::Specification.new(Answers::IssueXXXXXXXX)
       scenarios = [
         {

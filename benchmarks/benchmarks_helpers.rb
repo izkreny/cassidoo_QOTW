@@ -129,8 +129,8 @@ module Benchmarks
 
         methods_for   = variant[:skip_methods_for_scenario]
         skip_methods  = []
-        skip_methods += methods_for[:all]            if methods_for.key?(:all)
-        skip_methods += methods_for[scenario[:name]] if methods_for.key?(scenario[:name])
+        skip_methods += methods_for[:all]            if methods_for[:all]
+        skip_methods += methods_for[scenario[:name]] if methods_for[scenario[:name]]
 
         skip_methods
       end
