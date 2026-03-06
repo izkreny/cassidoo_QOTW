@@ -36,8 +36,8 @@ module Benchmarks
     using Benchmarks::Helpers::Refinements
 
     def self.benchmark_answers(mode: :slow)
-      benchmark     = Benchmarks::Helpers::Specification.new(Answers::Issue20260302)
-      scenarios     = [
+      benchmark = Benchmarks::Helpers::Specification.new(Answers::Issue20260302)
+      scenarios = [
         1_000,
         1_000_000,
       ]

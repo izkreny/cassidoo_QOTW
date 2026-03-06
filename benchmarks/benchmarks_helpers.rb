@@ -51,17 +51,20 @@ module Benchmarks
       # Main method, wrapper for `Benchmark.ips`
       #
       def run(*method_arguments, scenario: {}, variant: {}, mode: :default, quiet: false)
-        @skip_methods = fetch_skip_methods_from(scenario, variant)
+        @skip_methods    = fetch_skip_methods_from(scenario, variant)
+        benchmark_config =
+          case mode
+          when :dry_run then { warmup: 1, time: 1, quiet: true           }
+          when :quick   then { warmup: 1, time: 1, quiet: false          }
+          when :slow    then { warmup: 3, time: 6, quiet: true           }
+          when :jruby   then { warmup: 3, time: 6, quiet:, iterations: 2 }
+          else               { warmup: 2, time: 5, quiet: false          }
+          end
 
         puts @name
 
         Benchmark.ips do |x|
-          case mode
-          when :dry_run then x.config(warmup: 1, time: 1, quiet: true)
-          when :quick   then x.config(warmup: 1, time: 1, quiet: false)
-          when :slow    then x.config(warmup: 3, time: 6, quiet: true)
-          when :jruby   then x.config(warmup: 3, time: 6, quiet:, iterations: 2)
-          end
+          x.config(**benchmark_config)
 
           @methods.each do |method|
             next if @skip_methods.include?(method)
