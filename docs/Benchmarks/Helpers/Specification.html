@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>class Benchmarks::Helpers::Specification - cassidoo_QOTW</title>
+<title>class Benchmarks::Helpers::Specification - rendezvous with cassidoo - IQOTW</title>
 
 
   <meta
@@ -24,7 +24,7 @@
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="class Benchmarks::Helpers::Specification - cassidoo_QOTW">
+<meta property="og:title" content="class Benchmarks::Helpers::Specification - rendezvous with cassidoo - IQOTW">
 
 
 
@@ -36,7 +36,7 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="class Benchmarks::Helpers::Specification - cassidoo_QOTW">
+<meta name="twitter:title" content="class Benchmarks::Helpers::Specification - rendezvous with cassidoo - IQOTW">
 
 
 
@@ -308,7 +308,7 @@
 
 <header class="top-navbar">
   <a href="../../index.html" class="navbar-brand">
-    cassidoo_QOTW
+    rendezvous with cassidoo - IQOTW
   </a>
 
   <!-- Desktop search bar -->
@@ -738,7 +738,7 @@
             </details>
           </div>
           <div class="method-source-code" id="fetch_skip_methods_from-source">
-            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 127</span>
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 130</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fetch_skip_methods_from</span>(<span class="ruby-identifier">scenario</span>, <span class="ruby-identifier">variant</span>)
   <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">variant</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:skip_methods_for_scenario</span>)
 
@@ -787,7 +787,7 @@
             </details>
           </div>
           <div class="method-source-code" id="find_method_base_name-source">
-            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 83</span>
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 86</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find_method_base_name</span>
   <span class="ruby-ivar">@methods</span>
     .<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">method_full_name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">generate_slices_from</span>(<span class="ruby-identifier">method_full_name</span>) }
@@ -833,7 +833,7 @@
             </details>
           </div>
           <div class="method-source-code" id="generate_labels_for_methods-source">
-            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 100</span>
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 103</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generate_labels_for_methods</span>
   <span class="ruby-identifier">labels</span>   = {}
   <span class="ruby-identifier">max_size</span> = <span class="ruby-value">0</span>
@@ -898,7 +898,7 @@
             </details>
           </div>
           <div class="method-source-code" id="generate_slices_from-source">
-            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 93</span>
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 96</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generate_slices_from</span>(<span class="ruby-identifier">method_name</span>)
   <span class="ruby-identifier">words</span> = <span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;_&quot;</span>)
   (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">words</span>.<span class="ruby-identifier">size</span>).<span class="ruby-identifier">flat_map</span> { <span class="ruby-identifier">words</span>.<span class="ruby-identifier">each_cons</span>(<span class="ruby-identifier">it</span>).<span class="ruby-identifier">to_a</span> }
@@ -943,17 +943,20 @@
           <div class="method-source-code" id="run-source">
             <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 53</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">run</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">method_arguments</span>, <span class="ruby-value">scenario:</span> {}, <span class="ruby-value">variant:</span> {}, <span class="ruby-value">mode:</span> <span class="ruby-value">:default</span>, <span class="ruby-value">quiet:</span> <span class="ruby-keyword">false</span>)
-  <span class="ruby-ivar">@skip_methods</span> = <span class="ruby-identifier">fetch_skip_methods_from</span>(<span class="ruby-identifier">scenario</span>, <span class="ruby-identifier">variant</span>)
+  <span class="ruby-ivar">@skip_methods</span>    = <span class="ruby-identifier">fetch_skip_methods_from</span>(<span class="ruby-identifier">scenario</span>, <span class="ruby-identifier">variant</span>)
+  <span class="ruby-identifier">benchmark_config</span> =
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">mode</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:dry_run</span> <span class="ruby-keyword">then</span> { <span class="ruby-value">warmup:</span> <span class="ruby-value">1</span>, <span class="ruby-value">time:</span> <span class="ruby-value">1</span>, <span class="ruby-value">quiet:</span> <span class="ruby-keyword">true</span>           }
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:quick</span>   <span class="ruby-keyword">then</span> { <span class="ruby-value">warmup:</span> <span class="ruby-value">1</span>, <span class="ruby-value">time:</span> <span class="ruby-value">1</span>, <span class="ruby-value">quiet:</span> <span class="ruby-keyword">false</span>          }
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:slow</span>    <span class="ruby-keyword">then</span> { <span class="ruby-value">warmup:</span> <span class="ruby-value">3</span>, <span class="ruby-value">time:</span> <span class="ruby-value">6</span>, <span class="ruby-value">quiet:</span> <span class="ruby-keyword">true</span>           }
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:jruby</span>   <span class="ruby-keyword">then</span> { <span class="ruby-value">warmup:</span> <span class="ruby-value">3</span>, <span class="ruby-value">time:</span> <span class="ruby-value">6</span>, <span class="ruby-value">quiet:</span>, <span class="ruby-value">iterations:</span> <span class="ruby-value">2</span> }
+    <span class="ruby-keyword">else</span>               { <span class="ruby-value">warmup:</span> <span class="ruby-value">2</span>, <span class="ruby-value">time:</span> <span class="ruby-value">5</span>, <span class="ruby-value">quiet:</span> <span class="ruby-keyword">false</span>          }
+    <span class="ruby-keyword">end</span>
 
   <span class="ruby-identifier">puts</span> <span class="ruby-ivar">@name</span>
 
   <span class="ruby-constant">Benchmark</span>.<span class="ruby-identifier">ips</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">case</span> <span class="ruby-identifier">mode</span>
-    <span class="ruby-keyword">when</span> <span class="ruby-value">:dry_run</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">config</span>(<span class="ruby-value">warmup:</span> <span class="ruby-value">1</span>, <span class="ruby-value">time:</span> <span class="ruby-value">1</span>, <span class="ruby-value">quiet:</span> <span class="ruby-keyword">true</span>)
-    <span class="ruby-keyword">when</span> <span class="ruby-value">:quick</span>   <span class="ruby-keyword">then</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">config</span>(<span class="ruby-value">warmup:</span> <span class="ruby-value">1</span>, <span class="ruby-value">time:</span> <span class="ruby-value">1</span>, <span class="ruby-value">quiet:</span> <span class="ruby-keyword">false</span>)
-    <span class="ruby-keyword">when</span> <span class="ruby-value">:slow</span>    <span class="ruby-keyword">then</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">config</span>(<span class="ruby-value">warmup:</span> <span class="ruby-value">3</span>, <span class="ruby-value">time:</span> <span class="ruby-value">6</span>, <span class="ruby-value">quiet:</span> <span class="ruby-keyword">true</span>)
-    <span class="ruby-keyword">when</span> <span class="ruby-value">:jruby</span>   <span class="ruby-keyword">then</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">config</span>(<span class="ruby-value">warmup:</span> <span class="ruby-value">3</span>, <span class="ruby-value">time:</span> <span class="ruby-value">6</span>, <span class="ruby-value">quiet:</span>, <span class="ruby-value">iterations:</span> <span class="ruby-value">2</span>)
-    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">x</span>.<span class="ruby-identifier">config</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">benchmark_config</span>)
 
     <span class="ruby-ivar">@methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
       <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@skip_methods</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">method</span>)
@@ -1009,7 +1012,7 @@
             </details>
           </div>
           <div class="method-source-code" id="skipped_methods_for_print-source">
-            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 138</span>
+            <pre class="ruby"><span class="ruby-comment"># File benchmarks/benchmarks_helpers.rb, line 141</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">skipped_methods_for_print</span>
   <span class="ruby-ivar">@skip_methods</span>.<span class="ruby-identifier">map</span> { <span class="ruby-ivar">@labels</span>[<span class="ruby-identifier">it</span>] <span class="ruby-operator">+</span> <span class="ruby-constant">SKIPPED_METHOD_INFO</span> <span class="ruby-operator">+</span> <span class="ruby-constant">SlowAnimal</span>.<span class="ruby-identifier">show</span>(<span class="ruby-value">before:</span> <span class="ruby-string">&quot; &quot;</span>) }
 <span class="ruby-keyword">end</span></pre>

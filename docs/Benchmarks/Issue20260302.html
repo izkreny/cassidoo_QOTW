@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>module Benchmarks::Issue20260302 - cassidoo_QOTW</title>
+<title>module Benchmarks::Issue20260302 - rendezvous with cassidoo - IQOTW</title>
 
 
   <meta
@@ -24,7 +24,7 @@
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="module Benchmarks::Issue20260302 - cassidoo_QOTW">
+<meta property="og:title" content="module Benchmarks::Issue20260302 - rendezvous with cassidoo - IQOTW">
 
 
 
@@ -36,7 +36,7 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="module Benchmarks::Issue20260302 - cassidoo_QOTW">
+<meta name="twitter:title" content="module Benchmarks::Issue20260302 - rendezvous with cassidoo - IQOTW">
 
 
 
@@ -308,7 +308,7 @@
 
 <header class="top-navbar">
   <a href="../index.html" class="navbar-brand">
-    cassidoo_QOTW
+    rendezvous with cassidoo - IQOTW
   </a>
 
   <!-- Desktop search bar -->
@@ -556,8 +556,8 @@ izkreny ..... tally_max_by_oneliner :       15.6 i/s - 7.57x  slower</pre>
           <div class="method-source-code" id="benchmark_answers-source">
             <pre class="ruby"><span class="ruby-comment"># File benchmarks/20260302.rb, line 38</span>
     <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">benchmark_answers</span>(<span class="ruby-value">mode:</span> <span class="ruby-value">:slow</span>)
-      <span class="ruby-identifier">benchmark</span>     = <span class="ruby-constant">Benchmarks</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Answers</span><span class="ruby-operator">::</span><span class="ruby-constant">Issue20260302</span>)
-      <span class="ruby-identifier">scenarios</span>     = [
+      <span class="ruby-identifier">benchmark</span> = <span class="ruby-constant">Benchmarks</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Answers</span><span class="ruby-operator">::</span><span class="ruby-constant">Issue20260302</span>)
+      <span class="ruby-identifier">scenarios</span> = [
         <span class="ruby-value">1_000</span>,
         <span class="ruby-value">1_000_000</span>,
       ]
