@@ -32,8 +32,8 @@ module Questions
         },
         # Extra example by izkreny
         {
-          array: [2, 1, 1],
-          expected_result: 1,
+          array: %w[x o o],
+          expected_result: "o",
         },
       ]
     end

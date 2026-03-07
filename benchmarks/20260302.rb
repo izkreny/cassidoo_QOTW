@@ -43,9 +43,8 @@ module Benchmarks
       ]
 
       scenarios.each do |size|
-        min_majority_amount = (size / 2) + 1
-        array               = (0...size).to_a.shuffle(random: Random.new(benchmark.seed))
-        array.take(min_majority_amount).map { array[it] = size }
+        array = (0...size).to_a.shuffle(random: Random.new(benchmark.seed))
+        array.take((size / 2) + 1).each { array[it] = size }
         benchmark.name =
           <<~MARKDOWN
             # #### #{size.to_unds} randomly shuffled integers (#{(size - array.count(size)).to_unds} unique ones)
