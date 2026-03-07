@@ -22,14 +22,14 @@ class SpecificationTest < Minitest::Test
   end
 
   def test_find_method_base_name
-    expected_result = "method_base_name"
+    expected = "method_base_name"
 
-    assert_equal expected_result, @benchmark.instance_variable_get(:@method_base_name)
-    assert_equal expected_result, @benchmark.find_method_base_name
+    assert_equal expected, @benchmark.instance_variable_get(:@method_base_name)
+    assert_equal expected, @benchmark.find_method_base_name
   end
 
   def test_generate_labels_for_methods
-    expected_result = {
+    expected = {
       john_doe_method_base_name_reduce: "john_doe ........... reduce ",
       mia_and_gaia_method_base_name_flat_map: "mia & gaia ....... flat_map ",
       dick_and_ai_method_base_name_sort_by!: "dick & AI ........ sort_by! ",
@@ -38,8 +38,8 @@ class SpecificationTest < Minitest::Test
       philip_method_base_name_tap_map: "philip ............ tap_map ",
     }
 
-    assert_equal expected_result, @benchmark.instance_variable_get(:@labels)
-    assert_equal expected_result, @benchmark.generate_labels_for_methods
+    assert_equal expected, @benchmark.instance_variable_get(:@labels)
+    assert_equal expected, @benchmark.generate_labels_for_methods
   end
 
   def test_fetch_skip_methods_from
@@ -56,12 +56,12 @@ class SpecificationTest < Minitest::Test
         ],
       },
     }
-    expected_result = %i[
+    expected = %i[
       slow_method
       slowish_method
     ]
 
-    assert_equal expected_result, @benchmark.fetch_skip_methods_from(scenario, variant)
+    assert_equal expected, @benchmark.fetch_skip_methods_from(scenario, variant)
   end
 
   def test_fetch_skip_methods_from_variant
@@ -75,11 +75,11 @@ class SpecificationTest < Minitest::Test
         ],
       },
     }
-    expected_result = %i[
+    expected = %i[
       slow_method
     ]
 
-    assert_equal expected_result, @benchmark.fetch_skip_methods_from(scenario, variant)
+    assert_equal expected, @benchmark.fetch_skip_methods_from(scenario, variant)
   end
 
   def test_fetch_skip_methods_from_empty_array
@@ -91,9 +91,9 @@ class SpecificationTest < Minitest::Test
         all: %i[],
       },
     }
-    expected_result = []
+    expected = []
 
-    assert_equal expected_result, @benchmark.fetch_skip_methods_from(scenario, variant)
+    assert_equal expected, @benchmark.fetch_skip_methods_from(scenario, variant)
   end
 
   def test_fetch_skip_methods_from_nil
@@ -101,8 +101,8 @@ class SpecificationTest < Minitest::Test
       name: :scenario_name,
     }
     variant = {}
-    expected_result = []
+    expected = []
 
-    assert_equal expected_result, @benchmark.fetch_skip_methods_from(scenario, variant)
+    assert_equal expected, @benchmark.fetch_skip_methods_from(scenario, variant)
   end
 end

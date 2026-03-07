@@ -20,7 +20,7 @@ module Questions
       @examples = [
         {
           initial_value:,
-          expected_result:,
+          expected:,
         },
       ]
     end
@@ -30,9 +30,9 @@ module Questions
     def test_answers_with_examples
       @methods.each do |method|
         @examples.each do |example|
-          actual_result = public_send(method, example[:initial_value]) # Use Kernel.clone on arguments if needed!
+          actual = public_send(method, example[:initial_value]) # Use Kernel.clone on arguments if needed!
 
-          assert_equal example[:expected_result], actual_result, "Answer #{method} is not correct"
+          assert_equal example[:expected], actual, "Answer #{method} is not correct"
         end
       end
     end

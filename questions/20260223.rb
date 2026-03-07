@@ -25,28 +25,28 @@ module Questions
       @examples = [
         {
           integers: [5],
-          expected_result: 5,
+          expected: 5,
         },
         {
           integers: [-1, -2, -3, -4],
-          expected_result: -1,
+          expected: -1,
         },
         {
           integers: [5, 4, -1, 7, 8],
-          expected_result: 23,
+          expected: 23,
         },
         {
           integers: [-2, 1, -3, 4, -1, 2, 1, -5, 4],
-          expected_result: 6,
+          expected: 6,
         },
         # Extra examples by izkreny
         {
           integers: [1, 2, 3, 4],
-          expected_result: 10,
+          expected: 10,
         },
         {
           integers: [-10, -20, 1, -30, -40],
-          expected_result: 1,
+          expected: 1,
         },
       ]
     end
@@ -56,10 +56,10 @@ module Questions
     def test_answers
       @methods.each do |method|
         @examples.each do |example|
-          actual_result = public_send(method, example[:integers])
+          actual = public_send(method, example[:integers])
 
-          assert_equal example[:expected_result], actual_result, "Answer #{method} is not correct"
-          refute_same  example[:integers],        actual_result, "Answer #{method} is messing with the integers"
+          assert_equal example[:expected], actual, "Answer #{method} is not correct"
+          refute_same  example[:integers], actual, "Answer #{method} is messing with the integers"
         end
       end
     end

@@ -20,37 +20,37 @@ module Questions
     # :section: Example
 
     def setup
-      @methods         = Answers::Issue20260209.instance_methods(false)
-      @integers        = [0, 2, 0, 3, 10]
-      @number_n        = 0
-      @expected_result = [2, 3, 10, 0, 0]
+      @methods  = Answers::Issue20260209.instance_methods(false)
+      @integers = [0, 2, 0, 3, 10]
+      @number_n = 0
+      @expected = [2, 3, 10, 0, 0]
     end
 
     # :section: Tests
 
     def test_answers
       @methods.each do |method|
-        actual_result = public_send(method, @integers.clone, @number_n)
+        actual = public_send(method, @integers.clone, @number_n)
 
-        assert_equal @expected_result, actual_result, "Answer #{method} is not correct"
+        assert_equal @expected, actual, "Answer #{method} is not correct"
       end
     end
 
     def test_answers_with_array_copy
       @methods.reject { it.end_with?("!") }.each do |method|
-        integers      = @integers.clone
-        actual_result = public_send(method, integers, @number_n)
+        integers = @integers.clone
+        actual   = public_send(method, integers, @number_n)
 
-        refute_same integers, actual_result, "Answer #{method} is not making a copy of array"
+        refute_same integers, actual, "Answer #{method} is not making a copy of array"
       end
     end
 
     def test_answers_without_array_copy
       @methods.select { it.end_with?("!") }.each do |method|
-        integers      = @integers.clone
-        actual_result = public_send(method, integers, @number_n)
+        integers = @integers.clone
+        actual   = public_send(method, integers, @number_n)
 
-        assert_same integers, actual_result, "Answer #{method} is making a copy of array"
+        assert_same integers, actual, "Answer #{method} is making a copy of array"
       end
     end
   end

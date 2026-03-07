@@ -24,16 +24,16 @@ module Questions
       @examples = [
         {
           array: [2, 2, 1, 1, 2, 2, 1, 2, 2],
-          expected_result: 2,
+          expected: 2,
         },
         {
           array: [3, 3, 4, 2, 3, 3, 1],
-          expected_result: 3,
+          expected: 3,
         },
         # Extra example by izkreny
         {
           array: %w[x o o],
-          expected_result: "o",
+          expected: "o",
         },
       ]
     end
@@ -43,10 +43,10 @@ module Questions
     def test_answers_with_examples
       @methods.each do |method|
         @examples.each do |example|
-          actual_result = public_send(method, example[:array])
+          actual = public_send(method, example[:array])
 
-          assert_equal example[:expected_result], actual_result, "Answer #{method} is not correct"
-          refute_same  example[:array],           actual_result, "Answer #{method} is messing with the array"
+          assert_equal example[:expected], actual, "Answer #{method} is not correct"
+          refute_same  example[:array],    actual, "Answer #{method} is messing with the array"
         end
       end
     end
