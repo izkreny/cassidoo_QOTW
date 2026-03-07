@@ -7,12 +7,21 @@ generator: aliki
 encoding: UTF-8
 charset: UTF-8
 exclude:
-- "bin/"
-- "lib/"
-- "test/"
-- "templates/"
-- "Rakefile"
-- "README.md"
+  - "bin/"
+  - "lib/"
+  - "test/"
+  - "templates/"
+  - "Rakefile"
+  - "README.md"
+autolink_excluded_words:
+  - "Answers"
+  - "Questions"
+  - "Benchmarks"
+footer_content:
+  RESOURCES:
+    "Cassidy Williams website":                "https://cassidoo.co/"
+    "GitHub repository for this website":      "https://github.com/izkreny/cassidoo_QOTW"
+    "Ruby programming language documentation": "https://docs.ruby-lang.org/en/master/"
 visibility: :protected
 locale_dir: locale
 tab_width: 2
@@ -25,19 +34,12 @@ hyperlink_all: false
 embed_mixins: false
 line_numbers: false
 show_hash: false
-# file_path_prefix: {
-#   "RESOURCES": {
-#     "Cassidy Williams website":                         "https://cassidoo.co/",
-#     "GitHub repository for this website":               "https://github.com/izkreny/cassidoo_QOTW",
-#     "Ruby Programming Language Documentation (master)": "https://docs.ruby-lang.org/en/master/"
-#   }
-# }
 static_path: []
 rdoc_include: []
-autolink_excluded_words: ["Answers", "Questions", "Benchmarks"]
 template_stylesheets: []
-page_dir:
-canonical_root:
 class_module_path_prefix:
+file_path_prefix:
+canonical_root:
 locale_name:
+page_dir:
 webcvs:

@@ -2,13 +2,14 @@
 
 From the _[rendezvous with cassidoo](https://cassidoo.co/newsletter/)_, a weekly tech newsletter by Cassidy Williams.
 
+- Website: [cassidoo.izkreny.net](https://cassidoo.izkreny.net/)
+
 > [!NOTE]
 >
 > - Answers under section _Original answers_ are provided by [me](https://github.com/izkreny/).
 > - All other ones from various people (mostly from the [Ruby Users Forum](https://www.rubyforum.org/)) are credited by prefixing method names with usernames or social handles, and with the link(s) to the web source.
 > - Answers are tested against the latest stable version of
 > [Ruby](https://www.ruby-lang.org/en/) programming language.
-> - Website version of this repository via RDoc: [cassidoo.izkreny.net](https://cassidoo.izkreny.net/)
 
 > [!TIP]
 >
@@ -22,8 +23,8 @@ From the _[rendezvous with cassidoo](https://cassidoo.co/newsletter/)_, a weekly
 
 > [!WARNING]
 >
-> - Ruby `Module` class is excessively used for namespace purposes in not so recommended/standard way---they are in plural noun form and not in singular noun or adjective form. This is not how you SHOULD usually use them, but it is impeccably good enough for this little project, especially because it avoids clashing with the standard Ruby [Benchmark](https://github.com/ruby/benchmark) module.
+> - Ruby `Module` class is excessively used for namespace purposes in not so recommended/standard way---modules are in plural noun form and not in singular noun or adjective form. This is not how you SHOULD usually use them, but it is impeccably good enough for this little project, especially because it avoids clashing with the standard Ruby [Benchmark](https://github.com/ruby/benchmark) module.
 
 > [!CAUTION]
 >
-> - In some Questions metaprogramming is used inside `Minitest::Test` subclasses because it makes a perfect fit for the nature of this project (i.e. to easily test all provided Answers); but this is undoubtedly something that is NOT recommended (or even FORBIDDEN!) in general testing practice, JFTR! 👺
+> - In some Questions metaprogramming is used inside `Minitest::Test` subclasses because it makes a perfect fit for the nature of this project (i.e. to easily test all provided Answers); but this level of DRYness is undoubtedly something that is NOT recommended (even FORBIDDEN!) in general testing practice, JFTR! 👺

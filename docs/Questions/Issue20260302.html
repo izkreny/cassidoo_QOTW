@@ -647,16 +647,16 @@
   <span class="ruby-ivar">@examples</span> = [
     {
       <span class="ruby-value">array:</span> [<span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>],
-      <span class="ruby-value">expected_result:</span> <span class="ruby-value">2</span>,
+      <span class="ruby-value">expected:</span> <span class="ruby-value">2</span>,
     },
     {
       <span class="ruby-value">array:</span> [<span class="ruby-value">3</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>],
-      <span class="ruby-value">expected_result:</span> <span class="ruby-value">3</span>,
+      <span class="ruby-value">expected:</span> <span class="ruby-value">3</span>,
     },
     <span class="ruby-comment"># Extra example by izkreny</span>
     {
       <span class="ruby-value">array:</span> <span class="ruby-node">%w[x o o]</span>,
-      <span class="ruby-value">expected_result:</span> <span class="ruby-string">&quot;o&quot;</span>,
+      <span class="ruby-value">expected:</span> <span class="ruby-string">&quot;o&quot;</span>,
     },
   ]
 <span class="ruby-keyword">end</span></pre>
@@ -741,10 +741,10 @@
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_answers_with_examples</span>
   <span class="ruby-ivar">@methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
     <span class="ruby-ivar">@examples</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">example</span><span class="ruby-operator">|</span>
-      <span class="ruby-identifier">actual_result</span> = <span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">example</span>[<span class="ruby-value">:array</span>])
+      <span class="ruby-identifier">actual</span> = <span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">example</span>[<span class="ruby-value">:array</span>])
 
-      <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">example</span>[<span class="ruby-value">:expected_result</span>], <span class="ruby-identifier">actual_result</span>, <span class="ruby-node">&quot;Answer #{method} is not correct&quot;</span>
-      <span class="ruby-identifier">refute_same</span>  <span class="ruby-identifier">example</span>[<span class="ruby-value">:array</span>],           <span class="ruby-identifier">actual_result</span>, <span class="ruby-node">&quot;Answer #{method} is messing with the array&quot;</span>
+      <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">example</span>[<span class="ruby-value">:expected</span>], <span class="ruby-identifier">actual</span>, <span class="ruby-node">&quot;Answer #{method} is not correct&quot;</span>
+      <span class="ruby-identifier">refute_same</span>  <span class="ruby-identifier">example</span>[<span class="ruby-value">:array</span>],    <span class="ruby-identifier">actual</span>, <span class="ruby-node">&quot;Answer #{method} is messing with the array&quot;</span>
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
@@ -787,6 +787,23 @@
 
 
 <footer class="site-footer">
+  
+  <div class="footer-content">
+    
+    <div>
+      <h3>RESOURCES</h3>
+      <ul>
+        
+        <li><a href="https://cassidoo.co/">Cassidy Williams website</a></li>
+        
+        <li><a href="https://github.com/izkreny/cassidoo_QOTW">GitHub repository for this website</a></li>
+        
+        <li><a href="https://docs.ruby-lang.org/en/master/">Ruby programming language documentation</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
   
 
   <div class="footer-bottom">
