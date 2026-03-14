@@ -32,17 +32,17 @@ module Benchmarks
     class Specification
       RANDOM_NEW_SEED     = 666_999
       EMPTY_STRING        = ""
-      SPACER              = "."
+      LABEL_SPACER        = "."
       MIN_SPACER_AMOUNT   = 3
       SKIPPED_METHOD_INFO = ":        ?!? i/s - too slow/big to calculate, sorry!"
       TEST_METHOD_INFO    = ":        ?!? i/s - DRY RUN!"
 
       attr_accessor :seed, :name
 
-      def initialize(answers)
+      def initialize(answers, method_base_name: nil)
         @answers          = Object.new.extend(answers)
         @methods          = answers.instance_methods(false)
-        @method_base_name = find_method_base_name
+        @method_base_name = method_base_name || find_method_base_name
         @labels           = generate_labels_for_methods
         @seed             = RANDOM_NEW_SEED
         @name             = EMPTY_STRING
@@ -55,7 +55,7 @@ module Benchmarks
         benchmark_config =
           case mode
           when :dry_run then { warmup: 1, time: 1, quiet: true           }
-          when :quick   then { warmup: 1, time: 1, quiet: false          }
+          when :quick   then { warmup: 1, time: 1, quiet:                }
           when :slow    then { warmup: 3, time: 6, quiet: true           }
           when :jruby   then { warmup: 3, time: 6, quiet:, iterations: 2 }
           else               { warmup: 2, time: 5, quiet: false          }
@@ -110,15 +110,15 @@ module Benchmarks
           size                 = (authors + description).size
           max_size             = size if size > max_size
 
-          labels.merge!({ method => { authors: authors, description: description, size: size } })
+          labels.merge!({ method => { authors:, description:, size: } })
         end
 
         labels.each do |method, label|
           spacing =
             if label[:size] < max_size
-              SPACER * (MIN_SPACER_AMOUNT + max_size - label[:size])
+              LABEL_SPACER * (MIN_SPACER_AMOUNT + max_size - label[:size])
             else
-              SPACER * MIN_SPACER_AMOUNT
+              LABEL_SPACER * MIN_SPACER_AMOUNT
             end
 
           labels[method] = "#{label[:authors]} #{spacing} #{label[:description]} "

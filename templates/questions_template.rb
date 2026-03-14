@@ -32,7 +32,8 @@ module Questions
         @examples.each do |example|
           actual = public_send(method, example[:initial_value]) # Use Kernel.clone on arguments if needed!
 
-          assert_equal example[:expected], actual, "Answer #{method} is not correct"
+          assert_equal example[:expected],      actual, "Answer #{method} is not correct"
+          refute_same  example[:initial_value], actual, "Answer #{method} is messing with the INITIAL_VALUE"
         end
       end
     end
