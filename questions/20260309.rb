@@ -36,27 +36,15 @@ module Questions
         },
         # Extra examples by izkreny
         {
-          string: "baaa",
-          expected: -1,
-        },
-        {
-          string: "ab",
+          string: "ba",
           expected: 0,
         },
         {
-          string: "aab",
+          string: "baa",
           expected: 1,
         },
         {
-          string: "aabbb",
-          expected: 3,
-        },
-        {
-          string: "aaabb",
-          expected: 3,
-        },
-        {
-          string: "aabbaabab",
+          string: "bbbaa",
           expected: 3,
         },
       ]

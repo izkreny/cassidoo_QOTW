@@ -3,35 +3,44 @@ module Answers
   # - Benchmarks::Issue20260309
   #
   module Issue20260309
-    # :section: Original answer
+    # :section: Original answers
 
+    # First I tried to calculate this by brute force, simulating iteration through
+    # the array of chars, swapping them as I went... but this was a dead end.
+    #
+    # ```ruby
     # def izkreny_min_swaps_to_alternate_while_double_times(string)
     #   chars   = string.chars
     #   iterate = string.size - 1
     #   swaps   = 0
-
+    #
     #   string.size.times
     #     iterate.times do |index|
     #       next unless chars[index] != chars[index + 1] &&
     #                   (chars[index + 1] == chars[index + 2] ||
     #                   (chars[index + 2].nil? && chars[index] == chars[index - 1]))
-
+    #
     #       chars[index], chars[index + 1] = chars[index + 1], chars[index]
     #       swaps += 1
-
+    #
     #       next unless index > 1 && chars[index - 1] == chars[index - 2] && chars[index] != chars[index - 1]
-
+    #
     #       chars[index], chars[index - 1] = chars[index - 1], chars[index]
     #       swaps += 1
     #     end
-
+    #
     #     iterate -= 1
     #   end
-
+    #
     #   chars[0] == chars[1] ? -1 : swaps
     # end
-
-    def izkreny_and_ai_min_swaps_to_alternate_each_with_index_sums(string)
+    # ```
+    #
+    # I knew the pattern was much simpler, but I was too deep in this "simulation" mode,
+    # so after I got a hint from the [AI mentor](../AGENTS.md)
+    # that the answer was hidden in the indexes, I was able to code this solution by myself.
+    #
+    def izkreny_and_ai_min_swaps_to_alternate_chars_each_with_index(string)
       chars        = string.chars
       a_char_count = chars.count("a")
       b_char_count = chars.size - a_char_count
@@ -39,7 +48,7 @@ module Answers
       return -1 if (a_char_count - b_char_count).abs > 1
 
       if chars.size.even?
-        # Result would be the same if b_indexes should be used instead
+        # The result would be the same if b_indexes were used instead
         a_indexes_in_abab_pattern = Array.new(chars.size / 2) { it * 2     }
         a_indexes_in_baba_pattern = Array.new(chars.size / 2) { it * 2 + 1 }
         a_indexes_in_chars        = []
@@ -59,7 +68,43 @@ module Answers
       end
     end
 
-    # :section: Raw AI answers
+    # This solution is inspired by the Gemini 3 Pro performant version,
+    # but it is a little more efficient because it directly calculates
+    # the sum of the first `n` even and odd numbers/indexes.
+    #
+    def izkreny_and_ai_min_swaps_to_alternate_each_char_with_index_performant(string)
+      # The final result would be the same if we used b_char instead
+      a_char_count       = 0
+      a_char_indexes_sum = 0
+      string.each_char.with_index do |char, index|
+        if char == "a"
+          a_char_count       += 1
+          a_char_indexes_sum += index
+        end
+      end
+      b_char_count = string.size - a_char_count
+
+      return -1 if (a_char_count - b_char_count).abs > 1
+
+      # Formula to calculate the sum of the first `n` odd and even numbers: `n**2` and `n * (n + 1)`
+      # In our case: `a_char_count**2` and (because the first even number/index is always `0`)
+      # `(a_char_count - 1) * ((a_char_count - 1) + 1)` -> `a_char_count**2 - a_char_count`
+      if a_char_count > b_char_count     # "aba..." pattern
+        (a_char_indexes_sum - (a_char_count**2 - a_char_count)).abs
+      elsif a_char_count < b_char_count  # "bab..." pattern
+        (a_char_indexes_sum - a_char_count**2).abs
+      else
+        a_char_indexes_in_baba_pattern_sum = a_char_count**2
+        a_char_indexes_in_abab_pattern_sum = a_char_indexes_in_baba_pattern_sum - a_char_count
+
+        [
+          (a_char_indexes_sum - a_char_indexes_in_baba_pattern_sum).abs,
+          (a_char_indexes_sum - a_char_indexes_in_abab_pattern_sum).abs,
+        ].min
+      end
+    end
+
+    # :section: Original AI solutions
 
     def gpt_5_3_codex_copilot_ai_min_swaps_to_alternate_each_with_index_lambdas(string)
       chars = string.chars
@@ -177,8 +222,67 @@ module Answers
 
     # :section: Ruby Users Forum answers
     #
-    # Topic [][ruf]
+    # Topic [Cassidoo’s Interview question of the week | 447][ruf]
     #
-    # [ruf]:
+    # [ruf]: https://www.rubyforum.org/t/cassidoo-s-interview-question-of-the-week-447/189
+
+    def eayurt_and_ai_min_swaps_to_alternate_chars_each_with_index(s)
+      n = s.length
+      a = s.chars.each_with_index.filter_map { |c, i| i if c == 'a' }
+      b_count = n - a.length
+
+      swaps = ->(a_starts) {
+        expected = a_starts ? (n + 1) / 2 : n / 2
+        a.each_with_index.sum { |p, i| (p - (a_starts ? 2 * i : 2 * i + 1)).abs } if a.length == expected
+      }
+
+      if n.even?
+        a.length == b_count ? [swaps.(true), swaps.(false)].min : -1
+      elsif a.length == (n + 1) / 2 then swaps.(true)
+      elsif b_count  == (n + 1) / 2 then swaps.(false)
+      else -1
+      end
+    end
+
+    # Original code layout:
+    #
+    # ```ruby
+    # def swaps_to_pattern str, pattern
+    #   cache = Hash.new -1
+    #
+    #   (0...str.size).map do |index|
+    #     char = pattern[index % pattern.size]
+    #     match_index = ((cache[char] + 1)...str.size).find{ str[it] == char }
+    #     return unless match_index
+    #     cache[char] = match_index
+    #     index < match_index ? match_index - index : 0
+    #   end.sum
+    # end
+    #
+    # def minSwapsToAlternate str
+    #   ab = swaps_to_pattern str, "ab"
+    #   ba = swaps_to_pattern str, "ba"
+    #   ab ? ba ? [ab, ba].min : ab : ba || -1
+    # end
+    # ```
+    #
+    def lpogic_min_swaps_to_alternate_two_methods(string)
+      swaps_to_pattern = lambda do |str, pattern|
+        cache = Hash.new(-1)
+
+        (0...str.size).map do |index|
+          char        = pattern[index % pattern.size]
+          match_index = ((cache[char] + 1)...str.size).find { str[it] == char }
+          return unless match_index
+
+          cache[char] = match_index
+          index < match_index ? match_index - index : 0
+        end.sum
+      end
+
+      ab = swaps_to_pattern.call(string, "ab")
+      ba = swaps_to_pattern.call(string, "ba")
+      ab ? ba ? [ab, ba].min : ab : ba || -1
+    end
   end
 end
