@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>module Answers::Issue20260309 - rendezvous with cassidoo - IQOTW</title>
+
+
+  <meta
+    name="keywords"
+    content="ruby,module,Answers::Issue20260309"
+  >
+
+    <meta
+      name="description"
+      content="module Answers::Issue20260309: - Questions::Issue20260309 - Benchmarks::Issue20260309"
+    >
+
+
+
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="module Answers::Issue20260309 - rendezvous with cassidoo - IQOTW">
+
+
+
+    <meta property="og:description" content="- Questions::Issue20260309 - Benchmarks::Issue20260309">
+
+
+
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="module Answers::Issue20260309 - rendezvous with cassidoo - IQOTW">
+
+
+
+    <meta name="twitter:description" content="- Questions::Issue20260309 - Benchmarks::Issue20260309">
+
+
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script
+  src="../js/theme-toggle.js?v=7.2.0"
+></script>
+
+<script
+  src="../js/search_navigation.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/search_data.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/search_ranker.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/search_controller.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/c_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/bash_highlighter.js?v=7.2.0"
+  defer
+></script>
+
+<script
+  src="../js/aliki.js?v=7.2.0"
+  defer
+></script>
+
+<link
+  href="../css/rdoc.css?v=7.2.0"
+  rel="stylesheet"
+>
+
+
+
+
+<body role="document" class="module has-toc">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- Chevron (right arrow) - used for expand/collapse -->
+  <symbol
+    id="icon-chevron"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </symbol>
+
+  <!-- File/Document - Pages section -->
+  <symbol
+    id="icon-file"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+    ></path>
+
+    <polyline points="14 2 14 8 20 8"></polyline>
+  </symbol>
+
+  <!-- Layers/Stack - Classes and Modules section -->
+  <symbol
+    id="icon-layers"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+    <polyline points="2 17 12 22 22 17"></polyline>
+    <polyline points="2 12 12 17 22 12"></polyline>
+  </symbol>
+
+  <!-- Curly braces with C - Class Methods section -->
+  <symbol
+    id="icon-class-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      C
+    </text>
+  </symbol>
+
+  <!-- Curly braces with I - Instance Methods section -->
+  <symbol
+    id="icon-instance-methods"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M6 3C3.5 3 2 4.5 2 7v3c0 1.5-1 2-1 2s1 .5 1 2v5c0 2.5 1.5 4 4 4"></path>
+    <path d="M18 3c2.5 0 4 1.5 4 4v3c0 1.5 1 2 1 2s-1 .5-1 2v5c0 2.5-1.5 4-4 4"></path>
+
+    <text
+      x="12"
+      y="17"
+      text-anchor="middle"
+      font-size="13"
+      font-weight="bold"
+      fill="currentColor"
+      stroke="none"
+    >
+      I
+    </text>
+  </symbol>
+
+  <!-- Double chevrons up - Ancestors section -->
+  <symbol
+    id="icon-ancestors"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <polyline points="17 11 12 6 7 11"></polyline>
+    <polyline points="17 18 12 13 7 18"></polyline>
+  </symbol>
+
+  <!-- User with plus - Included Modules section -->
+  <symbol
+    id="icon-includes"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+
+    <line
+      x1="20"
+      y1="8"
+      x2="20"
+      y2="14"
+    ></line>
+
+    <line
+      x1="23"
+      y1="11"
+      x2="17"
+      y2="11"
+    ></line>
+  </symbol>
+
+  <!-- User with check - Extended Modules section -->
+  <symbol
+    id="icon-extends"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+    <circle cx="8.5" cy="7" r="4"></circle>
+    <polyline points="17 11 19 13 23 9"></polyline>
+  </symbol>
+
+  <!-- List - Sections section -->
+  <symbol
+    id="icon-list"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line
+      x1="8"
+      y1="6"
+      x2="21"
+      y2="6"
+    ></line>
+
+    <line
+      x1="8"
+      y1="12"
+      x2="21"
+      y2="12"
+    ></line>
+
+    <line
+      x1="8"
+      y1="18"
+      x2="21"
+      y2="18"
+    ></line>
+
+    <line
+      x1="3"
+      y1="6"
+      x2="3.01"
+      y2="6"
+    ></line>
+
+    <line
+      x1="3"
+      y1="12"
+      x2="3.01"
+      y2="12"
+    ></line>
+
+    <line
+      x1="3"
+      y1="18"
+      x2="3.01"
+      y2="18"
+    ></line>
+  </symbol>
+</svg>
+
+<header class="top-navbar">
+  <a href="../index.html" class="navbar-brand">
+    rendezvous with cassidoo - IQOTW
+  </a>
+
+  <!-- Desktop search bar -->
+  <div class="navbar-search navbar-search-desktop" role="search">
+    <form action="#" method="get" accept-charset="utf-8">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results-desktop"
+             type="text" name="search" placeholder="Search (/) for a class, method..."
+             spellcheck="false" autocomplete="off"
+             title="Type to search, Up and Down to navigate, Enter to load">
+      <ul id="search-results-desktop" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="initially-hidden search-results"></ul>
+    </form>
+  </div>
+
+  <!-- Mobile search icon button -->
+  <button id="search-toggle" class="navbar-search-mobile" aria-label="Open search" type="button">
+    <span aria-hidden="true">🔍</span>
+  </button>
+
+  <!-- Theme toggle button -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode" type="button">
+    <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+  </button>
+</header>
+
+<!-- Search Modal (Mobile) -->
+<div id="search-modal" class="search-modal" hidden aria-modal="true" role="dialog" aria-label="Search">
+  <div class="search-modal-backdrop"></div>
+  <div class="search-modal-content">
+    <div class="search-modal-header">
+      <form class="search-modal-form" action="#" method="get" accept-charset="utf-8">
+        <span class="search-modal-icon" aria-hidden="true">🔍</span>
+        <input id="search-field-mobile" role="combobox" aria-label="Search"
+               aria-autocomplete="list" aria-controls="search-results-mobile"
+               type="text" name="search" placeholder="Search documentation"
+               spellcheck="false" autocomplete="off">
+        <button type="button" class="search-modal-close" aria-label="Close search" id="search-modal-close">
+          <span aria-hidden="true">esc</span>
+        </button>
+      </form>
+    </div>
+    <div class="search-modal-body">
+      <ul id="search-results-mobile" aria-label="Search Results"
+          aria-busy="false" aria-expanded="false"
+          aria-atomic="false" class="search-results search-modal-results initially-hidden"></ul>
+      <div class="search-modal-empty">
+        <p>No recent searches</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation" hidden>
+  
+
+
+
+
+  <div id="fileindex-section" class="nav-section">
+    <details class="nav-section-collapsible" >
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg>
+            <use href="#icon-file"></use>
+          </svg>
+        </span>
+
+        <span class="nav-section-title">Pages</span>
+
+        <span class="nav-section-chevron">
+          <svg>
+            <use href="#icon-chevron"></use>
+          </svg>
+        </span>
+      </summary>
+
+      <ul class="nav-list">
+
+
+
+
+
+
+            <li>
+              <a href="../ABOUT_md.html">
+                ABOUT
+              </a>
+            </li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  
+<div id="sections-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-list"></use></svg>
+      </span>
+      <span class="nav-section-title">Sections</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+
+    <ul class="nav-list" role="directory">
+
+        <li><a href="#untitled"></a></li>
+
+        <li><a href="#ai-answers">AI answers</a></li>
+
+        <li><a href="#original-answers">Original answers</a></li>
+
+        <li><a href="#ruby-users-forum-answers">Ruby Users Forum answers</a></li>
+
+    </ul>
+  </details>
+</div>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="nav-section">
+    <details class="nav-section-collapsible" open>
+      <summary class="nav-section-header">
+        <span class="nav-section-icon">
+          <svg><use href="#icon-instance-methods"></use></svg>
+        </span>
+        <span class="nav-section-title">Instance Methods</span>
+        <span class="nav-section-chevron">
+          <svg><use href="#icon-chevron"></use></svg>
+        </span>
+      </summary>
+      <ul class="nav-list" role="directory">
+
+        <li ><a href="#method-i-eayurt_and_ai_min_swaps_to_alternate_chars_each_with_index">eayurt_and_ai_min_swaps_to_alternate_chars_each_with_index</a></li>
+
+        <li ><a href="#method-i-gemini_3_pro_web_ai_min_swaps_to_alternate_each_char_with_index_lambda">gemini_3_pro_web_ai_min_swaps_to_alternate_each_char_with_index_lambda</a></li>
+
+        <li ><a href="#method-i-gemini_3_pro_web_ai_min_swaps_to_alternate_each_char_with_index_performant">gemini_3_pro_web_ai_min_swaps_to_alternate_each_char_with_index_performant</a></li>
+
+        <li ><a href="#method-i-gpt_5_3_codex_copilot_ai_min_swaps_to_alternate_each_with_index_lambdas">gpt_5_3_codex_copilot_ai_min_swaps_to_alternate_each_with_index_lambdas</a></li>
+
+        <li ><a href="#method-i-izkreny_and_ai_min_swaps_to_alternate_chars_each_with_index">izkreny_and_ai_min_swaps_to_alternate_chars_each_with_index</a></li>
+
+        <li ><a href="#method-i-izkreny_and_ai_min_swaps_to_alternate_each_char_with_index_performant">izkreny_and_ai_min_swaps_to_alternate_each_char_with_index_performant</a></li>
+
+        <li ><a href="#method-i-lpogic_min_swaps_to_alternate_two_methods">lpogic_min_swaps_to_alternate_two_methods</a></li>
+
+      </ul>
+    </details>
+  </div>
+
+
+  <div id="classindex-section" class="nav-section">
+  <details class="nav-section-collapsible" open>
+    <summary class="nav-section-header">
+      <span class="nav-section-icon">
+        <svg><use href="#icon-layers"></use></svg>
+      </span>
+      <span class="nav-section-title">Classes and Modules</span>
+      <span class="nav-section-chevron">
+        <svg><use href="#icon-chevron"></use></svg>
+      </span>
+    </summary>
+
+    <ul class="link-list nav-list"><li><details><summary><code><a href="../Answers.html">Answers</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="../Answers/Issue20260209.html">Issue20260209</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Answers/Issue20260209/FlatReversePartition.html">FlatReversePartition</a></code></li></ul></details></li><li><details><summary><code><a href="../Answers/Issue20260216.html">Issue20260216</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Answers/Issue20260216/EachWithYielder.html">EachWithYielder</a></code></li><li><code><a href="../Answers/Issue20260216/ZoomifyArray.html">ZoomifyArray</a></code></li></ul></details></li><li><code><a href="../Answers/Issue20260223.html">Issue20260223</a></code></li><li><code><a href="../Answers/Issue20260302.html">Issue20260302</a></code></li><li><code><a href="../Answers/Issue20260309.html">Issue20260309</a></code></li></ul></details></li><li><details><summary><code><a href="../Benchmarks.html">Benchmarks</a></code></summary><ul class="link-list nav-list"><li><details><summary><code><a href="../Benchmarks/Helpers.html">Helpers</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Benchmarks/Helpers/Refinements.html">Refinements</a></code></li><li><details><summary><code><a href="../Benchmarks/Helpers/Specification.html">Specification</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Benchmarks/Helpers/Specification/SlowAnimal.html">SlowAnimal</a></code></li></ul></details></li></ul></details></li><li><code><a href="../Benchmarks/Issue20260209.html">Issue20260209</a></code></li><li><code><a href="../Benchmarks/Issue20260216.html">Issue20260216</a></code></li><li><code><a href="../Benchmarks/Issue20260223.html">Issue20260223</a></code></li><li><code><a href="../Benchmarks/Issue20260302.html">Issue20260302</a></code></li><li><code><a href="../Benchmarks/Issue20260309.html">Issue20260309</a></code></li></ul></details></li><li><details><summary><code><a href="../Questions.html">Questions</a></code></summary><ul class="link-list nav-list"><li><code><a href="../Questions/Issue20260209.html">Issue20260209</a></code></li><li><code><a href="../Questions/Issue20260216.html">Issue20260216</a></code></li><li><code><a href="../Questions/Issue20260223.html">Issue20260223</a></code></li><li><code><a href="../Questions/Issue20260302.html">Issue20260302</a></code></li><li><code><a href="../Questions/Issue20260309.html">Issue20260309</a></code></li></ul></details></li></ul>
+  </details>
+</div>
+
+</nav>
+
+<main role="main" aria-labelledby="module-answers-issue20260309">
+  
+  
+    <ol role="navigation" aria-label="Breadcrumb navigation" class="breadcrumb">
+      
+      <li>
+        
+        <a href="../Answers.html">Answers</a><span>::</span>
+        
+      </li>
+      
+      <li>
+        
+        <span>Issue20260309</span>
+        
+      </li>
+      
+    </ol>
+  
+
+  <span id="module-Answers::Issue20260309" class="legacy-anchor"></span>
+  <h1 id="module-answers-issue20260309" class="anchor-link module">
+    module Answers::Issue20260309
+  </h1>
+
+  <section class="description">
+    <ul><li>
+<p><a href="../Questions/Issue20260309.html"><code>Questions::Issue20260309</code></a></p>
+</li><li>
+<p><a href="../Benchmarks/Issue20260309.html"><code>Benchmarks::Issue20260309</code></a></p>
+</li></ul>
+
+  </section>
+
+
+  <span id="5Buntitled-5D" class="legacy-anchor"></span>
+  <section class="documentation-section anchor-link">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </section>
+
+  <span id="AI+answers" class="legacy-anchor"></span>
+  <section class="documentation-section anchor-link">
+
+    <header class="documentation-section-title">
+      <h2 id="ai-answers">
+        <a href="#ai-answers">AI answers</a>
+      </h2>
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <section id="public-instance-ai-answers-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-instance-ai-answers-methods"><a href="#public-instance-ai-answers-methods">Public Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-gemini_3_pro_web_ai_min_swaps_to_alternate_each_char_with_index_lambda" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-gemini_3_pro_web_ai_min_swaps_to_alternate_each_char_with_index_lambda" title="Link to this method">
+                <span class="method-name">gemini_3_pro_web_ai_min_swaps_to_alternate_each_char_with_index_lambda</span>
+                <span class="method-args">(input_string)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="gemini_3_pro_web_ai_min_swaps_to_alternate_each_char_with_index_lambda-source">
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260309.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">gemini_3_pro_web_ai_min_swaps_to_alternate_each_char_with_index_lambda</span>(<span class="ruby-identifier">input_string</span>)
+  <span class="ruby-comment"># 1. Validate if an alternating string is even possible</span>
+  <span class="ruby-identifier">char_counts</span> = <span class="ruby-identifier">input_string</span>.<span class="ruby-identifier">chars</span>.<span class="ruby-identifier">tally</span>
+  <span class="ruby-identifier">count_a</span> = <span class="ruby-identifier">char_counts</span>[<span class="ruby-string">&#39;a&#39;</span>] <span class="ruby-operator">||</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">count_b</span> = <span class="ruby-identifier">char_counts</span>[<span class="ruby-string">&#39;b&#39;</span>] <span class="ruby-operator">||</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-value">-1</span> <span class="ruby-keyword">if</span> (<span class="ruby-identifier">count_a</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">count_b</span>).<span class="ruby-identifier">abs</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+
+  <span class="ruby-comment"># 2. Collect the actual positions of all &#39;a&#39; characters</span>
+  <span class="ruby-comment"># We use each_with_index to be explicit about our data</span>
+  <span class="ruby-identifier">a_positions</span> = []
+  <span class="ruby-identifier">input_string</span>.<span class="ruby-identifier">each_char</span>.<span class="ruby-identifier">with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">char</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">a_positions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">index</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">char</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;a&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># 3. Helper to calculate total distance to move &#39;a&#39;s to target slots</span>
+  <span class="ruby-comment"># Target slots for &#39;a&#39; start at &#39;offset&#39; and jump by 2 (e.g., 0, 2, 4...)</span>
+  <span class="ruby-identifier">calculate_displacement</span> = <span class="ruby-operator">-&gt;</span>(<span class="ruby-identifier">start_offset</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">a_positions</span>.<span class="ruby-identifier">each_with_index</span>.<span class="ruby-identifier">sum</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current_pos</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">target_pos</span> = <span class="ruby-identifier">start_offset</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">i</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span>)
+      (<span class="ruby-identifier">current_pos</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">target_pos</span>).<span class="ruby-identifier">abs</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># 4. Determine the valid starting positions for &#39;a&#39;</span>
+  <span class="ruby-comment"># If counts are unequal, &#39;a&#39; has only one possible starting slot</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">count_a</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">count_b</span>
+    <span class="ruby-identifier">calculate_displacement</span>.<span class="ruby-identifier">call</span>(<span class="ruby-value">0</span>) <span class="ruby-comment"># &#39;a&#39; must be at indices 0, 2, 4...</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">count_b</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">count_a</span>
+    <span class="ruby-identifier">calculate_displacement</span>.<span class="ruby-identifier">call</span>(<span class="ruby-value">1</span>) <span class="ruby-comment"># &#39;a&#39; must be at indices 1, 3, 5...</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># If counts are equal, &#39;a&#39; could start at 0 (abab) or 1 (baba)</span>
+    [<span class="ruby-identifier">calculate_displacement</span>.<span class="ruby-identifier">call</span>(<span class="ruby-value">0</span>), <span class="ruby-identifier">calculate_displacement</span>.<span class="ruby-identifier">call</span>(<span class="ruby-value">1</span>)].<span class="ruby-identifier">min</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-gemini_3_pro_web_ai_min_swaps_to_alternate_each_char_with_index_performant" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-gemini_3_pro_web_ai_min_swaps_to_alternate_each_char_with_index_performant" title="Link to this method">
+                <span class="method-name">gemini_3_pro_web_ai_min_swaps_to_alternate_each_char_with_index_performant</span>
+                <span class="method-args">(input_string)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="gemini_3_pro_web_ai_min_swaps_to_alternate_each_char_with_index_performant-source">
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260309.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">gemini_3_pro_web_ai_min_swaps_to_alternate_each_char_with_index_performant</span>(<span class="ruby-identifier">input_string</span>)
+  <span class="ruby-comment"># Track how many &#39;a&#39;s and &#39;b&#39;s we&#39;ve seen</span>
+  <span class="ruby-identifier">count_a</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">count_b</span> = <span class="ruby-value">0</span>
+
+  <span class="ruby-comment"># Accumulate the displacement costs for both potential patterns</span>
+  <span class="ruby-comment"># Pattern 1: &quot;abab...&quot; (a at 0, 2, 4...) -&gt; &#39;a&#39; targets even indices</span>
+  <span class="ruby-comment"># Pattern 2: &quot;baba...&quot; (a at 1, 3, 5...) -&gt; &#39;a&#39; targets odd indices</span>
+  <span class="ruby-identifier">cost_a_starts_even</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">cost_a_starts_odd</span> = <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">input_string</span>.<span class="ruby-identifier">each_char</span>.<span class="ruby-identifier">with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">char</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">char</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;a&#39;</span>
+      <span class="ruby-comment"># If &#39;a&#39; is the Nth &#39;a&#39; we&#39;ve found, its target index is:</span>
+      <span class="ruby-comment"># For even start: 0, 2, 4... -&gt; (count_a * 2)</span>
+      <span class="ruby-comment"># For odd start:  1, 3, 5... -&gt; (count_a * 2) + 1</span>
+      <span class="ruby-identifier">cost_a_starts_even</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">index</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">count_a</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span>)).<span class="ruby-identifier">abs</span>
+      <span class="ruby-identifier">cost_a_starts_odd</span>  <span class="ruby-operator">+=</span> (<span class="ruby-identifier">index</span> <span class="ruby-operator">-</span> ((<span class="ruby-identifier">count_a</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span>) <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)).<span class="ruby-identifier">abs</span>
+      <span class="ruby-identifier">count_a</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">count_b</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Return -1 if the counts differ by more than 1</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-value">-1</span> <span class="ruby-keyword">if</span> (<span class="ruby-identifier">count_a</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">count_b</span>).<span class="ruby-identifier">abs</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+
+  <span class="ruby-comment"># Return the cost for the valid pattern(s)</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">count_a</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">count_b</span>
+    <span class="ruby-identifier">cost_a_starts_even</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">count_b</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">count_a</span>
+    <span class="ruby-identifier">cost_a_starts_odd</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># If counts are equal, both patterns are valid; take the cheaper one</span>
+    [<span class="ruby-identifier">cost_a_starts_even</span>, <span class="ruby-identifier">cost_a_starts_odd</span>].<span class="ruby-identifier">min</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Performance Improvements</p>
+<ul><li>
+<p><strong>Single Iteration (O(N))</strong>: We count characters and calculate displacement in the same loop, avoiding the need to traverse the string twice.</p>
+</li><li>
+<p><strong>Zero Array Allocations (O(1) space)</strong>: Unlike the previous version which created an array of indices (<code>a_positions</code>), this version only uses integers. This significantly reduces memory overhead and garbage collection pressure for large strings.</p>
+</li><li>
+<p><strong>Immediate Calculation</strong>: We calculate <code>(current_index - target_index).abs</code> as we go, rather than storing indices and processing them later.</p>
+</li></ul>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-gpt_5_3_codex_copilot_ai_min_swaps_to_alternate_each_with_index_lambdas" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-gpt_5_3_codex_copilot_ai_min_swaps_to_alternate_each_with_index_lambdas" title="Link to this method">
+                <span class="method-name">gpt_5_3_codex_copilot_ai_min_swaps_to_alternate_each_with_index_lambdas</span>
+                <span class="method-args">(string)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="gpt_5_3_codex_copilot_ai_min_swaps_to_alternate_each_with_index_lambdas-source">
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260309.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">gpt_5_3_codex_copilot_ai_min_swaps_to_alternate_each_with_index_lambdas</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">chars</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">chars</span>
+  <span class="ruby-identifier">n</span> = <span class="ruby-identifier">chars</span>.<span class="ruby-identifier">length</span>
+
+  <span class="ruby-identifier">a_positions</span> = []
+  <span class="ruby-identifier">chars</span>.<span class="ruby-identifier">each_with_index</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">ch</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a_positions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ch</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;a&quot;</span> }
+
+  <span class="ruby-identifier">count_a</span> = <span class="ruby-identifier">a_positions</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-identifier">count_b</span> = <span class="ruby-identifier">n</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">count_a</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-value">-1</span> <span class="ruby-keyword">if</span> (<span class="ruby-identifier">count_a</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">count_b</span>).<span class="ruby-identifier">abs</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+
+  <span class="ruby-comment"># Cost if target alternation starts with &quot;a&quot; at index 0 (a on even indexes)</span>
+  <span class="ruby-identifier">cost_start_with_a</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">target_positions</span> = []
+    <span class="ruby-value">0</span>.<span class="ruby-identifier">step</span>(<span class="ruby-identifier">n</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-value">2</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">target_positions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">i</span> }
+    <span class="ruby-identifier">a_positions</span>.<span class="ruby-identifier">each_with_index</span>.<span class="ruby-identifier">sum</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">pos</span>, <span class="ruby-identifier">idx</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">pos</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">target_positions</span>[<span class="ruby-identifier">idx</span>]).<span class="ruby-identifier">abs</span> }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Cost if target alternation starts with &quot;b&quot; at index 0 (a on odd indexes)</span>
+  <span class="ruby-identifier">cost_start_with_b</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">target_positions</span> = []
+    <span class="ruby-value">1</span>.<span class="ruby-identifier">step</span>(<span class="ruby-identifier">n</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-value">2</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">target_positions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">i</span> }
+    <span class="ruby-identifier">a_positions</span>.<span class="ruby-identifier">each_with_index</span>.<span class="ruby-identifier">sum</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">pos</span>, <span class="ruby-identifier">idx</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">pos</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">target_positions</span>[<span class="ruby-identifier">idx</span>]).<span class="ruby-identifier">abs</span> }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">odd?</span>
+    <span class="ruby-identifier">count_a</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">count_b</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">cost_start_with_a</span>.<span class="ruby-identifier">call</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">cost_start_with_b</span>.<span class="ruby-identifier">call</span>
+  <span class="ruby-keyword">else</span>
+    [<span class="ruby-identifier">cost_start_with_a</span>.<span class="ruby-identifier">call</span>, <span class="ruby-identifier">cost_start_with_b</span>.<span class="ruby-identifier">call</span>].<span class="ruby-identifier">min</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+
+  </section>
+
+  <span id="Original+answers" class="legacy-anchor"></span>
+  <section class="documentation-section anchor-link">
+
+    <header class="documentation-section-title">
+      <h2 id="original-answers">
+        <a href="#original-answers">Original answers</a>
+      </h2>
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <section id="public-instance-original-answers-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-instance-original-answers-methods"><a href="#public-instance-original-answers-methods">Public Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-izkreny_and_ai_min_swaps_to_alternate_chars_each_with_index" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-izkreny_and_ai_min_swaps_to_alternate_chars_each_with_index" title="Link to this method">
+                <span class="method-name">izkreny_and_ai_min_swaps_to_alternate_chars_each_with_index</span>
+                <span class="method-args">(string)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="izkreny_and_ai_min_swaps_to_alternate_chars_each_with_index-source">
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260309.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">izkreny_and_ai_min_swaps_to_alternate_chars_each_with_index</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">chars</span>        = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">chars</span>
+  <span class="ruby-identifier">a_char_count</span> = <span class="ruby-identifier">chars</span>.<span class="ruby-identifier">count</span>(<span class="ruby-string">&quot;a&quot;</span>)
+  <span class="ruby-identifier">b_char_count</span> = <span class="ruby-identifier">chars</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">a_char_count</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-value">-1</span> <span class="ruby-keyword">if</span> (<span class="ruby-identifier">a_char_count</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">b_char_count</span>).<span class="ruby-identifier">abs</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">chars</span>.<span class="ruby-identifier">size</span>.<span class="ruby-identifier">even?</span>
+    <span class="ruby-comment"># The result would be the same if b_indexes were used instead</span>
+    <span class="ruby-identifier">a_indexes_in_abab_pattern</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">chars</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>) { <span class="ruby-identifier">it</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span>     }
+    <span class="ruby-identifier">a_indexes_in_baba_pattern</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">chars</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>) { <span class="ruby-identifier">it</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> }
+    <span class="ruby-identifier">a_indexes_in_chars</span>        = []
+    <span class="ruby-identifier">chars</span>.<span class="ruby-identifier">each_with_index</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">char</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a_indexes_in_chars</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">index</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">char</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;a&quot;</span> }
+
+    [
+      (<span class="ruby-identifier">a_indexes_in_chars</span>.<span class="ruby-identifier">sum</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">a_indexes_in_abab_pattern</span>.<span class="ruby-identifier">sum</span>).<span class="ruby-identifier">abs</span>,
+      (<span class="ruby-identifier">a_indexes_in_chars</span>.<span class="ruby-identifier">sum</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">a_indexes_in_baba_pattern</span>.<span class="ruby-identifier">sum</span>).<span class="ruby-identifier">abs</span>,
+    ].<span class="ruby-identifier">min</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">majority_char_indexes_in_odd_sized_string</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>((<span class="ruby-identifier">chars</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>) <span class="ruby-operator">+</span> <span class="ruby-value">1</span>) { <span class="ruby-identifier">it</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span> }
+    <span class="ruby-identifier">majority_char</span>                             = <span class="ruby-identifier">a_char_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">b_char_count</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;a&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;b&quot;</span>
+    <span class="ruby-identifier">majority_char_indexes</span>                     = []
+    <span class="ruby-identifier">chars</span>.<span class="ruby-identifier">each_with_index</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">char</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span> <span class="ruby-identifier">majority_char_indexes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">index</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">char</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">majority_char</span> }
+
+    (<span class="ruby-identifier">majority_char_indexes</span>.<span class="ruby-identifier">sum</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">majority_char_indexes_in_odd_sized_string</span>.<span class="ruby-identifier">sum</span>).<span class="ruby-identifier">abs</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>First I tried to calculate this by brute force, simulating iteration through the array of chars, swapping them as I went… but this was a dead end.</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">izkreny_min_swaps_to_alternate_while_double_times</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">chars</span>   = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">chars</span>
+  <span class="ruby-identifier">iterate</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">swaps</span>   = <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">size</span>.<span class="ruby-identifier">times</span>
+    <span class="ruby-identifier">iterate</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span>] <span class="ruby-operator">!=</span> <span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>] <span class="ruby-operator">&amp;&amp;</span>
+                  (<span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span>] <span class="ruby-operator">||</span>
+                  (<span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>]))
+
+      <span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span>], <span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>] = <span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>], <span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span>]
+      <span class="ruby-identifier">swaps</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span> <span class="ruby-operator">-</span> <span class="ruby-value">2</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span>] <span class="ruby-operator">!=</span> <span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>]
+
+      <span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span>], <span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>] = <span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>], <span class="ruby-identifier">chars</span>[<span class="ruby-identifier">index</span>]
+      <span class="ruby-identifier">swaps</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">iterate</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">chars</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">chars</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">?</span> <span class="ruby-value">-1</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">swaps</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>I knew the pattern was much simpler, but I was too deep in this “simulation” mode, so after I got a hint from the <a href="../AGENTS_md.html">AI mentor</a> that the answer was hidden in the indexes, I was able to code this solution by myself.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-izkreny_and_ai_min_swaps_to_alternate_each_char_with_index_performant" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-izkreny_and_ai_min_swaps_to_alternate_each_char_with_index_performant" title="Link to this method">
+                <span class="method-name">izkreny_and_ai_min_swaps_to_alternate_each_char_with_index_performant</span>
+                <span class="method-args">(string)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="izkreny_and_ai_min_swaps_to_alternate_each_char_with_index_performant-source">
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260309.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">izkreny_and_ai_min_swaps_to_alternate_each_char_with_index_performant</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-comment"># The final result would be the same if we used b_char instead</span>
+  <span class="ruby-identifier">a_char_count</span>       = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">a_char_indexes_sum</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">each_char</span>.<span class="ruby-identifier">with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">char</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">char</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;a&quot;</span>
+      <span class="ruby-identifier">a_char_count</span>       <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">a_char_indexes_sum</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">index</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">b_char_count</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">a_char_count</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-value">-1</span> <span class="ruby-keyword">if</span> (<span class="ruby-identifier">a_char_count</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">b_char_count</span>).<span class="ruby-identifier">abs</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+
+  <span class="ruby-comment"># Formula to calculate the sum of the first `n` odd and even numbers: `n**2` and `n * (n + 1)`</span>
+  <span class="ruby-comment"># In our case: `a_char_count**2` and (because the first even number/index is always `0`)</span>
+  <span class="ruby-comment"># `(a_char_count - 1) * ((a_char_count - 1) + 1)` -&gt; `a_char_count**2 - a_char_count`</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_char_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">b_char_count</span>     <span class="ruby-comment"># &quot;aba...&quot; pattern</span>
+    (<span class="ruby-identifier">a_char_indexes_sum</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">a_char_count</span><span class="ruby-operator">**</span><span class="ruby-value">2</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">a_char_count</span>)).<span class="ruby-identifier">abs</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">a_char_count</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">b_char_count</span>  <span class="ruby-comment"># &quot;bab...&quot; pattern</span>
+    (<span class="ruby-identifier">a_char_indexes_sum</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">a_char_count</span><span class="ruby-operator">**</span><span class="ruby-value">2</span>).<span class="ruby-identifier">abs</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">a_char_indexes_in_baba_pattern_sum</span> = <span class="ruby-identifier">a_char_count</span><span class="ruby-operator">**</span><span class="ruby-value">2</span>
+    <span class="ruby-identifier">a_char_indexes_in_abab_pattern_sum</span> = <span class="ruby-identifier">a_char_indexes_in_baba_pattern_sum</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">a_char_count</span>
+
+    [
+      (<span class="ruby-identifier">a_char_indexes_sum</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">a_char_indexes_in_baba_pattern_sum</span>).<span class="ruby-identifier">abs</span>,
+      (<span class="ruby-identifier">a_char_indexes_sum</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">a_char_indexes_in_abab_pattern_sum</span>).<span class="ruby-identifier">abs</span>,
+    ].<span class="ruby-identifier">min</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>This solution is inspired by the Gemini 3 Pro performant version, but it is a little more efficient because it directly calculates the sum of the first <code>n</code> even and odd numbers/indexes.</p>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+
+  </section>
+
+  <span id="Ruby+Users+Forum+answers" class="legacy-anchor"></span>
+  <section class="documentation-section anchor-link">
+
+    <header class="documentation-section-title">
+      <h2 id="ruby-users-forum-answers">
+        <a href="#ruby-users-forum-answers">Ruby Users Forum answers</a>
+      </h2>
+    </header>
+
+
+
+    <div>
+      
+<p>Topic <a href="https://www.rubyforum.org/t/cassidoo-s-interview-question-of-the-week-447/189">Cassidoo’s Interview question of the week | 447</a></p>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <section id="public-instance-ruby-users-forum-answers-method-details" class="method-section anchor-link">
+       <header>
+         <h3 id="public-instance-ruby-users-forum-answers-methods"><a href="#public-instance-ruby-users-forum-answers-methods">Public Instance Methods</a></h3>
+       </header>
+
+
+      <div id="method-i-eayurt_and_ai_min_swaps_to_alternate_chars_each_with_index" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-eayurt_and_ai_min_swaps_to_alternate_chars_each_with_index" title="Link to this method">
+                <span class="method-name">eayurt_and_ai_min_swaps_to_alternate_chars_each_with_index</span>
+                <span class="method-args">(s)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="eayurt_and_ai_min_swaps_to_alternate_chars_each_with_index-source">
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260309.rb, line 229</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">eayurt_and_ai_min_swaps_to_alternate_chars_each_with_index</span>(<span class="ruby-identifier">s</span>)
+  <span class="ruby-identifier">n</span> = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">chars</span>.<span class="ruby-identifier">each_with_index</span>.<span class="ruby-identifier">filter_map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">c</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;a&#39;</span> }
+  <span class="ruby-identifier">b_count</span> = <span class="ruby-identifier">n</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">length</span>
+
+  <span class="ruby-identifier">swaps</span> = <span class="ruby-operator">-&gt;</span>(<span class="ruby-identifier">a_starts</span>) {
+    <span class="ruby-identifier">expected</span> = <span class="ruby-identifier">a_starts</span> <span class="ruby-operator">?</span> (<span class="ruby-identifier">n</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>) <span class="ruby-operator">/</span> <span class="ruby-value">2</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">a</span>.<span class="ruby-identifier">each_with_index</span>.<span class="ruby-identifier">sum</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">p</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">a_starts</span> <span class="ruby-operator">?</span> <span class="ruby-value">2</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">:</span> <span class="ruby-value">2</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)).<span class="ruby-identifier">abs</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">expected</span>
+  }
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">even?</span>
+    <span class="ruby-identifier">a</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">b_count</span> <span class="ruby-operator">?</span> [<span class="ruby-identifier">swaps</span>.(<span class="ruby-keyword">true</span>), <span class="ruby-identifier">swaps</span>.(<span class="ruby-keyword">false</span>)].<span class="ruby-identifier">min</span> <span class="ruby-operator">:</span> <span class="ruby-value">-1</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> (<span class="ruby-identifier">n</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>) <span class="ruby-operator">/</span> <span class="ruby-value">2</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">swaps</span>.(<span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">b_count</span>  <span class="ruby-operator">==</span> (<span class="ruby-identifier">n</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>) <span class="ruby-operator">/</span> <span class="ruby-value">2</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">swaps</span>.(<span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">else</span> <span class="ruby-value">-1</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div id="method-i-lpogic_min_swaps_to_alternate_two_methods" class="method-detail anchor-link ">
+        <div class="method-header">
+
+            <div class="method-heading">
+              <a href="#method-i-lpogic_min_swaps_to_alternate_two_methods" title="Link to this method">
+                <span class="method-name">lpogic_min_swaps_to_alternate_two_methods</span>
+                <span class="method-args">(string)</span>
+              </a>
+            </div>
+
+        </div>
+
+
+          <div class="method-controls">
+            <details class="method-source-toggle">
+              <summary>Source</summary>
+            </details>
+          </div>
+          <div class="method-source-code" id="lpogic_min_swaps_to_alternate_two_methods-source">
+            <pre class="ruby"><span class="ruby-comment"># File answers/20260309.rb, line 269</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">lpogic_min_swaps_to_alternate_two_methods</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">swaps_to_pattern</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">str</span>, <span class="ruby-identifier">pattern</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">cache</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-1</span>)
+
+    (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">str</span>.<span class="ruby-identifier">size</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">char</span>        = <span class="ruby-identifier">pattern</span>[<span class="ruby-identifier">index</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">pattern</span>.<span class="ruby-identifier">size</span>]
+      <span class="ruby-identifier">match_index</span> = ((<span class="ruby-identifier">cache</span>[<span class="ruby-identifier">char</span>] <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)<span class="ruby-operator">...</span><span class="ruby-identifier">str</span>.<span class="ruby-identifier">size</span>).<span class="ruby-identifier">find</span> { <span class="ruby-identifier">str</span>[<span class="ruby-identifier">it</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">char</span> }
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">match_index</span>
+
+      <span class="ruby-identifier">cache</span>[<span class="ruby-identifier">char</span>] = <span class="ruby-identifier">match_index</span>
+      <span class="ruby-identifier">index</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">match_index</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">match_index</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">end</span>.<span class="ruby-identifier">sum</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">ab</span> = <span class="ruby-identifier">swaps_to_pattern</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">string</span>, <span class="ruby-string">&quot;ab&quot;</span>)
+  <span class="ruby-identifier">ba</span> = <span class="ruby-identifier">swaps_to_pattern</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">string</span>, <span class="ruby-string">&quot;ba&quot;</span>)
+  <span class="ruby-identifier">ab</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">ba</span> <span class="ruby-operator">?</span> [<span class="ruby-identifier">ab</span>, <span class="ruby-identifier">ba</span>].<span class="ruby-identifier">min</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">ab</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">ba</span> <span class="ruby-operator">||</span> <span class="ruby-value">-1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+
+
+
+        <div class="method-description">
+
+
+          <p>Original code layout:</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">swaps_to_pattern</span> <span class="ruby-identifier">str</span>, <span class="ruby-identifier">pattern</span>
+  <span class="ruby-identifier">cache</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">-1</span>
+
+  (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">str</span>.<span class="ruby-identifier">size</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">char</span> = <span class="ruby-identifier">pattern</span>[<span class="ruby-identifier">index</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">pattern</span>.<span class="ruby-identifier">size</span>]
+    <span class="ruby-identifier">match_index</span> = ((<span class="ruby-identifier">cache</span>[<span class="ruby-identifier">char</span>] <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)<span class="ruby-operator">...</span><span class="ruby-identifier">str</span>.<span class="ruby-identifier">size</span>).<span class="ruby-identifier">find</span>{ <span class="ruby-identifier">str</span>[<span class="ruby-identifier">it</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">char</span> }
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">match_index</span>
+    <span class="ruby-identifier">cache</span>[<span class="ruby-identifier">char</span>] = <span class="ruby-identifier">match_index</span>
+    <span class="ruby-identifier">index</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">match_index</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">match_index</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">sum</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">minSwapsToAlternate</span> <span class="ruby-identifier">str</span>
+  <span class="ruby-identifier">ab</span> = <span class="ruby-identifier">swaps_to_pattern</span> <span class="ruby-identifier">str</span>, <span class="ruby-string">&quot;ab&quot;</span>
+  <span class="ruby-identifier">ba</span> = <span class="ruby-identifier">swaps_to_pattern</span> <span class="ruby-identifier">str</span>, <span class="ruby-string">&quot;ba&quot;</span>
+  <span class="ruby-identifier">ab</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">ba</span> <span class="ruby-operator">?</span> [<span class="ruby-identifier">ab</span>, <span class="ruby-identifier">ba</span>].<span class="ruby-identifier">min</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">ab</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">ba</span> <span class="ruby-operator">||</span> <span class="ruby-value">-1</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+
+
+
+  </section>
+
+</main>
+
+<aside class="table-of-contents" role="complementary" aria-label="Table of Contents">
+  <div class="toc-sticky">
+    <h3 class="toc-heading">On This Page</h3>
+    <nav class="toc-nav" id="toc-nav" aria-label="Page sections">
+      <!-- Generated by JavaScript based on page headings -->
+    </nav>
+  </div>
+</aside>
+
+
+<footer class="site-footer">
+  
+  <div class="footer-content">
+    
+    <div>
+      <h3>RESOURCES</h3>
+      <ul>
+        
+        <li><a href="https://cassidoo.co/">Cassidy Williams website</a></li>
+        
+        <li><a href="https://github.com/izkreny/cassidoo_QOTW">GitHub repository for this website</a></li>
+        
+        <li><a href="https://docs.ruby-lang.org/en/master/">Ruby programming language documentation</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+  
+
+  <div class="footer-bottom">
+    <p>
+      Generated by <a href="https://ruby.github.io/rdoc/">RDoc 7.2.0</a>
+      using the Aliki theme by <a href="http://st0012.dev">Stan Lo</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+

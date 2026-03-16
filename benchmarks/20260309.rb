@@ -12,7 +12,7 @@ module Benchmarks
   # ruby 4.0.1 (2026-01-13 revision e04267a14b) +YJIT +PRISM [x86_64-linux]
   # ```
   #
-  # # String with 10_000 randomly shuffled EQUAL number of 'a' and 'b' characters
+  # #### String with 10_000 randomly shuffled EQUAL number of 'a' and 'b' characters
   #
   # ```
   # izkreny & AI .......... each_char_with_index_performant :     1181.1 i/s
@@ -24,7 +24,7 @@ module Benchmarks
   # lpogic .................................... two_methods :       89.5 i/s - 13.20x  slower
   # ```
   #
-  # # String with 10_001 randomly shuffled DIFFERENT number of 'a' and 'b' characters
+  # #### String with 10_001 randomly shuffled DIFFERENT number of 'a' and 'b' characters
   #
   # ```
   # gemini_3_pro_web AI ... each_char_with_index_performant :     1176.6 i/s
@@ -36,7 +36,7 @@ module Benchmarks
   # lpogic .................................... two_methods :       92.7 i/s - 12.70x  slower
   # ```
   #
-  # # String with 1_000_000 randomly shuffled EQUAL number of 'a' and 'b' characters
+  # #### String with 1_000_000 randomly shuffled EQUAL number of 'a' and 'b' characters
   #
   # ```
   # izkreny & AI .......... each_char_with_index_performant :       12.2 i/s
@@ -48,7 +48,7 @@ module Benchmarks
   # lpogic .................................... two_methods :        1.0 i/s - 12.76x  slower
   # ```
   #
-  # # String with 1_000_001 randomly shuffled DIFFERENT number of 'a' and 'b' characters
+  # #### String with 1_000_001 randomly shuffled DIFFERENT number of 'a' and 'b' characters
   #
   # ```
   # izkreny & AI .......... each_char_with_index_performant :       12.3 i/s

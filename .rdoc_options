@@ -13,6 +13,7 @@ exclude:
   - "templates/"
   - "Rakefile"
   - "README.md"
+  - "AGENTS.md"
 autolink_excluded_words:
   - "Answers"
   - "Questions"

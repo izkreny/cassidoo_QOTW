@@ -104,7 +104,7 @@ module Answers
       end
     end
 
-    # :section: Original AI solutions
+    # :section: AI answers
 
     def gpt_5_3_codex_copilot_ai_min_swaps_to_alternate_each_with_index_lambdas(string)
       chars = string.chars
