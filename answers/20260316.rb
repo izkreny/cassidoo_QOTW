@@ -8,7 +8,7 @@ module Answers
     def izkreny_fire_station_coverage_nested_each_with_index_lambdas(city_grid)
       city_grid_cell_legend           = { empty: 0, fire_station: 1, building: 2 }
       city_fire_station_locations     = []
-      city_fire_station_coverage_grid = Array.new(city_grid.size) { Array.new(city_grid.size) }
+      city_fire_station_coverage_grid = Array.new(city_grid.size) { Array.new(city_grid.first.size) }
 
       traverse_city_grid = lambda do |&action|
         city_grid.each_with_index do |street, street_number|
@@ -44,8 +44,38 @@ module Answers
 
     # :section: Ruby Users Forum answers
     #
-    # Topic [][ruf]
+    # Topic [Cassidoo’s Interview question of the week | 448][ruf]
     #
-    # [ruf]:
+    # [ruf]: https://www.rubyforum.org/t/cassidoo-s-interview-question-of-the-week-448/198
+
+    def fpsvogel_fire_station_coverage_each_with_index(grid)
+      fire_station_coordinates = []
+      grid.each.with_index do |cols, row_i|
+        cols.each.with_index do |col, col_i|
+          fire_station_coordinates << [row_i, col_i] if col == 1
+        end
+      end
+
+      grid.map.with_index { |cols, row_i|
+        cols.map.with_index { |col, col_i|
+          fire_station_coordinates.map { |station_row_i, station_col_i|
+            (station_row_i - row_i).abs + (station_col_i - col_i).abs
+          }.min
+        }
+      }
+    end
+
+    # NOTE: This solution mutate original `city` argument
+    #
+    def lpogic_fire_station_coverage_filter_map(city)
+      squares = (0...city.size).to_a.product((0...city.first.size).to_a)
+      fire_stations = squares.filter { |x, y| city[x][y] == 1 }
+      squares.each do |x, y|
+        city[x][y] = fire_stations.map do |fx, fy|
+          (fx - x).abs + (fy - y).abs
+        end.min
+      end
+      city
+    end
   end
 end

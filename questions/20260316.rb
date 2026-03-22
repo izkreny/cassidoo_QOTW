@@ -54,10 +54,11 @@ module Questions
     def test_answers_with_examples
       @methods.each do |method|
         @examples.each do |example|
-          actual = public_send(method, example[:city_grid])
+          actual = public_send(method, example[:city_grid].map(&:clone))
 
-          assert_equal example[:expected],  actual, "Answer #{method} is not correct"
-          refute_same  example[:city_grid], actual, "Answer #{method} is messing with the city grid"
+          assert_equal example[:expected],        actual,       "Answer #{method} is not correct"
+          refute_same  example[:city_grid],       actual,       "Answer #{method} is messing with the outer city grid"
+          refute_same  example[:city_grid].first, actual.first, "Answer #{method} is messing with the inner city grid"
         end
       end
     end
