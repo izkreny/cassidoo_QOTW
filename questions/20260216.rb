@@ -70,8 +70,9 @@ module Questions
         @examples.each do |example|
           bigger_grid = public_send(method, example[:initial_grid], example[:zoom_factor])
 
-          assert_equal example[:bigger_grid],  bigger_grid, "Answer #{method} is not correct"
-          refute_same  example[:initial_grid], bigger_grid, "Answer #{method} is messing with the grid"
+          assert_equal example[:bigger_grid],        bigger_grid,       "Answer #{method} is not correct"
+          refute_same  example[:initial_grid],       bigger_grid,       "Answer #{method} is messing with the outer grid"
+          refute_same  example[:initial_grid].first, bigger_grid.first, "Answer #{method} is messing with the inner grid"
         end
       end
     end
