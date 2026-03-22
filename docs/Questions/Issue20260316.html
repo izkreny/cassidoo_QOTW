@@ -5,17 +5,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>class Questions::Issue20260309 - rendezvous with cassidoo - IQOTW</title>
+<title>class Questions::Issue20260316 - rendezvous with cassidoo - IQOTW</title>
 
 
   <meta
     name="keywords"
-    content="ruby,class,Questions::Issue20260309"
+    content="ruby,class,Questions::Issue20260316"
   >
 
     <meta
       name="description"
-      content="class Questions::Issue20260309: Issue20260309 --- ## Question &gt; Given a string `s` consisting only of &#39;a&#39; and &#39;b&#39;, &gt; you may swap adjacent characters any number of times. Return t"
+      content="class Questions::Issue20260316: Issue20260316 --- ## Question &gt; You&#39;re given a 2D grid representing a city where each cell is either empty (0), a fire station (1), or a building ("
     >
 
 
@@ -24,11 +24,11 @@
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="class Questions::Issue20260309 - rendezvous with cassidoo - IQOTW">
+<meta property="og:title" content="class Questions::Issue20260316 - rendezvous with cassidoo - IQOTW">
 
 
 
-    <meta property="og:description" content="Issue20260309 --- ## Question &gt; Given a string `s` consisting only of &#39;a&#39; and &#39;b&#39;, &gt; you may swap adjacent characters any number of times. Return t">
+    <meta property="og:description" content="Issue20260316 --- ## Question &gt; You&#39;re given a 2D grid representing a city where each cell is either empty (0), a fire station (1), or a building (">
 
 
 
@@ -36,11 +36,11 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="class Questions::Issue20260309 - rendezvous with cassidoo - IQOTW">
+<meta name="twitter:title" content="class Questions::Issue20260316 - rendezvous with cassidoo - IQOTW">
 
 
 
-    <meta name="twitter:description" content="Issue20260309 --- ## Question &gt; Given a string `s` consisting only of &#39;a&#39; and &#39;b&#39;, &gt; you may swap adjacent characters any number of times. Return t">
+    <meta name="twitter:description" content="Issue20260316 --- ## Question &gt; You&#39;re given a 2D grid representing a city where each cell is either empty (0), a fire station (1), or a building (">
 
 
 
@@ -469,7 +469,7 @@
     <ul class="nav-list">
 
 
-      <li><a class="include" href="../Answers/Issue20260309.html">Answers::Issue20260309</a></li>
+      <li><a class="include" href="../Answers/Issue20260316.html">Answers::Issue20260316</a></li>
 
 
     </ul>
@@ -522,7 +522,7 @@
 
 </nav>
 
-<main role="main" aria-labelledby="class-questions-issue20260309">
+<main role="main" aria-labelledby="class-questions-issue20260316">
   
   
     <ol role="navigation" aria-label="Breadcrumb navigation" class="breadcrumb">
@@ -535,29 +535,29 @@
       
       <li>
         
-        <span>Issue20260309</span>
+        <span>Issue20260316</span>
         
       </li>
       
     </ol>
   
 
-  <span id="class-Questions::Issue20260309" class="legacy-anchor"></span>
-  <h1 id="class-questions-issue20260309" class="anchor-link class">
-    class Questions::Issue20260309
+  <span id="class-Questions::Issue20260316" class="legacy-anchor"></span>
+  <h1 id="class-questions-issue20260316" class="anchor-link class">
+    class Questions::Issue20260316
   </h1>
 
   <section class="description">
     <ul><li>
-<p><a href="../Answers/Issue20260309.html"><code>Answers::Issue20260309</code></a></p>
+<p><a href="../Answers/Issue20260316.html"><code>Answers::Issue20260316</code></a></p>
 </li></ul>
 <hr>
 
-<span id="class-Questions::Issue20260309-label-Question" class="legacy-anchor"></span>
-<h2 id="class-questions-issue20260309-question"><a href="#class-questions-issue20260309-question">Question</a></h2>
+<span id="class-Questions::Issue20260316-label-Question" class="legacy-anchor"></span>
+<h2 id="class-questions-issue20260316-question"><a href="#class-questions-issue20260316-question">Question</a></h2>
 
 <blockquote>
-<p>Given a string <code>s</code> consisting only of ‘a’ and ‘b’, you may swap adjacent characters any number of times. Return the minimum number of adjacent swaps needed to transform <code>s</code> into an alternating string, either “ababab…” or “bababa…”, or return <code>-1</code> if it’s impossible.</p>
+<p>You’re given a 2D grid representing a city where each cell is either empty (0), a fire station (1), or a building (2). Fire stations can serve buildings based on horizontal + vertical moves only. Return a 2D grid where each cell shows the minimum distance to the nearest fire station.</p>
 </blockquote>
 
   </section>
@@ -639,34 +639,35 @@
             </details>
           </div>
           <div class="method-source-code" id="setup-source">
-            <pre class="ruby"><span class="ruby-comment"># File questions/20260309.rb, line 22</span>
+            <pre class="ruby"><span class="ruby-comment"># File questions/20260316.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
-  <span class="ruby-ivar">@methods</span>  = <span class="ruby-constant">Answers</span><span class="ruby-operator">::</span><span class="ruby-constant">Issue20260309</span>.<span class="ruby-identifier">instance_methods</span>(<span class="ruby-keyword">false</span>)
+  <span class="ruby-ivar">@methods</span>  = <span class="ruby-constant">Answers</span><span class="ruby-operator">::</span><span class="ruby-constant">Issue20260316</span>.<span class="ruby-identifier">instance_methods</span>(<span class="ruby-keyword">false</span>)
   <span class="ruby-ivar">@examples</span> = [
     {
-      <span class="ruby-value">string:</span> <span class="ruby-string">&quot;aabb&quot;</span>,
-      <span class="ruby-value">expected:</span> <span class="ruby-value">1</span>,
+      <span class="ruby-value">city_grid:</span> [
+        [<span class="ruby-value">2</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>],
+        [<span class="ruby-value">0</span>, <span class="ruby-value">2</span>, <span class="ruby-value">0</span>],
+        [<span class="ruby-value">1</span>, <span class="ruby-value">0</span>, <span class="ruby-value">2</span>],
+      ],
+      <span class="ruby-value">expected:</span> [
+        [<span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">0</span>],
+        [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>],
+        [<span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>],
+      ],
     },
     {
-      <span class="ruby-value">string:</span> <span class="ruby-string">&quot;aaaabbbb&quot;</span>,
-      <span class="ruby-value">expected:</span> <span class="ruby-value">6</span>,
-    },
-    {
-      <span class="ruby-value">string:</span> <span class="ruby-string">&quot;aaab&quot;</span>,
-      <span class="ruby-value">expected:</span> <span class="ruby-value">-1</span>,
-    },
-    <span class="ruby-comment"># Extra examples by izkreny</span>
-    {
-      <span class="ruby-value">string:</span> <span class="ruby-string">&quot;ba&quot;</span>,
-      <span class="ruby-value">expected:</span> <span class="ruby-value">0</span>,
-    },
-    {
-      <span class="ruby-value">string:</span> <span class="ruby-string">&quot;baa&quot;</span>,
-      <span class="ruby-value">expected:</span> <span class="ruby-value">1</span>,
-    },
-    {
-      <span class="ruby-value">string:</span> <span class="ruby-string">&quot;bbbaa&quot;</span>,
-      <span class="ruby-value">expected:</span> <span class="ruby-value">3</span>,
+      <span class="ruby-value">city_grid:</span> [
+        [<span class="ruby-value">1</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>],
+        [<span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>],
+        [<span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>],
+        [<span class="ruby-value">1</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>],
+      ],
+      <span class="ruby-value">expected:</span> [
+        [<span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">0</span>],
+        [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>],
+        [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>],
+        [<span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">0</span>],
+      ],
     },
   ]
 <span class="ruby-keyword">end</span></pre>
@@ -747,14 +748,15 @@
             </details>
           </div>
           <div class="method-source-code" id="test_answers_with_examples-source">
-            <pre class="ruby"><span class="ruby-comment"># File questions/20260309.rb, line 55</span>
+            <pre class="ruby"><span class="ruby-comment"># File questions/20260316.rb, line 54</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_answers_with_examples</span>
   <span class="ruby-ivar">@methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
     <span class="ruby-ivar">@examples</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">example</span><span class="ruby-operator">|</span>
-      <span class="ruby-identifier">actual</span> = <span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">example</span>[<span class="ruby-value">:string</span>])
+      <span class="ruby-identifier">actual</span> = <span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">example</span>[<span class="ruby-value">:city_grid</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:clone</span>))
 
-      <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">example</span>[<span class="ruby-value">:expected</span>], <span class="ruby-identifier">actual</span>, <span class="ruby-node">&quot;Answer #{method} is not correct for &#39;#{example[:string]}&#39; string&quot;</span>
-      <span class="ruby-identifier">refute_same</span>  <span class="ruby-identifier">example</span>[<span class="ruby-value">:string</span>],   <span class="ruby-identifier">actual</span>, <span class="ruby-node">&quot;Answer #{method} is messing with the string&quot;</span>
+      <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">example</span>[<span class="ruby-value">:expected</span>],        <span class="ruby-identifier">actual</span>,       <span class="ruby-node">&quot;Answer #{method} is not correct&quot;</span>
+      <span class="ruby-identifier">refute_same</span>  <span class="ruby-identifier">example</span>[<span class="ruby-value">:city_grid</span>],       <span class="ruby-identifier">actual</span>,       <span class="ruby-node">&quot;Answer #{method} is messing with the outer city grid&quot;</span>
+      <span class="ruby-identifier">refute_same</span>  <span class="ruby-identifier">example</span>[<span class="ruby-value">:city_grid</span>].<span class="ruby-identifier">first</span>, <span class="ruby-identifier">actual</span>.<span class="ruby-identifier">first</span>, <span class="ruby-node">&quot;Answer #{method} is messing with the inner city grid&quot;</span>
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
